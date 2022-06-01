@@ -10,4 +10,7 @@ class TopicAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
+
+    prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content')
+    list_filter = ('created_date', 'topic__topic')
