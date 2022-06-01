@@ -1,0 +1,1 @@
+web: gunicorn padelpals.wsgi
