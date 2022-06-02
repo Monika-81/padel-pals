@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<!--THIS CODE IS A COPY FROM CODE INSTITUTE BLOG AT THE MOMENT SO I CAN GET A VISUAL OF THE PROJECT;
+<!--THIS CODE IS A PARTIAL COPY FROM CODE INSTITUTE BLOG AT THE MOMENT SO I CAN GET A VISUAL OF THE PROJECT;
     NOT THE FINISHED SET UP-->
 
 <div class="container-fluid">
@@ -16,7 +16,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             
-                            <a href="#" class="post-link">
+                            <a href="{% url 'post_display' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="topic">{{ post.topic }}</p>
                                 <p class="author">Author: {{ post.generator }}</p>
