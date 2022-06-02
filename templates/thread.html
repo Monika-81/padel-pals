@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!--THIS CODE IS A PARTIAL COPY FROM CODE INSTITUTE BLOG AT THE MOMENT SO I CAN GET A VISUAL OF THE PROJECT;
     NOT THE FINISHED SET UP-->
 
@@ -47,24 +49,36 @@
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
-
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-
-                        {{ comment.generator }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_date }}
-                        </span> wrote:
+                    <p class="font-weight-bold">{{ comment.generator }}<span class=" text-muted font-weight-normal">
+                            {{ comment.created_date }}</span> wrote:
                     </p>
                     {{ comment.content | linebreaks }}
+                    <div class="row">
+                        <div class="col-1">
+                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
+
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
+
+                {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+
+                <form method="post">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit">Submit</button>
+                </form>
+
+                {% endif %}
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Topic, Post, Comments
+from .forms import CommentsForm
 
 
 class PostList(generic.ListView):
@@ -11,8 +12,9 @@ class PostList(generic.ListView):
 
 
 class PostDisplay(View):
+
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.all()
+        queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('created_date')
 
@@ -26,6 +28,38 @@ class PostDisplay(View):
             {
                 'post': post,
                 'comments': comments,
-                'liked': liked
-            }
+                "commented": False,
+                'liked': liked,
+                'comments_form': CommentsForm()
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.order_by("created_date")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        comment_form = CommentsForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.generator = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            comment_form = CommentsForm()
+
+        return render(
+            request,
+            "thread.html",
+            {
+                "post": post,
+                "comments": comments,
+                "commented": True,
+                "comment_form": comment_form,
+                "liked": liked
+            },
         )
