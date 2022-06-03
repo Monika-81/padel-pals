@@ -5,11 +5,36 @@ from .models import Topic, Post, Comments
 from .forms import CommentsForm
 
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.order_by('-created_date')
-    template_name = 'index.html'
-    paginate_by = 10
+class TopicList(generic.ListView):
+    model = Topic
+    template_name = 'base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TopicList, self).get_context_data(**kwargs)
+        return context
+
+
+class TopicDisplay(View):
+    
+    def get(self, request, topic, *args, **kwargs):
+        queryset = Topic.objects
+        topic = get_object_or_404(queryset, topic=topic)
+        posts = topic.topic_posts.order_by('-created_date')
+
+        return render(
+            request,
+            'topic.html',
+            {
+                "posts": posts
+            },
+        )
+
+
+# class PostList(generic.ListView):
+#     model = Post
+#     queryset = Post.objects.order_by('-created_date')
+#     template_name = 'index.html'
+#     paginate_by = 10
 
 
 class PostDisplay(View):
@@ -29,7 +54,7 @@ class PostDisplay(View):
             {
                 'post': post,
                 'comments': comments,
-                "commented": False,
+                'commented': False,
                 'liked': liked,
                 'comment_form': CommentsForm()
             },
@@ -59,11 +84,11 @@ class PostDisplay(View):
             request,
             "thread.html",
             {
-                "post": post,
-                "comments": comments,
-                "commented": True,
-                "comment_form": comment_form,
-                "liked": liked
+                'post': post,
+                'comments': comments,
+                'commented': True,
+                'comment_form': comment_form,
+                'liked': liked
             },
         )
 

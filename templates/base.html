@@ -61,21 +61,30 @@
     </header>
     <main>
         <section class="flex" id="topic-section">
-            <div class="topic-nav" class="collapse navbar-collapse" id="topic-navbar">
-                <ul class="navbar-topic  mr-auto">
-                    <li class="topic-nav-item">
-                        <a class="nav-link" href="#"><button type="button">Player</button></a>
-                    </li>
-                    <li class="topic-nav-item">
-                        <a class="nav-link" href="#"><button type="button">Gear</button></a>
-                    </li>
-                    <li class="topic-nav-item">
-                        <a class="nav-link" href="#"><button type="button">Technique</button></a>
-                    </li>
-                    <li class="topic-nav-item">
-                        <a class="nav-link" href="#"><button type="button">Social</button></a>
-                    </li>
-                </ul>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3 center">
+                        <div class="row">
+                            <div class="topic-nav" class="collapse navbar-collapse" id="topic-navbar">
+                                <ul class="navbar-topic  mr-auto">
+                                    {% for topic in topic_list %}
+                                    <div class="col-md-4">
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                
+                                                <a href="{% url 'topic_display' topic.topic %}" class="post-link">
+                                                    <p class="topic">{{ topic.topic }}</p>
+                                                    <p class="author">Description: {{ topic.description }}</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
