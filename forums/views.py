@@ -92,7 +92,7 @@ class PostDisplay(View):
                 'comment_form': comment_form,
                 'liked': liked
             },
-        )
+        )      
 
 
 class PostLike(View):
@@ -145,3 +145,10 @@ class EditPost(UpdateView):
     template_name = "edit_post.html"
     fields = ['topic', 'title', 'content']
 
+
+def delete(request, slug):
+
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    return redirect(reverse(
+        'home'))
