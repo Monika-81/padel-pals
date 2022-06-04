@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.utils.text import slugify
 from .models import Topic, Post, Comments
-from .forms import CommentsForm
+from .forms import CommentsForm, PostForm
 
 
 class TopicList(generic.ListView):
@@ -15,7 +16,7 @@ class TopicList(generic.ListView):
 
 
 class TopicDisplay(View):
-    
+
     def get(self, request, topic, *args, **kwargs):
         queryset = Topic.objects
         topic = get_object_or_404(queryset, topic=topic)
@@ -104,3 +105,35 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_display', args=[slug]))
+
+
+
+class AddPost(View):
+
+    def get(self, request):
+        return render(
+            request, 
+            "post_form.html",
+            {
+                "post_form": PostForm()
+            },
+        )
+
+    def post(self, request):
+        post_form = PostForm(request.POST, request.FILES)
+
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.generator = request.user
+            post.slug = slugify(post.title, allow_unicode=False)
+            post.save()
+            return redirect('home')
+        else:
+            post_form = PostForm()
+
+        context = {'form': post_form}
+        return render(
+            request, 
+            'post_form.html',
+            context
+            )
