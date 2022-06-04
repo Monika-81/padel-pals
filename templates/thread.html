@@ -28,8 +28,14 @@
                 </p>
                 <div class="row">
                     <div class="col-1">
+                        {% if user == post.generator %}
+                        <div class="btn btn-sm d-inline-block main-btn ms-3">
+                            <a href="{% url 'edit_post' post.slug %}">Edit</a>
+                        </div>
+                        {% endif %}
                         <strong>
                             {% if user.is_authenticated %}
+                            
                             <form action="{% url 'post_like' post.slug %}" class="d-inline" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.views.generic import UpdateView
 from django.utils.text import slugify
 from .models import Topic, Post, Comments
 from .forms import CommentsForm, PostForm
@@ -120,7 +121,7 @@ class AddPost(View):
         )
 
     def post(self, request):
-        post_form = PostForm(request.POST, request.FILES)
+        post_form = PostForm(request.POST)
 
         if post_form.is_valid():
             post = post_form.save(commit=False)
@@ -137,3 +138,10 @@ class AddPost(View):
             'post_form.html',
             context
             )
+
+
+class EditPost(UpdateView):
+    model = Post
+    template_name = "edit_post.html"
+    fields = ['topic', 'title', 'content']
+
