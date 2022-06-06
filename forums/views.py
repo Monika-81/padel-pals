@@ -10,7 +10,6 @@ class TopicList(ListView):
     model = Topic
     template_name = 'index.html'
 
-    
     def get_context_data(self, **kwargs):
         context = super(TopicList, self).get_context_data(**kwargs)
         context['posts'] = Post.objects.order_by('-created_date')
@@ -23,12 +22,13 @@ class TopicDisplay(View):
         queryset = Topic.objects
         topic = get_object_or_404(queryset, topic=topic)
         posts = topic.topic_posts.order_by('-created_date')
+        topics = Topic.objects.all()
 
         return render(
             request,
             'topic.html',
             {
-                "topic": topic,
+                "topic_list": topics,
                 "posts": posts
             },
         )
@@ -40,6 +40,7 @@ class PostDisplay(View):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('created_date')
+        topics = Topic.objects.all()
 
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -49,6 +50,7 @@ class PostDisplay(View):
             request,
             'thread.html',
             {
+                "topic_list": topics,
                 'post': post,
                 'comments': comments,
                 'commented': False,

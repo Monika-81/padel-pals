@@ -1,3 +1,7 @@
+body {
+  color: white;
+}
+
 #padel-icon {
   color-interpolation-filters: auto;
   height: 2rem;
@@ -13,20 +17,52 @@
   padding-bottom: 6rem;
 }
 
-.btn-topic {
-    margin-top: 20px !important;
-    width: 15vw;
-    height: 10vh;
-    text-align: center;
-  }
-
-.btn-topic a {
+h2 {
   color: white;
+  text-align: center;
+  margin: 2rem;
+}
+
+
+.topic-nav a {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+}
+
+.topic-nav a:hover {
+  color: #198754;
+}
+
+.topic-nav a:active {
+  color: #198754;
+}
+
+
+.recent-card, .topic-card, {
+  width: 90vw;
+  margin-top: 10px;
+}
+
+.bg-custom{
+  background-color: #3d434a;
+}
+
+.card a {
+  color: black;
   text-decoration: none;
 }
 
   .post-topic {
     color: white;
+  }
+
+  .hidden-sm {
+    display: none;
+  }
+
+  .btn-delete {
+    background-color: white;
   }
 
 /* ----------------------------------------Media queries */
@@ -37,9 +73,26 @@
     padding-bottom: 6rem;
   }
 
-  .card {
-    width: 15vw;
-  }  
+
+  .recent-card, .topic-card {
+    width: 50vw;
+    margin-top: 10px;
+  }
+
+ 
+
+ 
   
+}
+
+@media screen and (min-width: 800px) {
+  .hidden-sm {
+    display: unset;
+    }
+
+  .topic-item {
+    margin: 3rem;
+  }
+
 }
 

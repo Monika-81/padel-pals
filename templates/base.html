@@ -61,7 +61,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="flex-shrink-0 main-bg">
         <section class="hero-image">
             <div class="jumbotron-fluid">
                 <div class="container">
@@ -71,11 +71,26 @@
                 </div>
             </div>
         </section>
-        <!--Code Credit: Code Institute CodeStar Blog-->
-        <section class="flex-shrink-0 main-bg">
-            {% block content %}
-            <!-- Content Goes here -->
-            {% endblock content %}
+        <section>
+            <div id="topic-content">
+            {% block nav_header %}
+                <nav class="topic-nav">
+                    <ul class="nav justify-content-center">
+                    {% for topic in topic_list %}
+                    <li class="nav-item topic-item px-2">
+                        <a class="nav-link" aria-current="page"
+                            href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </nav>
+            {% endblock %}
+            </div>
+            <div id="block-content">
+                {% block content %}
+                <!-- Content Goes here -->
+                {% endblock content %}
+            </div>
         </section>
     </main>
     <!--Footer-->

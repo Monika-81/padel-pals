@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <h4 class="text-center my-5"><strong>Posts</strong></h4>
+            <h2>Posts:</h2>
             {% if user.is_authenticated %}
             <div class="row">
                 <div class="col-2 mx-auto text-center mt-5">
@@ -14,28 +14,28 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    {% for post in posts %}
-                    <div class="card mb-2">
-                        <div class="card-header dark-font">
-                        <a href="{% url 'post_display' post.slug %}">
-                            <h5 ><strong>{{ post.title }}</strong></h5>                           
-                        </a> 
-                        </div>                       
-                        <div class="card-body">
-                            <p class="card-text">{{ post.content }}</p>
-                            <p class="card-text"><small class="text-muted">Author: {{ post.generator }} <br> On: {{ post.created_date }}</small></p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-
-            </div>
-
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    {% endif %}
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        {% for post in posts %}
+        <div class="card topic-card border-success text-center bg-dark">
+            <div class="card-header dark-font bg-success">
+                <a href="{% url 'post_display' post.slug %}">
+                    <h5><strong>{{ post.title }}</strong></h5>
+                </a>
+            </div>
+            <div class="card-body bg-custom  text-white">
+                <p class="card-text">{{ post.content }}</p>
+                <p class="card-text"><small class="text-muted">Author: {{ post.generator }} <br> On:
+                        {{ post.created_date }}</small></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 
 {% endblock %}
