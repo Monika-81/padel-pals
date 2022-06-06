@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="topic-section">
+    <div class="container-fluid">
+        <div class=" d-flex flex-row justify-content-center">
+            {% for topic in topic_list %}
+            <div class="p-2">
+            <button type="button" class="btn btn-outline-success btn-topic btn-lg">
+                <a href="{% url 'topic_display' topic.topic %}" class="post-link">
+                    <h5>{{ topic.topic }}</h5>
+                    <p><small>{{ topic.description }}</small></p>
+                </a>
+            </button>
+        </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="recent-posts">
+    <div class="container-fluid">
+        <div class="row flex-row">
+            <div class="card">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        {% for post in posts %}
+                        {% if forloop.counter <= 4 %}
+                        <div class="card mb-2">
+                            <a href="{% url 'post_display' post.slug %}">
+                                <h5 class="card-header dark-font"><strong>{{ post.title }}</strong></h5>
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">{{ post.content }}</p>
+                                <p class="card-text"><small class="text-muted">Author: {{ post.generator }}</small></p>
+                                <p class="card-text"><small class="text-muted">On: {{ post.created_date }}</small></p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}

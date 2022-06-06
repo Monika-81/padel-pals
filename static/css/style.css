@@ -1,6 +1,45 @@
-body {
-    background-color: aquamarine;
+#padel-icon {
+  color-interpolation-filters: auto;
+  height: 2rem;
 }
-  .topic-nav {
-    margin-top: 100px !important;
+
+.jumbotron-fluid {
+  background-image: url('/static/images/todd-trapani-sI-p_NLBNr0-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+
+.btn-topic {
+    margin-top: 20px !important;
+    width: 15vw;
+    height: 10vh;
+    text-align: center;
   }
+
+.btn-topic a {
+  color: white;
+  text-decoration: none;
+}
+
+  .post-topic {
+    color: white;
+  }
+
+/* ----------------------------------------Media queries */
+
+@media screen and (min-width: 1200px) {
+  .jumbotron-fluid {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+  }
+
+  .card {
+    width: 15vw;
+  }  
+  
+}
+

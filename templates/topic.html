@@ -5,34 +5,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="col-md-4 card mb-4  mt-3 ">
-                <div class="card-body">
-                    <!-- {{topic.topic}} not showing???-->
-                    
-    
-                    {% if user.is_authenticated %}
-                    < <div class="row">
-                        <div class="col-2 mx-auto text-center mt-5">
-                            <div class="btn d-inline-block main-btn">
-                                <a href="{% url 'add_post' %}">Add Post</a>
-                            </div>
-                        </div>
+            <h4 class="text-center my-5"><strong>Posts</strong></h4>
+            {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-2 mx-auto text-center mt-5">
+                    <div class="btn d-inline-block main-btn">
+                        <a href="{% url 'add_post' %}">Add Post</a>
                     </div>
-    
-                    {% endif %}
                 </div>
             </div>
-            <h4 class="text-center my-5"><strong>Posts </strong></h4>
+            {% endif %}
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     {% for post in posts %}
                     <div class="card mb-2">
+                        <div class="card-header dark-font">
                         <a href="{% url 'post_display' post.slug %}">
-                            <h5 class="card-header dark-font"><strong>{{ post.title }}</strong></h5>
-                        </a>                        
+                            <h5 ><strong>{{ post.title }}</strong></h5>                           
+                        </a> 
+                        </div>                       
                         <div class="card-body">
                             <p class="card-text">{{ post.content }}</p>
-                            <p class="card-text"><small class="text-muted">Author: {{ post.generator }} On: {{ post.created_date }}</small></p>
+                            <p class="card-text"><small class="text-muted">Author: {{ post.generator }} <br> On: {{ post.created_date }}</small></p>
                         </div>
                     </div>
                     {% endfor %}

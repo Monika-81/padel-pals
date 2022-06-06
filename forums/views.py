@@ -1,18 +1,19 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic, View
+from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
-from django.views.generic import UpdateView
 from django.utils.text import slugify
 from .models import Topic, Post, Comments
 from .forms import CommentsForm, PostForm
 
 
-class TopicList(generic.ListView):
+class TopicList(ListView):
     model = Topic
-    template_name = 'base.html'
+    template_name = 'index.html'
 
+    
     def get_context_data(self, **kwargs):
         context = super(TopicList, self).get_context_data(**kwargs)
+        context['posts'] = Post.objects.order_by('-created_date')
         return context
 
 
@@ -27,16 +28,10 @@ class TopicDisplay(View):
             request,
             'topic.html',
             {
+                "topic": topic,
                 "posts": posts
             },
         )
-
-
-# class PostList(generic.ListView):
-#     model = Post
-#     queryset = Post.objects.order_by('-created_date')
-#     template_name = 'index.html'
-#     paginate_by = 10
 
 
 class PostDisplay(View):
