@@ -3,16 +3,22 @@
 
 {% load crispy_forms_tags %}
 
-<div class="card mb-4 mt-5 mx-3">
-    <div class="card-body">
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
         <h4>Add post</h4>
         <p>Posting as: {{ user.username }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">      
         <form method="post">
             {% csrf_token %}
             {{ post_form | crispy }}
-            <button type="submit" class="btn main-btn">Create Post</button>
-        </form>               
+            <button type="submit" class="btn btn-success">Create Post</button>
+        </form> 
+      </div>
     </div>
-</div>
+  </div>
 
 {% endblock %}

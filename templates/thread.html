@@ -33,7 +33,7 @@
             <div class="col-1">
                 {% if user == post.generator %}
                 <div class="edit">
-                    <a href="{% url 'edit_post' post.slug %} btn-sm btn-success">Edit</a>
+                    <a href="{% url 'edit_post' post.slug %}" class="btn-sm btn-success">Edit</a>
                 </div>
                 <!--code from youtube tutorial-->
                 <button class="btn btn-delete" type="button" data-bs-toggle="modal"

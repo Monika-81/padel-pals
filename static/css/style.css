@@ -33,6 +33,11 @@ h2 {
   border: #198754 solid 3px;
 }
 
+.dropdown a {
+  color: white;
+  text-decoration: none;
+}
+
 
 .topic-nav a, .btn-add a {
   color: white;

@@ -3,20 +3,19 @@
 
 <div class="container">
    <div class="row">
-      <div class="col-8 offset-2 text-center mt-5">
-         <h2>Edit Comment</h2>
-         <hr>
-      </div>
+     <div class="col-md-8 mt-3 offset-md-2">
+      <h2>Edit Comment</h2>
+     </div>
    </div>
    <div class="row">
-      <div class="col-8 mt-3 offset-2 text-center">
-         <form method="post">
-            {% csrf_token %}
-            {{ form.as_p}}
-            <button class="btn btn-success right mb-2" type="submit">Edit Comment</button>
-         </form>
-      </div>
+     <div class="col-md-8 mt-3 offset-md-2">
+      <form method="post">
+         {% csrf_token %}
+         {{ form.as_p}}
+         <button class="btn btn-success right mb-2" type="submit">Edit Comment</button>
+      </form>
+     </div>
    </div>
-</div>
+ </div>
 
 {%endblock%}

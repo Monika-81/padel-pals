@@ -143,7 +143,7 @@ class EditPost(UpdateView):
     fields = ['topic', 'title', 'content']
 
 
-def delete(request, slug):
+def deletePost(request, slug):
 
     post = get_object_or_404(Post, slug=slug)
     post.delete()
@@ -157,7 +157,7 @@ class EditComment(UpdateView):
     form_class = CommentsForm
 
 
-def delete(request, comments_id):
+def deleteComment(request, comments_id):
 
     comments = get_object_or_404(Comments, id=comments_id)
     comments.delete()
