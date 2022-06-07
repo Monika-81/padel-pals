@@ -57,3 +57,15 @@ class Comments(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_display', args=[self.post.slug])
+
+
+class Contact(models.Model):
+    #  model for admin contact
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    email = models.EmailField()
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Message {self.content} from {self.first_name} {self.last_name}'

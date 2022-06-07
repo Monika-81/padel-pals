@@ -3,9 +3,10 @@ from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from .models import Topic, Post, Comments
-from .forms import CommentsForm, PostForm
+from .forms import CommentsForm, PostForm, ContactForm
 
 
+# Topics
 class TopicList(ListView):
     model = Topic
     template_name = 'index.html'
@@ -34,6 +35,7 @@ class TopicDisplay(View):
         )
 
 
+# Posts
 class PostDisplay(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -92,6 +94,7 @@ class PostDisplay(View):
         )      
 
 
+# Like posts
 class PostLike(View):
 
     def post(self, request, slug):
@@ -105,7 +108,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_display', args=[slug]))
 
 
-
+# Add posts
 class AddPost(View):
 
     def get(self, request):
@@ -136,7 +139,7 @@ class AddPost(View):
             context
             )
 
-
+# Edit Posts
 class EditPost(UpdateView):
     model = Post
     template_name = "edit_post.html"
@@ -151,6 +154,7 @@ def deletePost(request, slug):
         'home'))
 
 
+# Edit Comments
 class EditComment(UpdateView):
     model = Comments
     template_name = 'edit_comment.html'
@@ -162,16 +166,38 @@ def deleteComment(request, comments_id):
     comments = get_object_or_404(Comments, id=comments_id)
     comments.delete()
     return HttpResponseRedirect(reverse(
-        'post_display', args=[comments.post.slug]))   
+        'post_display', args=[comments.post.slug]))
 
 
+# Users Posts
+class UserPosts(View):
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            posts = Post.objects.filter(generator=request.user)
+
+            return render(
+                request,
+                'user_posts.html',
+                {
+                    "posts": posts
+                }
+            )
+
+        else:
+            return render(
+                request,
+                'user_posts.html')
+
+
+# Searchbar
 class Search(View):
 
     def get(self, request):
         return render(
             request, 
             'search.html',
-     )  
+        )  
 
     def post(self, request):
 
@@ -187,3 +213,35 @@ class Search(View):
             return render(request, 'search.html', context)
         else:
             return render(request, 'search.html')
+
+
+# Contactform
+class Contact(View):
+
+    def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            'contact.html',
+            {
+                'contact': ContactForm()
+            }
+        )
+    
+    def post(self, request, *args, **kwargs):
+        contact_form = ContactForm(data=request.POST)
+
+        if contact_form.is_valid():
+            contact_form.save()
+            return redirect('home')
+        else:
+            contact_form = PostForm()
+
+        return render(
+            request, 
+            'contact.html',
+            {
+                'contact': ContactForm()
+            }
+        )
+
