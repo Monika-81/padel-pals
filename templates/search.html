@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if search %}
+    <h2>You searched for {{ search }}</h4>
+    <span class="empty"></span>
+    <h3> Results in Post Titles:</h3>
+    <table>
+    {% for post in posts %}
+        <tr>
+            <td>
+                <a href="{% url 'post_display' post.slug %}">{{ post }} - {{ post.generator }}</a>
+            </td>
+        </tr>
+        {% empty %}
+        <h4>Sorry</h4>
+        <p>There are no post with '{{ search }}' in the title.</p>
+    {% endfor %}
+    </table>
+{% else %}
+    <h4>You forgot to type in a search....</h4>
+{% endif %}
+    
+
+
+{% endblock %}

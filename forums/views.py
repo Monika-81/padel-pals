@@ -162,4 +162,28 @@ def delete(request, comments_id):
     comments = get_object_or_404(Comments, id=comments_id)
     comments.delete()
     return HttpResponseRedirect(reverse(
-        'post_display', args=[comments.post.slug]))        
+        'post_display', args=[comments.post.slug]))   
+
+
+class Search(View):
+
+    def get(self, request):
+        return render(
+            request, 
+            'search.html',
+     )  
+
+    def post(self, request):
+
+        if request.method == 'POST':
+            search = request.POST.get('search')
+            posts = Post.objects.filter(title__contains=search)
+
+            context = {
+                'search': search,
+                'posts': posts,
+            }
+
+            return render(request, 'search.html', context)
+        else:
+            return render(request, 'search.html')
