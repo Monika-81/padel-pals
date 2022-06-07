@@ -55,4 +55,5 @@ class Comments(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
-   
+    def get_absolute_url(self):
+        return reverse('post_display', args=[self.post.slug])

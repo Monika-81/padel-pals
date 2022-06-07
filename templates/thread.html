@@ -115,6 +115,9 @@
                     </p>
                     {{ comment.content | linebreaks }}
                 </div>
+                    {% if user.is_authenticated and user == comment.generator %}
+                    <a href="{% url 'edit_comment' comment.id %}" class="btn-sm btn-success ">Edit</a>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

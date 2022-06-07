@@ -17,14 +17,24 @@ body {
   padding-bottom: 6rem;
 }
 
+#jumbotron-link {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+}
+
 h2 {
   color: white;
   text-align: center;
   margin: 2rem;
 }
 
+.card {
+  border: #198754 solid 3px;
+}
 
-.topic-nav a {
+
+.topic-nav a, .btn-add a {
   color: white;
   font-size: larger;
   text-decoration: none;

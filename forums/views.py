@@ -149,3 +149,17 @@ def delete(request, slug):
     post.delete()
     return redirect(reverse(
         'home'))
+
+
+class EditComment(UpdateView):
+    model = Comments
+    template_name = 'edit_comment.html'
+    form_class = CommentsForm
+
+
+# def delete(request, comments_id):
+
+#     comments = get_object_or_404(Comments, id=comments_id)
+#     comments.delete()
+#     return HttpResponseRedirect(reverse(
+#         'post_display', args=[comments.post.slug]))        
