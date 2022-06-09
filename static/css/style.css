@@ -29,6 +29,11 @@ h2 {
   margin: 2rem;
 }
 
+.form-control {
+  background-color: #3d434a;
+  color: white;
+}
+
 .card {
   border: #198754 solid 3px;
 }
@@ -37,7 +42,6 @@ h2 {
   color: white;
   text-decoration: none;
 }
-
 
 .topic-nav a, .btn-add a {
   color: white;
@@ -53,7 +57,6 @@ h2 {
   color: #198754;
 }
 
-
 .recent-card, .topic-card, {
   width: 90vw;
   margin-top: 10px;
@@ -68,17 +71,17 @@ h2 {
   text-decoration: none;
 }
 
-  .post-topic {
-    color: white;
-  }
+.post-topic {
+  color: white;
+}
 
-  .hidden-sm {
-    display: none;
-  }
+.hidden-sm {
+  display: none;
+}
 
-  .btn-delete {
-    background-color: white;
-  }
+.btn-delete {
+  background-color: white;
+}
 
 /* ----------------------------------------Media queries */
 

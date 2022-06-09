@@ -63,6 +63,7 @@
                             <div class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
                                <a class="dropdown-item" href="{% url 'add_post' %}">Add post</a>
                                <a class="dropdown-item" href="{% url 'user_posts' %}">Your Posts</a>
+                               <a class="dropdown-item" href="{% url 'play' %}">Play</a>
                                <div class="dropdown-divider"></div>
                                {% if user.is_superuser %}
                                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>

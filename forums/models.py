@@ -69,3 +69,26 @@ class Contact(models.Model):
 
     def __str__(self):
         return f'Message {self.content} from {self.first_name} {self.last_name}'
+
+
+class Play(models.Model):
+    # model for finding player/team setup
+    SETUP_CHOICES = [
+        ('player', 'Searching for a player'),
+        ('team', 'Searching for a team'),
+    ]
+
+    generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="play_posts")
+    setup = models.CharField(max_length=100, choices=SETUP_CHOICES)
+    location = models.TextField(max_length=300)
+    description = models.TextField(max_length=300)
+    date = models.DateField()
+    time = models.TimeField(null=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=200, unique=True)
+
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return self.setup

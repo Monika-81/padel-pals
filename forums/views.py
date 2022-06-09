@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
-from .models import Topic, Post, Comments
-from .forms import CommentsForm, PostForm, ContactForm
+from django.contrib import messages
+from .models import Topic, Post, Comments, Play
+from .forms import CommentsForm, PostForm, ContactForm, PlayForm
 
 
 # Topics
@@ -76,10 +77,12 @@ class PostDisplay(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            # messages.add_message(request,)
             return HttpResponseRedirect(reverse('post_display', args=[slug]))
-            
+
         else:
-            comment_form = CommentsForm()
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('post_display', args=[slug]))
 
         return render(
             request,
@@ -91,7 +94,7 @@ class PostDisplay(View):
                 'comment_form': comment_form,
                 'liked': liked
             },
-        )      
+        )
 
 
 # Like posts
@@ -113,7 +116,7 @@ class AddPost(View):
 
     def get(self, request):
         return render(
-            request, 
+            request,
             "post_form.html",
             {
                 "post_form": PostForm()
@@ -128,40 +131,44 @@ class AddPost(View):
             post.generator = request.user
             post.slug = slugify(post.title, allow_unicode=False)
             post.save()
+            # messages.add_message(request,)
             return redirect('home')
         else:
-            post_form = PostForm()
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('add_post'))
 
         context = {'form': post_form}
         return render(
-            request, 
+            request,
             'post_form.html',
             context
             )
 
+
 # Edit Posts
 class EditPost(UpdateView):
+
     model = Post
     template_name = "edit_post.html"
     fields = ['topic', 'title', 'content']
 
 
-def deletePost(request, slug):
+def delete_post(request, slug):
 
     post = get_object_or_404(Post, slug=slug)
     post.delete()
-    return redirect(reverse(
-        'home'))
+    return redirect(reverse('home'))
 
 
 # Edit Comments
 class EditComment(UpdateView):
+
     model = Comments
     template_name = 'edit_comment.html'
     form_class = CommentsForm
 
 
-def deleteComment(request, comments_id):
+def delete_comment(request, comments_id):
 
     comments = get_object_or_404(Comments, id=comments_id)
     comments.delete()
@@ -185,9 +192,8 @@ class UserPosts(View):
             )
 
         else:
-            return render(
-                request,
-                'user_posts.html')
+            # messages.add_message(request,)
+            return redirect('home')
 
 
 # Searchbar
@@ -195,9 +201,9 @@ class Search(View):
 
     def get(self, request):
         return render(
-            request, 
+            request,
             'search.html',
-        )  
+        )
 
     def post(self, request):
 
@@ -209,8 +215,8 @@ class Search(View):
                 'search': search,
                 'posts': posts,
             }
-
             return render(request, 'search.html', context)
+
         else:
             return render(request, 'search.html')
 
@@ -227,21 +233,60 @@ class Contact(View):
                 'contact': ContactForm()
             }
         )
-    
+
     def post(self, request, *args, **kwargs):
         contact_form = ContactForm(data=request.POST)
 
         if contact_form.is_valid():
             contact_form.save()
+            # messages.add_message(request,)
             return redirect('home')
+
         else:
-            contact_form = PostForm()
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('contact'))
 
         return render(
-            request, 
+            request,
             'contact.html',
             {
                 'contact': ContactForm()
             }
         )
 
+
+# Event for finding players
+class AddPlay(View):
+
+    def get(self, request):
+        return render(
+            request,
+            "play.html",
+            {
+                "play_form": PlayForm()
+            },
+        )
+
+    def post(self, request):
+        play_form = PlayForm(request.POST)
+
+        if play_form.is_valid():
+            play = play_form.save(commit=False)
+            play.generator = request.user
+            play.slug = slugify(
+                '-'.join([str(play.date), str(play.generator)]),
+                allow_unicode=False)
+            play.save()
+            # messages.add_message(request,)
+            return redirect('home')
+
+        else:
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('play'))
+
+        context = {'form': play_form}
+        return render(
+            request,
+            'play.html',
+            context
+            )
