@@ -19,10 +19,10 @@
 }
 
 .jumbotron-fluid {
-  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.jpg');
+  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.ea893d2dc0cf.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: contain;
+  background-position: contain; 
   color: white;
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -39,7 +39,7 @@
 }
 
 .block-content {
-  background-image: url('/static/images/dean-ricciardi-yUDldIrqW5E-unsplash.jpg');
+  background-image: url('/static/images/dean-ricciardi-yUDldIrqW5E-unsplash.d8cb159e3138.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
