@@ -32,6 +32,23 @@ h2 {
 .form-control {
   background-color: #3d434a;
   color: white;
+  border: #198754 solid 3px;
+}
+
+.accordion-button {
+  background-color: #3d434a;
+  color: white;
+  border: #198754 solid 3px;
+}
+
+.accordion-button:focus {
+  background-color: #198754;
+  border-color: white;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #198754;
 }
 
 .card {

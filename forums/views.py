@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
+from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from django.contrib import messages
 from .models import Topic, Post, Comments, Play
@@ -115,10 +116,12 @@ class PostLike(View):
 class AddPost(View):
 
     def get(self, request):
+        topics = Topic.objects.all()
         return render(
             request,
             "post_form.html",
             {
+                "topic_list": topics,
                 "post_form": PostForm()
             },
         )
@@ -279,9 +282,7 @@ class AddPlay(View):
         if play_form.is_valid():
             play = play_form.save(commit=False)
             play.generator = request.user
-            play.slug = slugify(
-                '-'.join([str(play.date), str(play.generator)]),
-                allow_unicode=False)
+            play.slug = get_random_string(8,'abcdefghi')
             play.save()
             # messages.add_message(request,)
             return redirect('home')
