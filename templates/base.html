@@ -29,8 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed top navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}"><span id="logo"><img src="/static/images/padel.png" alt="Padel Icon" id="padel-icon">
-                    Padel Pals</span></a>
+                <a class="navbar-brand" href="{% url 'home' %}"><span id="logo">Padel Pals</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,9 +43,7 @@
                             <a class="nav-link" aria-current="page" aria-label="Contact site admin" href="{% url 'contact' %}">Contact</a>
                         </li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
+                        <span></span>
                         {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
@@ -60,11 +57,12 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ user.username }}
                             </a>
-                            <div class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
                                <a class="dropdown-item" href="{% url 'add_post' %}" aria-label="Add a forum post">Add a forum post</a>
                                <a class="dropdown-item" href="{% url 'play' %}" aria-label="Search for a Team or Player">Search for a Team/Player</a>
-                               <div class="dropdown-divider"></div>
                                <a class="dropdown-item" href="{% url 'user_posts' %}" aria-label="See your posts">Your Posts</a>
+                               <div class="dropdown-divider"></div>
+                               <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                                {% if user.is_superuser %}
                                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
                                {% endif %}
@@ -74,8 +72,8 @@
                     </ul>
                     <form class="d-flex" method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
-                        <input class="form-control me-2" type="search" placeholder="Forum posts" name="search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Forum titles" name="search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                 </div>
             </div>
@@ -93,34 +91,36 @@
         </section>
         <section>
             <div class="topic-content">
+                {% block topic-nav %}
                 <nav class="topic-nav">
                     <ul class="nav justify-content-center">
                         {% for topic in topic_list %}
-                        <li class="nav-item topic-item px-2">
+                        <li class="nav-item topic-item px-1">
                             <a class="nav-link" aria-current="page"
                                 href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
                         </li>
                         {% endfor %}
-                        <li class="nav-item topic-item px-2">
+                        <li class="nav-item topic-item px-1">
                             <a class="nav-link" aria-current="page" href="{% url 'play_events' %}">Find players</a>
                         </li>
                     </ul>
                 </nav>
-                <!--Code from Code Institute's 'I Think Therefore I Blog' project-->
-                <div class="container">
-                    <div class="row">
+            </div>
+            {% endblock %}
+            <!--Code from Code Institute's 'I Think Therefore I Blog' project-->
+            <div class="container">
+                {% for message in messages %}
+                <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        {% for message in messages %}
                         <div class="alert-{{message.tags}} alert-dismissible fade show d-flex flex-row justify-content-center" id="msg" role="alert">
                             {{message|safe}}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"></span>
                             </button>
                         </div>
-                        {% endfor %}
-                    </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="block-content">
                 {% block content %}
@@ -130,13 +130,10 @@
         </section>
     </main>
     <!--Footer-->
-    <footer>
+    <footer class="text-white text-center">
         <p>Copyright 2022......</p>
         <p>
-            <a href="#">Social</a>
-            <a href="#">Media</a>
-            <a href="#">Links</a>
-            <a href="https://www.flaticon.com/free-icons/padel" title="padel icons">Padel icons created by Freepik - Flaticon</a>
+            NOT SOCIAL MEDIA
         </p>
     </footer>
     <script>

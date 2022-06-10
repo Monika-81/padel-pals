@@ -1,20 +1,31 @@
-body {
+/* body {
   color: white;
+} */
+
+/* accent color: #d4df53 */
+
+.text-center a {
+  color: black;
+  text-decoration: none;
 }
 
 #padel-icon {
-  color-interpolation-filters: auto;
   height: 2rem;
 }
 
+#filler {
+  height: 10vh;
+  text-align: center;
+}
+
 .jumbotron-fluid {
-  background-image: url('/static/images/todd-trapani-sI-p_NLBNr0-unsplash.jpg');
+  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: contain;
   color: white;
   padding-top: 2rem;
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
 }
 
 #jumbotron-link {
@@ -23,36 +34,66 @@ body {
   text-decoration: none;
 }
 
+.margin-left {
+  margin-left: 10vw;
+}
+
+.block-content {
+  background-image: url('/static/images/dean-ricciardi-yUDldIrqW5E-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 60vh;
+}
+
+.post-title, .post-subtitle, .post-topic, .requiredField {
+  color: white;
+}
+
 h2 {
   color: white;
   text-align: center;
   margin: 2rem;
 }
 
+.submit {
+  background-color: #0b5ed7;
+}
+
 .form-control {
-  background-color: #3d434a;
-  color: white;
-  border: #198754 solid 3px;
+  border: #0b5ed7 solid 3px;
 }
 
 .accordion-button {
-  background-color: #3d434a;
-  color: white;
-  border: #198754 solid 3px;
+  background-color: #0b5ed7;
 }
 
 .accordion-button:focus {
-  background-color: #198754;
+  background-color: #0b5ed7;
   border-color: white;
   box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #198754;
+  background-color: #0b5ed7;
+}
+
+.recent-card, .topic-card {
+  width: 90vw;
+  margin-top: 10px;
 }
 
 .card {
-  border: #198754 solid 3px;
+  border: #0b5ed7 solid 3px;
+}
+
+.card-text {
+  color: black;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
 }
 
 .dropdown a {
@@ -67,29 +108,16 @@ h2 {
 }
 
 .topic-nav a:hover {
-  color: #198754;
+  color: #0b5ed7;
 }
 
 .topic-nav a:active {
-  color: #198754;
-}
-
-.recent-card, .topic-card {
-  width: 90vw;
-  margin-top: 10px;
+  color: #0b5ed7;
 }
 
 .bg-custom{
-  background-color: #3d434a;
-}
-
-.card a {
+  background-color: white;
   color: black;
-  text-decoration: none;
-}
-
-.post-topic {
-  color: white;
 }
 
 .hidden-sm {
@@ -106,21 +134,11 @@ h2 {
 
 /* ----------------------------------------Media queries */
 
-@media screen and (min-width: 1200px) {
-  .jumbotron-fluid {
-    padding-top: 2rem;
-    padding-bottom: 6rem;
-  }
-
-
-  .recent-card, .topic-card {
+@media screen and (min-width: 1800px) {
+    .recent-card, .topic-card {
     width: 50vw;
     margin-top: 10px;
   }
-
- 
-
- 
   
 }
 
@@ -130,7 +148,7 @@ h2 {
     }
 
   .topic-item {
-    margin: 3rem;
+    margin: 1rem;
   }
 
 }

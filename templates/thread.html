@@ -7,18 +7,18 @@
 <div class="postheader">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text text-white ">
+            <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
                 <p class="post-topic">{{ post.topic }}</p>
                 <p class="post-subtitle">{{ post.generator }} | {{ post.created_date }}</p>
-                <p class="post-subtitle"><small class="text-muted">Last edited: {{ post.updated_date }}</small></p>
+                <p class="post-subtitle"><small>Last edited: {{ post.updated_date }}</small></p>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left top border-success text-center bg-dark text-white">
+        <div class="col card mb-4  mt-3 left top border-primary text-center bg-light">
             <div class="card-body">
                 <p class="card-text ">
                     {{ post.content | safe }}
@@ -28,11 +28,12 @@
         <div class="row">
             <div class="col-1">
                 {% if user == post.generator %}
+                <!-- <a href="{% url 'user_profile' post.generator.profile.id %}">User Profile</a> -->
                 <div class="edit">
-                    <a href="{% url 'edit_post' post.slug %}" class="btn-sm btn-success">Edit</a>
+                    <a href="{% url 'edit_post' post.slug %}" class="btn-sm btn-primary">Edit</a>
                 </div>
                 <!--code from youtube tutorial-->
-                <button class="btn btn-delete" type="button" data-bs-toggle="modal"
+                <button class="btn btn-delete btn-outline-primary" type="button" data-bs-toggle="modal"
                     data-bs-target="#delete-post-modal">Delete</button>
                 <div class="modal fade" id="delete-post-modal" role="dialog" tabindex="1" aria-labelledby="Delete Post Modal"
                     aria-hidden="true">
@@ -88,21 +89,21 @@
 </div>
 <div class="container-fluid recent-posts">
     <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="col-md-4 card mb-4  mt-3 border-success text-center bg-dark text-white">
+        <div class="col-md-4 card mb-4  mt-3 border-primary text-center bg-light">
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">{{ comment.generator }}<span class=" text-muted font-weight-normal">
+                    <p class="font-weight-bold">{{ comment.generator }}<span class=" font-weight-normal">
                             {{ comment.created_date }}</span> wrote:
                     </p>
                     {{ comment.content | linebreaks }}
                 </div>
                 {% if user.is_authenticated and user == comment.generator %}
                 <div class="edit">
-                    <a href="{% url 'edit_comment' comment.id %}" class="btn-sm btn-success">Edit</a>
+                    <a href="{% url 'edit_comment' comment.id %}" class="btn-sm btn-primary">Edit</a>
                 </div>
-                <button class="btn btn-delete" type="button" data-bs-toggle="modal"
+                <button class="btn btn-delete btn-outline-primary" type="button" data-bs-toggle="modal"
                     data-bs-target="#delete-comment-modal">Delete</button>
                 <div class="modal fade" id="delete-comment-modal" role="dialog" tabindex="2"
                     aria-labelledby="Delete Comment Modal" aria-hidden="true">
@@ -130,14 +131,14 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-        <div class="col-md-3 card mb-4  mt-3 border-success text-center bg-dark text-white">
+        <div class="col-md-3 card mb-4  mt-3 border-primary text-center bg-light">
             <div class="card-body">
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit">Submit</button>
+                    <button class=" btn-primary" type="submit">Submit</button>
                 </form>
             </div>
         </div>

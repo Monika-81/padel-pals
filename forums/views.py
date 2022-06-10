@@ -3,7 +3,7 @@ from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from .models import Topic, Post, Comments, Play
+from .models import Topic, Post, Comments, Play, Profile
 from .forms import *
 
 
@@ -440,3 +440,19 @@ def delete_play_comment(request, comments_id):
     comments.delete()
     return HttpResponseRedirect(reverse(
         'play_display', args=[comments.post.slug]))
+
+
+# # User profile
+# class UserProfile(UpdateView):
+
+#     model = Profile
+#     template_name = 'user_profile.html'
+
+#     def get_context_data(self, *args, **kwargs):
+#         user = Profile.objects.all()
+#         context = super(UserProfile, self).get_context_data(**kwargs)
+
+#         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+
+#         context['page_user'] = page_user
+#         return context

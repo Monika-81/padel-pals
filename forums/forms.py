@@ -19,6 +19,25 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ('first_name', 'last_name', 'email', 'content',)
 
+        widgets = {
+            'first_name': forms.Textarea(attrs={
+                'placeholder': 'First Name',
+                'rows': 1,
+            }), 
+            'last_name': forms.Textarea(attrs={
+                'placeholder': 'Last Name',
+                'rows': 1,
+            }),  
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'Email adress'
+            }),  
+            'content': forms.Textarea(attrs={
+                'placeholder': 'Please tell us what we can help you with!'
+            }), 
+        }
+
+
+
 
 class PlayForm(forms.ModelForm):
     class Meta:

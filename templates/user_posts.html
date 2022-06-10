@@ -5,14 +5,14 @@
     <h2>Your posts:</h2>
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
-        <div class="card recent-card border-success text-center bg-dark">
+        <div class="card recent-card border-primary text-center bg-light">
             <a href="{% url 'post_display' post.slug %}">
-                <h5 class="card-header text-white">
+                <h5 class="card-header">
                     <strong>{{ post.title }}</strong>
                     <br>
                     <small>{{ post.topic }}</small>
                 </h5>
-                <div class="card-body bg-custom text-white">
+                <div class="card-body bg-custom">
                     <p class="card-text">{{ post.content }}</p>
                 </div>
                 <div class="card-footer bg-custom">
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-outline-success btn-add">
+        <button type="button" class="btn btn-primary btn-add">
             <a href="{% url 'add_post' %}">Add Post</a>
         </button>       
     </div>

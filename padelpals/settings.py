@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'forums',
 ]
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
