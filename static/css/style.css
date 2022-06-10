@@ -100,6 +100,10 @@ h2 {
   background-color: white;
 }
 
+.alert-dismissible {
+  line-height: 3rem;
+}
+
 /* ----------------------------------------Media queries */
 
 @media screen and (min-width: 1200px) {

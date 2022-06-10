@@ -22,11 +22,19 @@
                 </div>
             </a>
         </div>
-        {% empty %}
-        <h4>Sorry</h4>
-        <p>You have not created any posts yet.</p>
-        {% endfor %}
+    {% empty %}
     </div>
+    <div class="d-flex text-center">
+        <div class="col">
+            <p>You have not created any posts yet.</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-success btn-add">
+            <a href="{% url 'add_post' %}">Add Post</a>
+        </button>       
+    </div>
+    {% endfor %} 
 </div>
 
 {% endblock %}

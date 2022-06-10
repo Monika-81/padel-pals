@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
 from django.utils.crypto import get_random_string
-from django.utils.text import slugify
 from django.contrib import messages
 from .models import Topic, Post, Comments, Play
 from .forms import *
@@ -78,11 +77,19 @@ class PostDisplay(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your comment was submitted!'
+                )
             return HttpResponseRedirect(reverse('post_display', args=[slug]))
 
         else:
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
             return HttpResponseRedirect(reverse('post_display', args=[slug]))
 
         return render(
@@ -132,12 +139,20 @@ class AddPost(View):
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.generator = request.user
-            post.slug = slugify(post.title, allow_unicode=False)
+            post.slug = get_random_string(8,'0123456789')
             post.save()
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your post was submitted!'
+                )
             return redirect('home')
         else:
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
             return HttpResponseRedirect(reverse('add_post'))
 
         context = {
@@ -199,7 +214,6 @@ class UserPosts(View):
             )
 
         else:
-            # messages.add_message(request,)
             return redirect('home')
 
 
@@ -250,11 +264,19 @@ class Contact(View):
 
         if contact_form.is_valid():
             contact_form.save()
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Contact form sent, we will get back to you shortly!'
+                )
             return redirect('home')
 
         else:
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
             return HttpResponseRedirect(reverse('contact'))
 
         return render(
@@ -288,11 +310,19 @@ class AddPlay(View):
             play.generator = request.user
             play.slug = get_random_string(8,'abcdefghi')
             play.save()
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your post was submitted!'
+                )
             return redirect('play_events')
 
         else:
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
             return HttpResponseRedirect(reverse('play'))
 
         context = {'form': play_form}
@@ -354,11 +384,19 @@ class PlayEventsDisplay(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your comment was submitted!'
+                )
             return HttpResponseRedirect(reverse('play_display', args=[slug]))
 
         else:
-            # messages.add_message(request,)
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
             return HttpResponseRedirect(reverse('play_display', args=[slug]))
 
         return render(

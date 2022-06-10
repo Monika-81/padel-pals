@@ -16,7 +16,7 @@ class Topic(models.Model):
 class Post(models.Model):
     #  model for forum posts
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name="topic_posts")
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="forum_posts")
     created_date = models.DateTimeField(auto_now_add=True)
