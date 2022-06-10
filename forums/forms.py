@@ -23,20 +23,18 @@ class ContactForm(forms.ModelForm):
             'first_name': forms.Textarea(attrs={
                 'placeholder': 'First Name',
                 'rows': 1,
-            }), 
+            }),
             'last_name': forms.Textarea(attrs={
                 'placeholder': 'Last Name',
                 'rows': 1,
-            }),  
+            }),
             'email': forms.EmailInput(attrs={
                 'placeholder': 'Email adress'
-            }),  
+            }),
             'content': forms.Textarea(attrs={
                 'placeholder': 'Please tell us what we can help you with!'
-            }), 
+            }),
         }
-
-
 
 
 class PlayForm(forms.ModelForm):

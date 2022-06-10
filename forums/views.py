@@ -139,7 +139,7 @@ class AddPost(View):
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.generator = request.user
-            post.slug = get_random_string(8,'0123456789')
+            post.slug = get_random_string(8, '0123456789')
             post.save()
             messages.add_message(
                 request,
@@ -308,7 +308,7 @@ class AddPlay(View):
         if play_form.is_valid():
             play = play_form.save(commit=False)
             play.generator = request.user
-            play.slug = get_random_string(8,'abcdefghi')
+            play.slug = get_random_string(8, 'abcdefghi')
             play.save()
             messages.add_message(
                 request,
@@ -416,7 +416,7 @@ class EditPlay(UpdateView):
 
     model = Play
     template_name = "edit_play.html"
-    fields = ['setup', 'location', 'description', 'date', 'time',]
+    fields = ['setup', 'location', 'description', 'date', 'time', ]
 
 
 def delete_play(request, slug):

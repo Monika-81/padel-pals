@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from cloudinary.models import CloudinaryField
 
 
 class Topic(models.Model):
@@ -42,7 +41,7 @@ class Comments(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_post_comments")
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True) 
+    updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
     likes = models.ManyToManyField(User, related_name="comment_likes", blank=True)
 
@@ -94,7 +93,7 @@ class Play(models.Model):
         return self.setup
 
     def get_absolute_url(self):
-       return reverse('play_display', args=[self.slug])    
+        return reverse('play_display', args=[self.slug])
 
 
 class PlayComments(models.Model):
@@ -102,7 +101,7 @@ class PlayComments(models.Model):
     post = models.ForeignKey(Play, on_delete=models.CASCADE, related_name="play_list_comments")
     generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_play_comments")
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True) 
+    updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
     class Meta:
@@ -124,4 +123,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user
-
