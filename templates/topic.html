@@ -29,9 +29,11 @@
                     <p class="card-text"><small class="text-muted">Author: {{ post.generator }}</small></p>
                 </div>
                 <div class="card-footer bg-custom">
-                    <p class="card-text"><small class="text-muted">On: {{ post.created_date }} 
-                        <i class="far fa-heart"></i> {{ post.number_of_likes }}</small>
-                    </p>
+                    <div class="d-flex flex-column justify-content-center">
+                        <strong class="text-secondary"><i class="far fa-comments"></i> {{post.comments.count}}
+                            <i class="far fa-heart"></i> {{post.likes.count}}
+                        </strong>
+                    </div>
                 </div>
             </a>
         </div>

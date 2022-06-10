@@ -1,15 +1,16 @@
 {% extends 'base.html' %} 
 
-{% block content %}
-
 {% load crispy_forms_tags %}
 
-<div class="postheader">
+{% block content %}
+
+</div><div class="postheader">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text text-white ">
-                <h1 class="post-title">{{ post.title }}</h1>
-                <p class="post-topic">{{ post.topic }}</p>
+                <h3 class="post-title">{{ post.setup }}</h3>
+                <h4 class="post-topic">{{ post.date }} : {{ post.time }}</h4>
+                <h4 class="post-topic">{{ post.location }}</h4>
                 <p class="post-subtitle">{{ post.generator }} | {{ post.created_date }}</p>
             </div>
         </div>
@@ -20,7 +21,7 @@
         <div class="col card mb-4  mt-3 left top border-success text-center bg-dark text-white">
             <div class="card-body">
                 <p class="card-text ">
-                    {{ post.content | safe }}
+                    {{ post.description | safe }}
                 </p>
             </div>
         </div>
@@ -28,12 +29,12 @@
             <div class="col-1">
                 {% if user == post.generator %}
                 <div class="edit">
-                    <a href="{% url 'edit_post' post.slug %}" class="btn-sm btn-success">Edit</a>
+                    <a href="{% url 'edit_play' post.slug %}" class="btn-sm btn-success">Edit</a>
                 </div>
                 <!--code from youtube tutorial-->
                 <button class="btn btn-delete" type="button" data-bs-toggle="modal"
-                    data-bs-target="#delete-post-modal">Delete</button>
-                <div class="modal fade" id="delete-post-modal" role="dialog" tabindex="1" aria-labelledby="Delete Post Modal"
+                    data-bs-target="#delete-play-modal">Delete</button>
+                <div class="modal fade" id="delete-play-modal" role="dialog" tabindex="1" aria-labelledby="Delete Play Modal"
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -44,11 +45,10 @@
                             </div>
                             <div class="modal-body">
                                 <p>Are you sure you want to delete this post?</p>
-                                <p>{{ post.title }}</p>
                             </div>
                             <div class="modal-footer">
                                 <div class="btn d-inline-block btn-danger">
-                                    <a href="{% url 'delete_post' post.slug %}" class="btn">Delete</a>
+                                    <a href="{% url 'delete_play' post.slug %}" class="btn">Delete</a>
                                 </div>
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
                             </div>
@@ -58,30 +58,6 @@
                 <!--end code from youtube tutorial-->
             </div>
             {% endif %}
-            <strong>
-                {% if user.is_authenticated %}
-                <form action="{% url 'post_like' post.slug %}" class="d-inline" method="POST">
-                    {% csrf_token %}
-                    {% if liked %}
-                    <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                    {% else %}
-                    <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    {% endif %}
-                </form>
-                {% else %}
-                <span class="text-secondary"><i class="far fa-heart"></i></span>
-                {% endif %}
-                <span class="text-secondary">{{ post.number_of_likes }} </span>
-            </strong>
-        </div>
-        <div class="col-1">
-            {% with comments.count as total_comments %}
-            <strong class="text-secondary"><i class="far fa-comments"></i>{{ total_comments }}</strong>
-            {% endwith %}
         </div>
     </div>
 </div>
@@ -99,12 +75,12 @@
                 </div>
                 {% if user.is_authenticated and user == comment.generator %}
                 <div class="edit">
-                    <a href="{% url 'edit_comment' comment.id %}" class="btn-sm btn-success">Edit</a>
+                    <a href="{% url 'edit_play_comment' comment.id %}" class="btn-sm btn-success">Edit</a>
                 </div>
                 <button class="btn btn-delete" type="button" data-bs-toggle="modal"
-                    data-bs-target="#delete-comment-modal">Delete</button>
-                <div class="modal fade" id="delete-comment-modal" role="dialog" tabindex="2"
-                    aria-labelledby="Delete Comment Modal" aria-hidden="true">
+                    data-bs-target="#delete-play-comment-modal">Delete</button>
+                <div class="modal fade" id="delete-play-comment-modal" role="dialog" tabindex="2"
+                    aria-labelledby="Delete Play Comment Modal" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -117,7 +93,7 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="btn d-inline-block btn-danger">
-                                    <a href="{% url 'delete_comment' comment.id %}" class="btn">Delete</a>
+                                    <a href="{% url 'delete_play_comment' comment.id %}" class="btn">Delete</a>
                                 </div>
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
                             </div>
@@ -144,4 +120,6 @@
     </div>
 </div>
 
-{% endblock content %}
+
+
+{% endblock %}

@@ -5,7 +5,7 @@ from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from django.contrib import messages
 from .models import Topic, Post, Comments, Play
-from .forms import CommentsForm, PostForm, ContactForm, PlayForm
+from .forms import *
 
 
 # Topics
@@ -234,11 +234,13 @@ class Search(View):
 class Contact(View):
 
     def get(self, request, *args, **kwargs):
+        topics = Topic.objects.all()
 
         return render(
             request,
             'contact.html',
             {
+                "topic_list": topics,
                 'contact': ContactForm()
             }
         )
@@ -268,10 +270,12 @@ class Contact(View):
 class AddPlay(View):
 
     def get(self, request):
+        topics = Topic.objects.all()
         return render(
             request,
             "play.html",
             {
+                "topic_list": topics,
                 "play_form": PlayForm()
             },
         )
@@ -285,7 +289,7 @@ class AddPlay(View):
             play.slug = get_random_string(8,'abcdefghi')
             play.save()
             # messages.add_message(request,)
-            return redirect('home')
+            return redirect('play_events')
 
         else:
             # messages.add_message(request,)
@@ -299,8 +303,8 @@ class AddPlay(View):
             )
 
 
-# Play events display
-class PlayEventsDisplay(ListView):
+# Play events list
+class PlayEventsList(ListView):
 
     def get(self, request):
         plays = Play.objects.all()
@@ -314,3 +318,87 @@ class PlayEventsDisplay(ListView):
                 "play_list": plays
             }
         )
+
+
+# Display Play Event
+class PlayEventsDisplay(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Play.objects
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.play_list_comments.order_by('created_date')
+        comment_form = PlayCommentsForm(data=request.POST)
+        topics = Topic.objects.all()
+
+        return render(
+            request,
+            'play_display.html',
+            {
+                "topic_list": topics,
+                'post': post,
+                'comments': comments,
+                'commented': False,
+                'comment_form': PlayCommentsForm()
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Play.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.play_list_comments.order_by('created_date')
+
+        comment_form = PlayCommentsForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.generator = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('play_display', args=[slug]))
+
+        else:
+            # messages.add_message(request,)
+            return HttpResponseRedirect(reverse('play_display', args=[slug]))
+
+        return render(
+            request,
+            "play_display.html",
+            {
+                'post': post,
+                'comments': comments,
+                'commented': True,
+                'comment_form': comment_form,
+            },
+        )
+
+
+# Edit Play
+class EditPlay(UpdateView):
+
+    model = Play
+    template_name = "edit_play.html"
+    fields = ['setup', 'location', 'description', 'date', 'time',]
+
+
+def delete_play(request, slug):
+
+    post = get_object_or_404(Play, slug=slug)
+    post.delete()
+    return redirect(reverse('play_events'))
+
+
+# Edit Play Comments
+class EditPlayComment(UpdateView):
+
+    model = PlayComments
+    template_name = 'edit_play_comment.html'
+    form_class = PlayCommentsForm
+
+
+def delete_play_comment(request, comments_id):
+
+    comments = get_object_or_404(PlayComments, id=comments_id)
+    comments.delete()
+    return HttpResponseRedirect(reverse(
+        'play_display', args=[comments.post.slug]))

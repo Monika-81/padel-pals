@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Topic, Post, Comments, Contact, Play
+from .models import Topic, Post, Comments, Contact, Play, PlayComments
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -35,3 +35,10 @@ class ContactAdmin(admin.ModelAdmin):
 class PlayAdmin(admin.ModelAdmin):
     list_filter = ('setup', 'date', 'time',)
     list_display = ('setup', 'location', 'date', 'time', 'generator')
+
+
+@admin.register(PlayComments)
+class PlayCommentsAdmin(admin.ModelAdmin):
+    list_filter = ('created_date', 'generator')
+    list_display = ('content', 'created_date', 'generator')
+    search_fields = ['content', 'generator__username']

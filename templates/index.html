@@ -5,7 +5,7 @@
     <h2>Recent posts:</h2>
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
-        {% if forloop.counter <= 4 %}
+        {% if forloop.counter <= 6 %}
         <div class="card recent-card border-success text-center bg-dark">
             <a href="{% url 'post_display' post.slug %}">
                 <h5 class="card-header text-white">

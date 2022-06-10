@@ -92,25 +92,22 @@
             </div>
         </section>
         <section>
-            <div id="topic-content">
-            {% block nav_header %}
+            <div class="topic-content">
                 <nav class="topic-nav">
                     <ul class="nav justify-content-center">
-                    {% for topic in topic_list %}
-                    <li class="nav-item topic-item px-2">
-                        <a class="nav-link" aria-current="page"
-                            href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
-                    </li>
-                    {% endfor %}
-                    <li class="nav-item topic-item px-2">
-                        <a class="nav-link" aria-current="page"
-                            href="{% url 'play_events' %}">Find players</a>
-                    </li>
+                        {% for topic in topic_list %}
+                        <li class="nav-item topic-item px-2">
+                            <a class="nav-link" aria-current="page"
+                                href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
+                        </li>
+                        {% endfor %}
+                        <li class="nav-item topic-item px-2">
+                            <a class="nav-link" aria-current="page" href="{% url 'play_events' %}">Find players</a>
+                        </li>
                     </ul>
                 </nav>
-            {% endblock %}
             </div>
-            <div id="block-content">
+            <div class="block-content">
                 {% block content %}
                 <!-- Content Goes here -->
                 {% endblock content %}

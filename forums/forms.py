@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comments, Post, Contact, Play
+from .models import Comments, Post, Contact, Play, PlayComments
 
 
 class CommentsForm(forms.ModelForm):
@@ -52,3 +52,9 @@ class PlayForm(forms.ModelForm):
                 format=('%H:%M:%S')
             ),
         }
+
+
+class PlayCommentsForm(forms.ModelForm):
+    class Meta:
+        model = PlayComments
+        fields = ('content',)
