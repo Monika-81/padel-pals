@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid recent-posts">
+    <h2>Find player or team:</h2>
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        {% for post in play_list %}
+        <div class="card recent-card border-success text-center bg-dark">
+            <a href="#">
+                <h5 class="card-header text-white">
+                    <strong>{{ post.setup }}</strong>
+                </h5>
+                <div class="card-body bg-custom text-white">
+                    <p class="card-text">Play at: {{ post.date }} {{ post.time }}</p>
+                    <p class="card-text">Location: {{ post.location }}</p>
+                    <p class="card-text">{{ post.description }}</p>
+                </div>
+                <div class="card-footer bg-custom">
+                    <p class="card-text"><small class="text-muted">Posted: 
+                        {{ post.created_date }} by: {{ post.generator }}</small> 
+                    </p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

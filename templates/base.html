@@ -63,7 +63,7 @@
                             <div class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
                                <a class="dropdown-item" href="{% url 'add_post' %}">Add post</a>
                                <a class="dropdown-item" href="{% url 'user_posts' %}">Your Posts</a>
-                               <a class="dropdown-item" href="{% url 'play' %}">Play</a>
+                               <a class="dropdown-item" href="{% url 'play_events' %}">Play</a>
                                <div class="dropdown-divider"></div>
                                {% if user.is_superuser %}
                                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
@@ -97,10 +97,17 @@
                 <nav class="topic-nav">
                     <ul class="nav justify-content-center">
                     {% for topic in topic_list %}
+                    {% if topic != 'Players' %}
                     <li class="nav-item topic-item px-2">
                         <a class="nav-link" aria-current="page"
                             href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
                     </li>
+                    {% else %}
+                    <li class="nav-item topic-item px-2">
+                        <a class="nav-link" aria-current="page"
+                            href="{% url 'play_events' %}">{{ topic.topic }}</a>
+                    </li>
+                    {% endif %}
                     {% endfor %}
                     </ul>
                 </nav>

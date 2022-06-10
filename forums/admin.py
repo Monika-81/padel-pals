@@ -34,4 +34,4 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(Play)
 class PlayAdmin(admin.ModelAdmin):
     list_filter = ('setup', 'date', 'time',)
-    list_display = ('setup', 'date', 'time', 'description')
+    list_display = ('setup', 'location', 'date', 'time', 'generator')

@@ -137,7 +137,9 @@ class AddPost(View):
             # messages.add_message(request,)
             return HttpResponseRedirect(reverse('add_post'))
 
-        context = {'form': post_form}
+        context = {
+            'form': post_form
+            }
         return render(
             request,
             'post_form.html',
@@ -182,11 +184,13 @@ class UserPosts(View):
     def get(self, request):
         if request.user.is_authenticated:
             posts = Post.objects.filter(generator=request.user)
+            topics = Topic.objects.all()
 
             return render(
                 request,
                 'user_posts.html',
                 {
+                    "topic_list": topics,
                     "posts": posts
                 }
             )
@@ -210,8 +214,10 @@ class Search(View):
         if request.method == 'POST':
             search = request.POST.get('search')
             posts = Post.objects.filter(title__contains=search)
+            topics = Topic.objects.all()
 
             context = {
+                "topic_list": topics,
                 'search': search,
                 'posts': posts,
             }
@@ -290,3 +296,20 @@ class AddPlay(View):
             'play.html',
             context
             )
+
+
+# Play events display
+class PlayEventsDisplay(ListView):
+
+    def get(self, request):
+        plays = Play.objects.all()
+        topics = Topic.objects.all()
+
+        return render(
+            request,
+            'play_list.html',
+            {
+                "topic_list": topics,
+                "play_list": plays
+            }
+        )

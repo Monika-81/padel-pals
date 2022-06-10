@@ -74,8 +74,8 @@ class Contact(models.Model):
 class Play(models.Model):
     # model for finding player/team setup
     SETUP_CHOICES = [
-        ('player', 'Searching for a player'),
-        ('team', 'Searching for a team'),
+        ('Searching for a player', 'Searching for a player'),
+        ('Searching for a team', 'Searching for a team'),
     ]
 
     generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="play_posts")

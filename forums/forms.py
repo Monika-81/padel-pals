@@ -51,5 +51,4 @@ class PlayForm(forms.ModelForm):
                 },
                 format=('%H:%M:%S')
             ),
-
         }
