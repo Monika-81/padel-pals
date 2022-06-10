@@ -5,22 +5,21 @@
     <h2>Recent posts:</h2>
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
-        {% if forloop.counter <= 6 %}
+        {% if forloop.counter <= 4 %}
         <div class="card recent-card border-success text-center bg-dark">
             <a href="{% url 'post_display' post.slug %}">
-                <h5 class="card-header text-white">
+                <h4 class="card-header text-white">
                     <strong>{{ post.title }}</strong>
-                    <br>
-                    <small>{{ post.topic }}</small>
-                </h5>
+                </h4>
+                <p class="text-white">{{ post.topic }}</p>
                 <div class="card-body bg-custom text-white">
                     <p class="card-text">{{ post.content }}</p>
-                    <p class="card-text"><small class="text-muted">Author: {{ post.generator }}</small></p>
+                    <p class="card-text">Author: {{ post.generator }}</p>
                 </div>
                 <div class="card-footer bg-custom">
-                    <p class="card-text"><small class="text-muted">On: {{ post.created_date }} 
-                        <i class="far fa-heart"></i> {{ post.number_of_likes }}</small>
-                    </p>
+                    <p class="card-text"><small class="text-muted"> Last edited: {{ post.updated_date }} <br> 
+                        <i class="far fa-comments"></i> {{post.comments.count}}
+                        <i class="far fa-heart"></i> {{ post.number_of_likes }} </small></p>
                 </div>
             </a>
         </div>
