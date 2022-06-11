@@ -5,7 +5,7 @@
     <h2>Find a team or a player:</h2>
     {% for post in play_list %}
     <div class="d-flex flex-row flex-wrap justify-content-center accordion accordion-flush" id="accordion">
-        <div class="card recent-card border-primary text-center bg-light accordion-item">
+        <div class="card recent-card text-center bg-light accordion-item">
             <div class="card-header">
                 <h5 class="accordion-header" id="heading-{{post.slug}}">
                     <button class="btn btn-link accordion-button collapsed d-block text-center text-white" type="button" data-bs-toggle="collapse" data-bs-target="#{{post.slug}}" aria-expanded="true" aria-controls="{{post.slug}}">
@@ -18,8 +18,8 @@
                     <div class="card-body bg-custom">
                         <p class="card-text">Location: {{ post.location }}</p>
                         <p class="card-text">{{ post.description }}</p>
-                        <button type="button" class="btn btn-outline-primary btn-add">
-                            <a href="{% url 'play_display' post.slug %}">Comments</a>
+                        <button type="button" class="btn btn-primary btn-add">
+                            <a href="{% url 'play_display' post.slug %}">Comment</a>
                         </button>
                         <p class="card-text"><small>Posted: 
                             {{ post.created_date }} by: {{ post.generator }}</small> 

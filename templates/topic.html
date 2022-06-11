@@ -17,7 +17,7 @@
         {% endif %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
-        <div class="card recent-card border-primary text-center bg-light">
+        <div class="card recent-card text-center bg-light">
             <a href="{% url 'post_display' post.slug %}">
                 <h4 class="card-header">
                     <strong>{{ post.title }}</strong>

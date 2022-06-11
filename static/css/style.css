@@ -9,10 +9,6 @@
   text-decoration: none;
 }
 
-#padel-icon {
-  height: 2rem;
-}
-
 #filler {
   text-align: center;
 }
@@ -50,9 +46,10 @@
 }
 
 h2 {
-  color: white;
+  color: #d4df53;
   text-align: center;
   margin: 2rem;
+  padding-top: 1rem;
 }
 
 .submit {
@@ -68,18 +65,20 @@ h2 {
 }
 
 .accordion-button:focus {
-  background-color: #0b5ed7;
+  background-color: #d4df53;
   border-color: white;
   box-shadow: none;
+  color: black;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #0b5ed7;
+  background-color: #d4df53;
 }
 
-.recent-card, .topic-card {
+.recent-card, .topic-card .comment-card {
   width: 90vw;
   margin-top: 10px;
+  border: #0b5ed7 solid 3px;
 }
 
 .card {
@@ -107,11 +106,11 @@ h2 {
 }
 
 .topic-nav a:hover {
-  color: #0b5ed7;
+  color: #d4df53;
 }
 
 .topic-nav a:active {
-  color: #0b5ed7;
+  color: #d4df53;
 }
 
 .bg-custom{
