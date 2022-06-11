@@ -16,11 +16,12 @@ urlpatterns = [
     path('post/edit_post/<slug:slug>', views.EditPost.as_view(), name='edit_post'),
     path('post/delete_post/<slug:slug>', views.delete_post, name='delete_post'),
     path('user_posts', views.UserPosts.as_view(), name='user_posts'),
+    path('user-profile/', views.UserProfile.as_view(), name='user_profile'),
     path('post/edit_comment/<int:pk>', views.EditComment.as_view(), name='edit_comment'),
     path('post/delete_comment/<int:comments_id>', views.delete_comment, name='delete_comment'),
     path('post/edit_play_comment/<int:pk>', views.EditPlayComment.as_view(), name='edit_play_comment'),
     path('post/delete_play_comment/<int:comments_id>', views.delete_play_comment, name='delete_play_comment'),
     path('search', views.Search.as_view(), name="search"),
     path('contact/', views.Contact.as_view(), name='contact'),
-    # path('user-profile/<int:pk>', views.UserProfile.as_view(), name='user_profile'),
+    
 ]

@@ -14,7 +14,6 @@
 }
 
 #filler {
-  height: 10vh;
   text-align: center;
 }
 
@@ -130,6 +129,12 @@ h2 {
 
 .alert-dismissible {
   line-height: 3rem;
+}
+
+.profile-text {
+  color: black;
+  text-align: center;
+  margin: unset;
 }
 
 /* ----------------------------------------Media queries */

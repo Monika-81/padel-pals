@@ -113,13 +113,3 @@ class PlayComments(models.Model):
     def get_absolute_url(self):
         return reverse('play_display', args=[self.post.slug])
 
-
-class Profile(models.Model):
-    #  model for user profile
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.user

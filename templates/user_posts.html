@@ -1,40 +1,68 @@
 {% extends "base.html" %}
+
+{% block topic-nav %}
+<div class="topic-content">
+  <nav class="topic-nav">
+    <div id="filler">
+        <h2>Welcome {{ user.username }} to your profile page!</h2>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
 {% block content %}
 
-<div class="container-fluid recent-posts">
-    <h2>Your posts:</h2>
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        {% for post in posts %}
-        <div class="card recent-card border-primary text-center bg-light">
-            <a href="{% url 'post_display' post.slug %}">
-                <h5 class="card-header">
-                    <strong>{{ post.title }}</strong>
-                    <br>
-                    <small>{{ post.topic }}</small>
-                </h5>
-                <div class="card-body bg-custom">
-                    <p class="card-text">{{ post.content }}</p>
-                </div>
-                <div class="card-footer bg-custom">
-                    <p class="card-text"><small class="text-muted">On: {{ post.created_date }} 
-                        <i class="far fa-heart"></i> {{ post.number_of_likes }}</small>
-                    </p>
-                </div>
-            </a>
-        </div>
-    {% empty %}
-    </div>
-    <div class="d-flex text-center">
+<div class="container">
+    <div class="row bg-light">
         <div class="col">
-            <p>You have not created any posts yet.</p>
+           <div class="card card-body bg-white border-light shadow-sm mb-4">
+            <h2 class="profile-text">Profile information</h2>
+            <form action="{% url 'user_profile' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div>
+                            <label for="first_name">First Name</label>
+                            <input name="first_name" class="form-control" id="first_name" type="text"
+                                placeholder="Enter first name" value="{{ user.first_name }}">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div>
+                            <label for="last_name">Last Name</label>
+                            <input name="last_name" class="form-control" id="last_name" type="text"
+                                placeholder="Enter last name" value="{{ user.last_name }}">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input name="email" class="form-control" id="email" type="email"
+                                placeholder="Email adress" value="{{ user.email }}" required>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </form>
         </div>
+        <div class="col">
+            <h2 class="profile-text">Your Posts:</h2>
+            <table>
+                {% for post in posts %}
+                <tr>
+                    <td>
+                        <a href="{% url 'post_display' post.slug %}">{{ post }} - by: {{ post.generator }}</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <h4>Sorry</h4>
+                <p>There are no post with '{{ search }}' in the title.</p>
+                {% endfor %}
+            </table>
+      </div>
     </div>
-    <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary btn-add">
-            <a href="{% url 'add_post' %}">Add Post</a>
-        </button>       
-    </div>
-    {% endfor %} 
-</div>
+</div> 
 
 {% endblock %}

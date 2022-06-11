@@ -60,7 +60,7 @@
                             <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
                                <a class="dropdown-item" href="{% url 'add_post' %}" aria-label="Add a forum post">Add a forum post</a>
                                <a class="dropdown-item" href="{% url 'play' %}" aria-label="Search for a Team or Player">Search for a Team/Player</a>
-                               <a class="dropdown-item" href="{% url 'user_posts' %}" aria-label="See your posts">Your Posts</a>
+                               <a class="dropdown-item" href="{% url 'user_posts' %}" aria-label="See your posts">Your Profile</a>
                                <div class="dropdown-divider"></div>
                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                                {% if user.is_superuser %}

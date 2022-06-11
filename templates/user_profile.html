@@ -2,13 +2,16 @@
 {% block content %}
 
 
+{% load crispy_forms_tags %}
 
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-      <h4>Edit post</h4>
-      <p>Posting as: {{ user.username }}</p>
-      {{ page_user }}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Edit Post</button>
+      </form>
     </div>
   </div>
 </div>

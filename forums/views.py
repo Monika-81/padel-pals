@@ -3,7 +3,8 @@ from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from .models import Topic, Post, Comments, Play, Profile
+from django.contrib.auth.models import User
+from .models import Topic, Post, Comments, Play
 from .forms import *
 
 
@@ -194,27 +195,6 @@ def delete_comment(request, comments_id):
     comments.delete()
     return HttpResponseRedirect(reverse(
         'post_display', args=[comments.post.slug]))
-
-
-# Users Posts
-class UserPosts(View):
-
-    def get(self, request):
-        if request.user.is_authenticated:
-            posts = Post.objects.filter(generator=request.user)
-            topics = Topic.objects.all()
-
-            return render(
-                request,
-                'user_posts.html',
-                {
-                    "topic_list": topics,
-                    "posts": posts
-                }
-            )
-
-        else:
-            return redirect('home')
 
 
 # Searchbar
@@ -442,17 +422,54 @@ def delete_play_comment(request, comments_id):
         'play_display', args=[comments.post.slug]))
 
 
-# # User profile
-# class UserProfile(UpdateView):
 
-#     model = Profile
-#     template_name = 'user_profile.html'
+# Users Posts
+class UserPosts(View):
 
-#     def get_context_data(self, *args, **kwargs):
-#         user = Profile.objects.all()
-#         context = super(UserProfile, self).get_context_data(**kwargs)
+    def get(self, request):
+        if request.user.is_authenticated:
+            posts = Post.objects.filter(generator=request.user)
+            topics = Topic.objects.all()
 
-#         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+            return render(
+                request,
+                'user_posts.html',
+                {
+                    "topic_list": topics,
+                    "posts": posts
+                }
+            )
 
-#         context['page_user'] = page_user
-#         return context
+        else:
+            return redirect('home')
+
+
+# User profile
+class UserProfile(UpdateView):
+
+    model = User
+    template_name = 'user_profile.html'
+    form_class = UserForm
+
+    def post(self, request):
+        user = UserForm(request.POST)
+
+        if user.is_valid():
+            user.first_name = self.cleaned_data.get("first_name", None)
+            user.last_name = self.cleaned_data.get("last_name", None)
+            user.email = self.cleaned_data.get("email", None)
+            form.save()
+
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your information was updated!'
+                )
+        else:
+             messages.add_message(
+                request,
+                messages.WARNING,
+                'Invalid submit, please fill out all the required fields!'
+                )
+        return redirect(reverse('user_posts'))
+
