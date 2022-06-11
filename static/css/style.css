@@ -1,14 +1,3 @@
-/* body {
-  color: white;
-} */
-
-/* accent color: #d4df53 */
-
-.text-center a {
-  color: black;
-  text-decoration: none;
-}
-
 #filler {
   text-align: center;
 }
@@ -53,7 +42,7 @@ h2 {
 }
 
 .submit {
-  background-color: #0b5ed7;
+  margin: 2rem;
 }
 
 .form-control {
@@ -74,7 +63,18 @@ h2 {
   color: black;
 }
 
-.card a, .table a {
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.table a {
+  color: black;
+  font-size: larger;
+}
+
+
+.text-center a {
   color: black;
   text-decoration: none;
 }
@@ -98,6 +98,10 @@ h2 {
   color: #d4df53;
 }
 
+.margin-1 {
+  margin: 1rem;
+}
+
 .bg-custom{
   background-color: white;
   color: black;
@@ -119,6 +123,11 @@ h2 {
   color: black;
   text-align: center;
   margin: unset;
+}
+
+.btn-like {
+  border: none;
+  background: transparent;
 }
 
 /* ----------------------------------------Media queries */
