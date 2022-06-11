@@ -108,14 +108,14 @@
             </div>
             {% endblock %}
             <!--Code from Code Institute's 'I Think Therefore I Blog' project-->
-            <div class="container">
+            <div class="container message-container">
                 {% for message in messages %}
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="alert-{{message.tags}} alert-dismissible fade show d-flex flex-row justify-content-center" id="msg" role="alert">
                             {{message|safe}}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>

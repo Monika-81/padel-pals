@@ -3,36 +3,32 @@
 
 <div class="container-fluid recent-posts">
     <h2>Find a team or a player:</h2>
-    {% for post in play_list %}
-    <div class="d-flex flex-row flex-wrap justify-content-center accordion accordion-flush" id="accordion">
-        <div class="card recent-card text-center bg-light accordion-item">
-            <div class="card-header">
-                <h5 class="accordion-header" id="heading-{{post.slug}}">
-                    <button class="btn btn-link accordion-button collapsed d-block text-center text-white" type="button" data-bs-toggle="collapse" data-bs-target="#{{post.slug}}" aria-expanded="true" aria-controls="{{post.slug}}">
-                        {{ post.setup }} - {{ post.date }} : {{ post.time }}
-                    </button>
-                </h5>
-            </div>
-            <div class="accordion-collapse collapse" id="{{post.slug}}" aria-labelledby="heading-{{post.slug}}" data-parent="#accordion">
-                <div class="accordion-body">
-                    <div class="card-body bg-custom">
-                        <p class="card-text">Location: {{ post.location }}</p>
-                        <p class="card-text">{{ post.description }}</p>
-                        <button type="button" class="btn btn-primary btn-add">
-                            <a href="{% url 'play_display' post.slug %}">Comment</a>
-                        </button>
-                        <p class="card-text"><small>Posted: 
-                            {{ post.created_date }} by: {{ post.generator }}</small> 
-                        </p>
-                        <div class="d-flex flex-column justify-content-center">
-                            <strong class="text-secondary"><i class="far fa-comments"></i>{{post.play_list_comments.count}}</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        <table class="table bg-light">
+            <thead class="bg-primary">
+            <tr>
+                <th scope="col">Locking for</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+                <th scope="col">Posted on</th>
+                <th scope="col">Comments</th>
+            </tr>
+            </thead>
+            {% for post in play_list %}
+            <tbody>
+            <tr>
+                <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong><br><small>{{post.description}}</small></a></th>
+                <td>{{ post.date }} : {{ post.time }}</td>
+                <td>{{ post.location }}</td>
+                <td><small>{{ post.created_date }}</small>
+                </td>
+                <td><strong class="text-secondary"><i class="far fa-comments">
+                    </i>{{post.play_list_comments.count}}</strong>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
