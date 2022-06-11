@@ -4,36 +4,36 @@
 
 {% block content %}
 
-<div class="postheader">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text text-white ">
-                <h3 class="post-title">{{ post.setup }}</h3>
-                <h4 class="post-topic">{{ post.date }} : {{ post.time }}</h4>
-                <h4 class="post-topic">{{ post.location }}</h4>
-                <p class="post-subtitle">{{ post.generator }} | {{ post.created_date }}</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center">
-                <strong class="text-secondary"><i class="far fa-comments"></i>{{post.play_list_comments.count}}</strong>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left top text-center bg-light">
+        <div class="col card mb-2 mt-4 left top text-center bg-light">
+            <div class="col card-header">
+                <h1>{{ post.setup }}</h1>
+                <p class="larger-font">Date: {{ post.date }} : {{ post.time }}</h2>
+                <p>{{ post.location }}</p>
+            </div>
             <div class="card-body">
                 <p class="card-text ">
                     {{ post.description | safe }}
                 </p>
-                <div class="row">
-                    <div class="col-1 text-center">
-                        {% if user == post.generator %}
+                <hr>
+                <p class="text-muted">{{ post.generator }} | {{ post.created_date }}</p>
+                <p class="text-muted"><small>Last edited: {{ post.updated_date }}</small></p>
+                <div class="d-flex flex-row justify-content-center">
+                    {% with comments.count as total_comments %}
+                    <strong class="text-secondary margin-1"><i class="far fa-comments"></i><p class="margin-1">{{ total_comments }}</p></strong>
+                    {% endwith %}
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="col-6 margin-1">
+                    {% if user == post.generator %}
                         <div class="edit">
                             <button class="btn btn-primary" type="button">
                                 <a href="{% url 'edit_play' post.slug %}">Edit</a>
                             </button>
                         </div>
+                    </div>
+                    <div class="col-6 margin-1">
                         <!--code from youtube tutorial-->
                         <button class="btn btn-delete btn-outline-warning" type="button" data-bs-toggle="modal"
                             data-bs-target="#delete-play-modal">Delete</button>
@@ -68,24 +68,30 @@
 </div>
 <div class="container-fluid recent-posts">
     <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="col-md-4 card mb-4  mt-3 text-center bg-light">
-            <h3>Comments:</h3>
+        <div class="col-md-4 card mt-1 text-center bg-light">
             <div class="card-body">
+                <h3>Comments:</h3>
                 {% for comment in comments %}
+                <hr>
                 <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">{{ comment.generator }}<span class=" text-muted font-weight-normal">
-                            {{ comment.created_date }}</span> wrote:
-                    </p>
-                    {{ comment.content | linebreaks }}
+                    <p><strong>{{ comment.generator }}</strong></p>
+                    <p><small>{{ comment.created_date }} wrote:</small></p>
+                    <p >{{ comment.content | linebreaks }}</p>
                 </div>
                 {% if user.is_authenticated and user == comment.generator %}
-                <div class="edit">
-                    <button class="btn btn-primary" type="button">
-                        <a href="{% url 'edit_play_comment' comment.id %}">Edit</a>
-                    </button>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <div class="edit">
+                            <button class="btn btn-primary" type="button">
+                                <a href="{% url 'edit_play_comment' comment.id %}">Edit</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button class="btn btn-delete btn-outline-warning" type="button" data-bs-toggle="modal"
+                            data-bs-target="#delete-play-comment-modal">Delete</button>
+                    </div>
                 </div>
-                <button class="btn btn-delete btn-outline-warning" type="button" data-bs-toggle="modal"
-                    data-bs-target="#delete-play-comment-modal">Delete</button>
                 <div class="modal fade" id="delete-play-comment-modal" role="dialog" tabindex="2"
                     aria-labelledby="Delete Play Comment Modal" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -112,14 +118,14 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-        <div class="col-md-3 card mb-4 mt-3 border-primary text-center bg-light">
+        <div class="col-md-3 card mt-1 border-primary text-center bg-light">
             <div class="card-body">
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button class=" btn-primary" type="submit">Submit</button>
+                    <button class="submit btn btn-primary" type="submit">Submit</button>
                 </form>
             </div>
         </div>

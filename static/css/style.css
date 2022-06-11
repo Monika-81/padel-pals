@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-size: 1rem;
+}
+
 #filler {
   text-align: center;
 }
@@ -37,8 +42,7 @@
 h2 {
   color: #d4df53;
   text-align: center;
-  margin: 2rem;
-  padding-top: 1rem;
+  padding: 2rem;
 }
 
 .submit {
@@ -70,7 +74,6 @@ h2 {
 
 .table a {
   color: black;
-  font-size: larger;
 }
 
 
@@ -100,6 +103,10 @@ h2 {
 
 .margin-1 {
   margin: 1rem;
+}
+
+.larger-font {
+  font-size: larger;
 }
 
 .bg-custom{
@@ -147,6 +154,10 @@ h2 {
 
   .topic-item {
     margin: 1rem;
+  }
+
+  .table a {
+    font-size: larger;
   }
 
 }

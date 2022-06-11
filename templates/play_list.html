@@ -3,25 +3,22 @@
 
 <div class="container-fluid recent-posts">
     <h2>Find a team or a player:</h2>
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <table class="table bg-light">
+    <div class="table-responsive-md">
+        <table class="table bg-light mx-auto">
             <thead class="bg-primary">
             <tr>
-                <th scope="col">Locking for</th>
+                <th scope="col">Set up</th>
                 <th scope="col">Date</th>
                 <th scope="col">Location</th>
-                <th scope="col">Created on</th>
                 <th scope="col">Comments</th>
             </tr>
             </thead>
             {% for post in play_list %}
             <tbody>
             <tr>
-                <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong></a><br><small>{{post.description}}</small></td>
+                <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
                 <td>{{ post.date }} : {{ post.time }}</td>
                 <td>{{ post.location }}</td>
-                <td class="text-muted"><small>{{ post.created_date }}<br>{{post.generator}}</small>
-                </td>
                 <td><strong class="text-secondary"><i class="far fa-comments margin-1">
                     </i>{{post.play_list_comments.count}}</strong>
             </tr>
