@@ -3,6 +3,14 @@ body {
   font-size: 1rem;
 }
 
+.contrast-text {
+    width: fit-content;
+    padding: 0.5rem;
+    text-align: center;
+    color: rgba(250, 235, 215, 1);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 #filler {
   text-align: center;
 }
@@ -49,13 +57,21 @@ h2 {
   margin: 2rem;
 }
 
+.custom-submit {
+  background-color: #d4df53;
+}
+
+.required {
+  color: #d4df53;
+}
+
 .form-control {
   border: #0b5ed7 solid 3px;
 }
 
 .recent-card, .topic-card, .table {
   width: 90vw;
-  margin-top: 10px;
+  margin-top: 5rem;
   border: #0b5ed7 solid 3px;
 }
 

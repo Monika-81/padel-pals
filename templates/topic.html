@@ -34,6 +34,15 @@
                 </div>
             </a>
         </div>
+        {% empty %}
+        <div class="col-lg-4 text-center mb-5 mt-5">
+            <div class="card w-30">
+                <h2>To see all content, please sign up:</h2>
+                <button type="button" class="btn custom-submit btn-add">
+                    <a href="{% url 'account_signup' %}">Sign up</a>
+                </button>                        
+            </div>
+        </div>
         {% endfor %}
     </div>
 </div>

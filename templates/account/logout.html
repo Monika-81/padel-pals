@@ -19,7 +19,7 @@
 <div class="container-fluid">
   <div class="d-flex flex-row flex-wrap justify-content-center">
     <div class="col-md-8 mt-3">
-      <p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
+      <h4 class="text-center mx-auto contrast-text">{% trans 'Are you sure you want to sign out?' %}</h4>
     </div>
   </div>
   <div class="d-flex flex-row flex-wrap justify-content-center">
@@ -29,7 +29,7 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <button class="btn btn-primary" type="submit">{% trans 'Sign Out' %}</button>
+        <button class="btn custom-submit" type="submit">{% trans 'Sign Out' %}</button>
       </form>
     </div>
   </div>
