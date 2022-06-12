@@ -429,6 +429,7 @@ class UserPosts(View):
     def get(self, request):
         if request.user.is_authenticated:
             posts = Post.objects.filter(generator=request.user)
+            plays = Play.objects.filter(generator=request.user)
             topics = Topic.objects.all()
 
             return render(
@@ -436,7 +437,8 @@ class UserPosts(View):
                 'user_posts.html',
                 {
                     "topic_list": topics,
-                    "posts": posts
+                    "posts": posts,
+                    "plays": plays
                 }
             )
 
