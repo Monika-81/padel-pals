@@ -8,7 +8,7 @@
 <div class="topic-content">
   <nav class="topic-nav">
     <div id="filler">
-      <h2>{% trans "Sign Up" %}</h2>
+      <h2 class="header">{% trans "Sign Up" %}</h2>
     </div>
   </nav>
 </div>
@@ -17,20 +17,25 @@
 {% block content %}
 
 <div class="container-fluid">
-  <div class="card bg-light">
-    <div class="card-head">
-      <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">
-          sign in</a>.{% endblocktrans %}</p>
-    </div>
-    <div class="card-body">   
-      <form class="signup text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
-      </form>
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <div class="card mt-5 mb-5 bg-light">
+      <div class="card-header">
+        <h4 class="card-title">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">
+            <span id="underscore">sign in</span></a>.{% endblocktrans %}
+        </h4> 
+      </div>       
+      <div class="card-body">
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <div class="d-flex flex-row justify-content-center">
+            <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
+          </div>  
+        </form>
+      </div>
     </div>
   </div>
 </div>

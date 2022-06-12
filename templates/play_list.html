@@ -2,28 +2,41 @@
 {% block content %}
 
 <div class="container-fluid recent-posts">
-    <div class="table-responsive-md">
-        <table class="table bg-light mx-auto">
-            <thead class="bg-primary">
-            <tr>
-                <th scope="col">Set up</th>
-                <th scope="col">Date</th>
-                <th scope="col">Location</th>
-                <th scope="col">Comments</th>
-            </tr>
-            </thead>
-            {% for post in play_list %}
-            <tbody>
-            <tr>
-                <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
-                <td>{{ post.date }} : {{ post.time }}</td>
-                <td>{{ post.location }}</td>
-                <td><strong class="text-secondary"><i class="far fa-comments margin-1">
-                    </i>{{post.play_list_comments.count}}</strong>
-            </tr>
-            </tbody>
-            {% endfor %}
-        </table>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col text-center mt-4">
+            <div class="btn">
+                <button type="button" class="btn custom-submit">
+                    <a href="{% url 'play' %}">Add Post</a>
+                </button>                        
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="d-flex flex-row justify-content-center">
+        <div class="mt-4 table-responsive-md">
+            <table class="table bg-light">
+                <thead class="bg-primary">
+                <tr>
+                    <th scope="col">Set up</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Comments</th>
+                </tr>
+                </thead>
+                {% for post in play_list %}
+                <tbody>
+                <tr>
+                    <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
+                    <td>{{ post.date }} : {{ post.time }}</td>
+                    <td>{{ post.location }}</td>
+                    <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
+                        </i>{{post.play_list_comments.count}}</strong></td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>
 

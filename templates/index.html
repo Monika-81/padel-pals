@@ -2,7 +2,21 @@
 {% block content %}
 
 <div class="container-fluid recent-posts">
-    <h2>Recent posts:</h2>
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div class="card text-center mb-4 mt-4 bg-light">
+            <div class="card-header">
+                <h2 class="card-title">Welcome to Padel Pals!</h2>
+            </div>
+            <div class="card-body bg-custom">
+                <p class="card-text">A discussion forum for and by padel players and for anyone curious about this energetic sport.</p>
+                <p class="card-text">Featured below is the most recent posts:</p>
+                <p class="card-text"><big><i class="fas fa-arrow-down"></big></i></p>
+                <p class="card-subtitle text-muted"><small>To get access to all the
+                    features, you need to be a verified user. <br> If you have not created an account yet, please
+                    <a href="{{ signup_url }}"><span id="underscore">sign up.</span></a></small></p>
+            </div>
+        </div>
+    </div>
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
         {% if forloop.counter <= 4 %}
@@ -18,7 +32,7 @@
                 </div>
                 <div class="card-footer bg-custom">
                     <p class="card-text"><small class="text-muted"> Last edited: {{ post.updated_date }} <br> 
-                        <i class="far fa-comments"></i> {{post.comments.count}}
+                        <i class="fas fa-comments"></i> {{post.comments.count}}
                         <i class="far fa-heart"></i> {{ post.number_of_likes }} </small></p>
                 </div>
             </a>

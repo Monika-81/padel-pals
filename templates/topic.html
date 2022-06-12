@@ -3,17 +3,17 @@
 {% block content %}
 
 <div class="container-fluid recent-posts">
-        {% if user.is_authenticated %}
-        <div class="row">
-            <div class="col-2 mx-auto text-center mt-5">
-                <div class="btn d-inline-block main-btn">
-                    <button type="button" class="btn btn-primary btn-add">
-                        <a href="{% url 'add_post' %}">Add Post</a>
-                    </button>                        
-                </div>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col text-center mb-4 mt-4">
+            <div class="btn">
+                <button type="button" class="btn custom-submit">
+                    <a href="{% url 'add_post' %}">Add Post</a>
+                </button>                        
             </div>
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
         <div class="card recent-card text-center bg-light">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-footer bg-custom">
                     <p class="card-text"><small class="text-muted">Last edited: {{ post.updated_date }} <br> 
-                        <i class="far fa-comments"></i> {{post.comments.count}}
+                        <i class="fas fa-comments"></i> {{post.comments.count}}
                         <i class="far fa-heart"></i> {{ post.number_of_likes }} </small></p>
                     </p>
                 </div>
@@ -37,10 +37,17 @@
         {% empty %}
         <div class="col-lg-4 text-center mb-5 mt-5">
             <div class="card w-30">
-                <h2>To see all content, please sign up:</h2>
-                <button type="button" class="btn custom-submit btn-add">
-                    <a href="{% url 'account_signup' %}">Sign up</a>
-                </button>                        
+                <div class="card-header">
+                    <h5>Oh no! This topic got no posts yet!</h5>
+                    <p class="text-muted"><small>To get access to all the
+                        features, you need to be a verified user. <br> If you have not created an account yet, please
+                        sign up.</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn custom-submit">
+                        <a href="{% url 'account_signup' %}">Sign up &raquo;</a>
+                    </button> 
+                </div>                       
             </div>
         </div>
         {% endfor %}

@@ -472,4 +472,3 @@ class UserProfile(UpdateView):
                 'Invalid submit, please fill out all the required fields!'
                 )
         return redirect(reverse('user_posts'))
-        

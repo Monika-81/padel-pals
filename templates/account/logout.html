@@ -8,7 +8,7 @@
 <div class="topic-content">
   <nav class="topic-nav">
     <div id="filler">
-      <h2>{% trans "Sign Out" %}</h2>
+      <h2 class="header">{% trans "Sign Out" %}</h2>
     </div>
   </nav>
 </div>
@@ -18,19 +18,21 @@
 
 <div class="container-fluid">
   <div class="d-flex flex-row flex-wrap justify-content-center">
-    <div class="col-md-8 mt-3">
-      <h4 class="text-center mx-auto contrast-text">{% trans 'Are you sure you want to sign out?' %}</h4>
-    </div>
-  </div>
-  <div class="d-flex flex-row flex-wrap justify-content-center">
-    <div class="col-md-1 mt-3">      
-      <form class="text-center" method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
-        <button class="btn custom-submit" type="submit">{% trans 'Sign Out' %}</button>
-      </form>
+    <div class="card mt-5 mb-5 bg-light">
+      <div class="card-header">
+        <h4 class="card-title text-center">{% trans 'Are you sure you want to sign out?' %}</h4>
+      </div>
+      <div class="card-body">    
+        <form class="text-center" method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+          <div class="d-flex flex-row justify-content-center">
+            <button class="btn btn-primary" type="submit">{% trans 'Sign Out' %}</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
