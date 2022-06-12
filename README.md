@@ -1,24 +1,25 @@
 # **Padel Pals**
 
-**Padel Pals** is the discussion forum for Padel Tennis enthusiasts in and around many the city of Helsingborg, Sweden. The forum  aim to be a platform for discussion about padel, socializing with other padel interested people as well as a to search for a team that are missing a player for a booked session, or to annunce that the user is avalible if someone whant to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, technique etc and to just soocialze with likeminded padel players.
+**Padel Pals** is the discussion forum for Padel Tennis enthusiasts. The forum aim to be a platform for discussion about padel, socializing with other padel interested people as well as a to search for a team that are missing a player for a booked session, or to annunce that the user is avalible if someone whant to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, technique etc and to just soocialze with likeminded padel players.
 
 Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com/)!
 <br>
 <br>
 
-<img src="" width=1000>
+![alt text](image.jpg)
 <br>
 
 
 ## **Content**
-1. [**Design**](#design)
-    - [Data structure](#data-structure)
-    - [Entity Relationship Diagram](#entity-relationship-diagram)
-    - [Wireframes](#wireframes)
-    - [Color scheme](#color-scheme)
-    
+1. [**Strategy**](#strategy)
+    - [UX](#ux)
 
-2. [**Features**](#features)
+2. [**Scope**](#scope)
+    - [User Stories](#user-stories)
+    - [Entity Relationship Diagram](#entity-relationship-diagram)
+    - [Wireframes](#wireframes)    
+
+3. [**Structure**](#structure)
     - [Home page](#home-page)
     - [Navigation](#navigation)
     - [Topic List](#topic-list)
@@ -34,57 +35,118 @@ Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com
     - [Contact form](#contect-form)
     - [Search function](#search-function)
    
+4. [**Skeleton**](#skeleton)
+    - [Technologies](#technologies)
 
-3. [**Technologies**](#technologies)
+5. [**Surface**](#surface)
+    - [Design](#design)
+    - [Color scheme](#color-scheme)   
 
-4. [**Testing**](#testing)
+6. [**Testing**](#testing)
     
-5. [**Deployment**](#deployment)
+7. [**Deployment**](#deployment)
     - [Deployment](#deployment)
     - [Clone](#clone)
     - [Forking](#forking)
 
-7. [**Credits**](#credits)
+8. [**Credits**](#credits)
     - [Content](#content)
     - [Acknowledgement](#acknowledgement)
 
 [Back to top](#padel-pals)
 
+<br>
+
+## Strategy
 
 ---
 
-## **Design**
 
-## **Data structure**
-To get a clear view of what should be included and how the flow of the program should work, I used [LucidChart](https://www.lucidchart.com/pages/) to construct a data model mock up as well as a mock up of the worksheet.
-
-<img src="" width=1200> <img src="" width=500> 
-<br>
-
-### **Entity Relationship Diagram**
-
-
-<img src="" width=1000>
+### **UX** 
 
 <br>
+
+With the UX principles in mind I started with Strategy phace, thinking about the target audience and what features would benefit them. 
+
+The target audience are:
+
+- people of all age groups but mostly adults
+- people that enjoy playing padel
+- people that are qurious about the sport
+- people who like to discuss and learn more about padel
+- people that like to fin new friends to play padel with
+
+What the user will be looking for:
+
+- An interactive forum website, where a verified user can leave post and comment 
+- A website with information that can be read, even if you are not logged in
+- The ability to make a personal user account to access all the content of the site
+- The ability to post, comment and like post
+- The ability to find other users that like to play padel a certain time
 
 [Back to top](#padel-pals)
 
+<br>
+
+## Scope 
+
 ---
 
-## **Features**
 
-### **Home page**
+### **User Stories**
+
+<br>
+
+**Epic: Admin**
+- As a Site Admin I can reach the admin functionalities from the main navigation so that I can get quick      accesss
+- As a Site Admin I can manage the site so that community rules are uphold
+- As a Site Admin I can add or delete posts and comments so that the community rules are upheld 
+
+**Epic: Account Management**
+- As a Site User I can sign up for an account so that I can use all the features reserved for members
+- As a Site User I can log in to the site so that I can use all the features of the site
+- As a Site User I can easily log out from the site so that my account and it's content remains secure
+- As a Site User I can contact admin so that I can leave feedback and ask questions
+- As a Site User I can create a personal profile so that I can control my content
+
+**Epic: Forum View**
+- As a Site User I can read posts and comments in detail so that I can get an understanding for the community
+- As a Site User I can see a list of what topics I can discuss for easy navigation and posting
+- As a Site User I can see the latest post at the home page so that I get the newest input directly
+- As a Site User I can use a search function so that I can find the right post that interests me
+- As a Site User I can easily and intuitively navigate the site so that I can find what I am looking for
+- As a Site User I can see the date a post was created and updated so that I know how accurate it is
+
+**Epic: Forum Interactions**
+- As a logged in Site User I can create new post and comments in a topic so that I can discuss and socialize with the other members of the community
+- As a logged in Site User I can edit or delete my posts and comment so that I display the right content that intrests me
+- As a logged in Site User I can like a posts so that others can see If a topic is popular and/or good information
+- As a Site User I get confirmation or error messages so that I know everything is working correctly
+
+**Epic: Find Player**
+- As a Site User I want to find missing player/players or a team that are missing a player so that I can play when it suits me
+
+[Back to top](#padel-pals)
+
+<br>
+
+### **Features**
+
+<br>
+
+#### **Home page**
 <details>
+The home page gives the user a short introduction to the forum, who they are and what the purpose of the forum is. It also explains to the site user that to access all the functions of the forum, the user needs to create an account and links to the sign up page. Underneath the welcome messge is a list of the most recent posts in the forum. The main design theme of the page was to make it spory yet easy to read and sleek in the design.
 
 <br>
 <br>
-<img src="" width=1200>
+![alt text](image.jpg)
 <br>
 </details>
 
-### **Navigation**
+#### **Navigation**
 <details>
+At the top of the website there is an internal navigation bar. The logo as well as the 'home' choice directs the user back to itself. If the user is not logged in, he or she finds the options to register or login in the manu section that will help the user choose between the "about page" (home page), "activities page" and the "sign up page" - also know as "join". The current page the user is visiting is marked for easier navigation on the site. On desktop and landscape oriented screens the navigation bar is located to the top right side of the page, and on portrait oriented devices the navigation bar is fixed at the top of the screen.
 
 <br>
 <br>
@@ -100,7 +162,7 @@ To get a clear view of what should be included and how the flow of the program s
 </details>
 
 
-### **Topic list**
+#### **Topic list**
 <details>
 
 <br>
@@ -112,7 +174,7 @@ To get a clear view of what should be included and how the flow of the program s
 </details>
 
 
-### **Topic View**
+#### **Topic View**
 <details>
 
 <br>
@@ -121,7 +183,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Play event list**
+#### **Play event list**
 <details>
  
 <br>
@@ -133,7 +195,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Forum post**
+#### **Forum post**
 <details>
 
 <br>
@@ -162,7 +224,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Add Post**
+#### **Add Post**
 <details>
 
 <br>
@@ -180,7 +242,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Edit Post**
+#### **Edit Post**
 <details>
 
 <br>
@@ -199,7 +261,7 @@ To get a clear view of what should be included and how the flow of the program s
 </details>
 
 
-### **Delete Post**
+#### **Delete Post**
 <details>
 
 <br>
@@ -217,7 +279,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Comments**
+#### **Comments**
 <details>
 
 <br>
@@ -235,7 +297,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Like Post**
+#### **Like Post**
 <details>
 
 <br>
@@ -253,7 +315,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Profile Page**
+#### **Profile Page**
 <details>
 
 <br>
@@ -271,7 +333,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Contact Form**
+#### **Contact Form**
 <details>
 
 <br>
@@ -281,7 +343,7 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Search Function**
+#### **Search Function**
 <details>
 
 <br>
@@ -291,23 +353,31 @@ To get a clear view of what should be included and how the flow of the program s
 <br>
 </details>
 
-### **Future features**
+#### **Future features**
 
 
 [Back to top](#padel-pals)
 
----
+<br>
 
-## **Technologies**
+
+## Technologies
+---
 
 ### **Languages**
 
-- **Django**<br>
-
+- **Python**
 <br>
 
-- **Other languages**<br>
-The template provided by Code Institute for this project also includes HTML, CSS and JavaScript. Though I have not used this languages on my own development in this project, they provide a foundation for my project to be built and deployed correctly.
+- **HTML5**
+<br> I used HTML to create the base structure of the project. I started with a basic boilerplate set up and created the first crude structure of the page out of the original design. 
+
+- **CSS3**
+<br> The CSS was used to apply the custom styles to the HTML skeleton. In a separate document the creation of the design came forth. 
+
+- **Javascript**
+<br> Javascript is the life of the game and makes the game interactive to the user. It's the language used to create the functions that drives the game forward.
+
 <br>
 
 ### **Tools**
@@ -428,7 +498,6 @@ The template used in the project was provided by Code Institute. The terminal de
 
 - My mentor **Precious Ijege** at Code Institute for valuable input and encouragement.
 - The Slack community for be such an open, warm and sharing place. 
-- **Alfred Skedebäck** for the original idea of an app he developed for private use. I've never seen or used the app he developed but it was the inspiration for this project.
 - **Viet Hoang** for letting me run the app by him and for getting user experience input before, during and at the final stage of the project.
 
 
