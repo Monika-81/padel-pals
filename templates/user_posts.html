@@ -69,24 +69,5 @@
         </div>
     </div>
 </div>
-        <div class="col">
-            
-            <table>
-                {% for post in posts %}
-                <tr>
-                    <td>
-                        <a href="{% url 'post_display' post.slug %}">{{ post }} - by: {{ post.generator }}</a>
-                    </td>
-                </tr>
-                {% empty %}
-                <h4>Sorry</h4>
-                <p>There are no post with '{{ search }}' in the title.</p>
-                {% endfor %}
-            </table>
-      </div>
-    </div>
- 
-
-
 
 {% endblock %}
