@@ -15,7 +15,7 @@
     </div>
     {% endif %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
-        {% for post in posts %}
+        {% for post in page_obj %}
         <div class="card recent-card text-center bg-light">
             <a href="{% url 'post_display' post.slug %}">
                 <h4 class="card-header">
@@ -48,8 +48,14 @@
                 </div>                       
             </div>
         </div>
+    {% if forloop.counter|divisibleby:4 %}
+    </div>
+        <div class="row no-gutters">
+        {% endif %}
         {% endfor %}
     </div>
 </div>
+<!-- Pagination -->
+{% include "pagination.html" %}
 
 {% endblock %}

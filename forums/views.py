@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, UpdateView
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from django.contrib.auth.models import User
 from .models import Topic, Post, Comments, Play
 from .forms import *
 
@@ -22,17 +22,22 @@ class TopicList(ListView):
 class TopicDisplay(View):
 
     def get(self, request, topic, *args, **kwargs):
-        queryset = Topic.objects
+        queryset = Topic.objects.all()
         topic = get_object_or_404(queryset, topic=topic)
         posts = topic.topic_posts.order_by('-created_date')
         topics = Topic.objects.all()
+
+        paginator = Paginator(topic.topic_posts.order_by('-created_date'), 4)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
 
         return render(
             request,
             'topic.html',
             {
                 "topic_list": topics,
-                "posts": posts
+                "posts": posts,
+                'page_obj': page_obj
             },
         )
 
@@ -446,31 +451,3 @@ class UserPosts(View):
             return redirect('home')
 
 
-# User profile
-class UserProfile(UpdateView):
-
-    model = User
-    template_name = 'user_profile.html'
-    form_class = UserForm
-
-    def post(self, request):
-        user = UserForm(request.POST)
-
-        if user.is_valid():
-            user.first_name = self.cleaned_data.get("first_name", None)
-            user.last_name = self.cleaned_data.get("last_name", None)
-            user.email = self.cleaned_data.get("email", None)
-            form.save()
-
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Your information was updated!'
-                )
-        else:
-             messages.add_message(
-                request,
-                messages.WARNING,
-                'Invalid submit, please fill out all the required fields!'
-                )
-        return redirect(reverse('user_posts'))
