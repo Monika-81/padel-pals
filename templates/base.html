@@ -95,7 +95,7 @@
                 <nav class="topic-nav">
                     <ul class="nav justify-content-center">
                         {% for topic in topic_list %}
-                        <li class="nav-item topic-item px-1">
+                        <li class="nav-item topic-item px-1 {% if request.resolver_match.view_name == 'topic.topic' %}active{% endif %}">
                             <a class="nav-link" aria-current="page"
                                 href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
                         </li>
@@ -128,10 +128,7 @@
     </main>
     <!--Footer-->
     <footer class="text-white text-center">
-        <p>Copyright 2022......</p>
-        <p>
-            NOT SOCIAL MEDIA
-        </p>
+        <h6>A Code Institute Students Project.</h6>
     </footer>
     <script>
         setTimeout(function() {
