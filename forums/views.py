@@ -294,7 +294,7 @@ class AddPlay(View):
     def post(self, request):
         play_form = PlayForm(request.POST)
 
-        if play_form.is_valid:
+        if play_form.is_valid():
             play = play_form.save(commit=False)
             play.generator = request.user
             play.slug = get_random_string(8, 'abcdefghi')
@@ -431,7 +431,6 @@ def delete_play_comment(request, comments_id):
         'play_display', args=[comments.post.slug]))
 
 
-
 # Users Posts
 class UserPosts(View):
 
@@ -453,5 +452,3 @@ class UserPosts(View):
 
         else:
             return redirect('home')
-
-
