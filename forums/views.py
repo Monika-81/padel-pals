@@ -216,12 +216,16 @@ class Search(View):
         if request.method == 'POST':
             search = request.POST.get('search')
             posts = Post.objects.filter(title__contains=search)
+            plays = Play.objects.filter(description__contains=search)
+            contents = Post.objects.filter(content__contains=search)
             topics = Topic.objects.all()
 
             context = {
                 "topic_list": topics,
                 'search': search,
                 'posts': posts,
+                'plays': plays,
+                'contents': contents
             }
             return render(request, 'search.html', context)
 

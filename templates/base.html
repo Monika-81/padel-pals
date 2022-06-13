@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +9,7 @@
     <meta name="Description" content="Live, play and discuss Padel!"/>
     <meta name="keywords" content="padel, community, socialize, sports" />
     <meta name="author" content="Monika Jakobsson" />
+    <title>Padel Pals</title>
     <!--Google Fonts-->
     <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -21,9 +21,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Padel Pals</title>
 </head>
-
 <body class="d-flex flex-column h-100">
     <!--Site navigation-->
     <header>
@@ -72,36 +70,38 @@
                     </ul>
                     <form class="d-flex" method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
-                        <input class="form-control me-2" type="search" placeholder="Forum titles" name="search" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Forum search" name="search" aria-label="Search">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
+    <!--Jumbotron-->
     <main class="flex-shrink-0 main-bg">
         {% if request.get_full_path == '/' %}
         <section class="hero-image">
             <div class="jumbotron-fluid">
                 <div class="container">
                     <div class="card text-center mb-4 mt-4 bg-light shadow" id="transparent">
-                    <h1 class="display-4 mt-3" class="transperant-text" id="jumbotron-alt">Welcome to Padel Pals!</a></h1>
+                    <h1 class="display-4 mt-3 transparent-text" id="jumbotron-alt">Welcome to Padel Pals!</h1>
                     <hr class="my-4">
                         <div class="card-body">
                             <p class="card-text transperant-text">A discussion forum for and by padel players or for anyone curious about
                                 this energetic sport.</p>
-                            <p class="card-subtitle text-muted transperant-text"><small>To get access to all the features, you need to be a
+                            <p class="card-subtitle transparent-text"><small>To get access to all the features, you need to be a
                                     verified user. <br> If you have not created an account yet, please
                                     <a href="{% url 'account_signup' %}"><span id="underscore">sign up.</span></a></small>
                             </p>
                         </div>
+                    </div>
                 </div>
             </div>            
         </section>
         {% else %}
-        <section class="hero-image">
+        <section class="jumbotron-text">
             <div class="jumbotron-fluid">
-                <div class="container">
+                <div class="container p-3" id="transparent-sm">
                     <h1 class="display-4"><a class="nav-link" id="jumbotron-link" href="{% url 'home' %}" aria-label="Go to home page">PADEL PALS</a></h1>
                     <hr class="my-4">
                     <p class="lead">Live, play and discuss Padel!</p>
@@ -109,7 +109,8 @@
             </div>            
         </section>
         {% endif %}
-        <section>
+        <!--Topic navigation menu-->
+        <section class="topic-navigation">
             <div class="topic-content">
                 {% block topic-nav %}
                 <nav class="topic-nav bg-dark">
@@ -127,6 +128,7 @@
                 </nav>
             </div>
             {% endblock %}
+            <!--Messages-->
             <!--Code from Code Institute's 'I Think Therefore I Blog' project-->
             <div class="container message-container">
                 {% for message in messages %}
@@ -159,4 +161,3 @@
     </script>
 </body>
 </html>
-

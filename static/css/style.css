@@ -28,7 +28,7 @@ table {
   font-family: 'Audiowide', cursive;
 }
 
-#transparent {
+#transparent, #transparent-sm {
   background-color: rgba(8, 9, 0, 0.5) !important;
   color: white;
 }
@@ -192,6 +192,10 @@ thead {
   .table a {
     font-size: larger;
   }
+
+#transparent-sm {
+  background-color: transparent !important;
+}
 
 }
 
