@@ -24,10 +24,10 @@
     <title>Padel Pals</title>
 </head>
 
-<body class="d-flex flex-column bg-dark h-100">
+<body class="d-flex flex-column h-100">
     <!--Site navigation-->
     <header>
-        <nav class="navbar navbar-expand-lg fixed top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg fixed top bg-dark py-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}"><span id="logo">Padel Pals</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -57,7 +57,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ user.username }}
                             </a>
-                            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                                <a class="dropdown-item" href="{% url 'add_post' %}" aria-label="Add a forum post">Add a forum post</a>
                                <a class="dropdown-item" href="{% url 'play' %}" aria-label="Search for a Team or Player">Search for a Team/Player</a>
                                <a class="dropdown-item" href="{% url 'user_posts' %}" aria-label="See your posts">Your Profile</a>
@@ -73,13 +73,32 @@
                     <form class="d-flex" method="POST" action="{% url 'search' %}">
                         {% csrf_token %}
                         <input class="form-control me-2" type="search" placeholder="Forum titles" name="search" aria-label="Search">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                        <button class="btn btn-primary" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
     <main class="flex-shrink-0 main-bg">
+        {% if request.get_full_path == '/' %}
+        <section class="hero-image">
+            <div class="jumbotron-fluid">
+                <div class="container">
+                    <div class="card text-center mb-4 mt-4 bg-light shadow">
+                    <h1 class="display-4 text-dark mt-3">Welcome to Padel Pals!</a></h1>
+                    <hr class="my-4 text-dark">
+                    <div class="card-body bg-light">
+                        <p class="card-text">A discussion forum for and by padel players or for anyone curious about
+                            this energetic sport.</p>
+                        <p class="card-subtitle text-muted"><small>To get access to all the features, you need to be a
+                                verified user. <br> If you have not created an account yet, please
+                                <a href="{% url 'account_signup' %}"><span id="underscore">sign up.</span></a></small>
+                        </p>
+                    </div>
+                </div>
+            </div>            
+        </section>
+        {% else %}
         <section class="hero-image">
             <div class="jumbotron-fluid">
                 <div class="container">
@@ -87,15 +106,16 @@
                     <hr class="my-4">
                     <p class="lead">Live, play and discuss Padel!</p>
                 </div>
-            </div>
+            </div>            
         </section>
+        {% endif %}
         <section>
             <div class="topic-content">
                 {% block topic-nav %}
-                <nav class="topic-nav">
+                <nav class="topic-nav bg-dark">
                     <ul class="nav justify-content-center">
                         {% for topic in topic_list %}
-                        <li class="nav-item topic-item px-1 {% if request.resolver_match.view_name == 'topic.topic' %}active{% endif %}">
+                        <li class="nav-item topic-item px-1">
                             <a class="nav-link" aria-current="page"
                                 href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
                         </li>
@@ -127,7 +147,7 @@
         </section>
     </main>
     <!--Footer-->
-    <footer class="text-white text-center my-4">
+    <footer class="footer text-center my-4">
         <h6>A Code Institute Students Project.</h6>
     </footer>
     <script>

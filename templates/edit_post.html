@@ -1,18 +1,28 @@
 {% extends "base.html" %}
-{% block content %}
 
 {% load crispy_forms_tags %}
 
+{% block topic-nav %}
+<div class="topic-content">
+  <nav class="topic-nav">
+    <div id="filler">
+      <h2 class="header">Edit post</h2>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block content %}
+
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h4>Edit post</h4>
+    <div class="col-md-8 mt-3 offset-md-2 text-center">
       <p>Posting as: {{ user.username }}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-      <form method="post">
+      <form method="post" class="edit text-center">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Edit Post</button>

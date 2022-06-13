@@ -7,8 +7,8 @@
 <div class="container">
     <div class="row">
         <div class="col card mb-2 mt-4 left top text-center bg-light">
-            <div class="col card-header">
-                <h1>{{ post.setup }}</h1>
+            <div class="col">
+                <h1 class="card-header mt-2">{{ post.setup }}</h1>
                 <p class="larger-font">Date: {{ post.date }} : {{ post.time }}</h2>
                 <p>{{ post.location }}</p>
             </div>
@@ -17,8 +17,8 @@
                     {{ post.description | safe }}
                 </p>
                 <hr>
-                <p class="text-muted">{{ post.generator }} | {{ post.created_date }}</p>
-                <p class="text-muted"><small>Last edited: {{ post.updated_date }}</small></p>
+                <p class="text-muted">{{ post.generator }} | {{ post.created_date }}<br>
+                    <small>Last edited: {{ post.updated_date }}</small></p>
                 <div class="d-flex flex-row justify-content-center">
                     {% with comments.count as total_comments %}
                     <strong class="text-secondary margin-1"><i class="fas fa-comments"></i><p class="margin-1">{{ total_comments }}</p></strong>
@@ -66,9 +66,9 @@
         </div>
     </div>
 </div>
-<div class="container-fluid recent-posts">
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="col-md-4 card mt-1 text-center bg-light">
+<div class="containe recent-posts">
+    <div class="d-flex flex-column flex-wrap justify-content-center">
+        <div class="card mt-1 text-center bg-light">
             <div class="card-body">
                 <h3>Comments:</h3>
                 {% for comment in comments %}
@@ -118,7 +118,7 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-        <div class="col-md-3 card mt-1 border-primary text-center bg-light">
+        <div class="card mt-1 text-center bg-light">
             <div class="card-body">
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>

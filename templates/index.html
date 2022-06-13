@@ -2,31 +2,17 @@
 {% block content %}
 
 <div class="container-fluid recent-posts">
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="card text-center mb-4 mt-4 bg-light">
-            <div class="card-header">
-                <h2 class="card-title">Welcome to Padel Pals!</h2>
-            </div>
-            <div class="card-body bg-custom">
-                <p class="card-text">A discussion forum for and by padel players and for anyone curious about this energetic sport.</p>
-                <p class="card-text">Featured below is the most recent posts:</p>
-                <p class="card-text"><big><i class="fas fa-arrow-down"></big></i></p>
-                <p class="card-subtitle text-muted"><small>To get access to all the
-                    features, you need to be a verified user. <br> If you have not created an account yet, please
-                    <a href="{% url 'account_signup' %}"><span id="underscore">sign up.</span></a></small></p>
-            </div>
-        </div>
-    </div>
+    
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in posts %}
         {% if forloop.counter <= 4 %}
-        <div class="card recent-card text-center bg-light">
+        <div class="card recent-card text-center bg-light shadow p-3 mb-3 bg-white rounded">
             <a href="{% url 'post_display' post.slug %}">
                 <h4 class="card-header">
                     <strong>{{ post.title }}</strong>
                 </h4>
-                <p class="card-header">{{ post.topic }}</p>
                 <div class="card-body bg-custom">
+                    <p class="card-text">{{ post.topic }}</p>
                     <p class="card-text">{{ post.content }}</p>
                     <p class="card-subtitle"><small>Posted by: {{ post.generator }}</small></p>
                     <p class="card-subtitle"><small class="text-muted">Last edited: {{ post.updated_date }} <br> 
@@ -42,3 +28,4 @@
 </div>
 
 {% endblock %}
+

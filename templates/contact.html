@@ -5,8 +5,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2 text-white">
-      <h4 class="contrast-text">Contact us through the form below.</h4>
+    <div class="col-md-8 mt-5 offset-md-2">
+      <h4>Contact us through the form below.</h4>
       <p class="required">All fields are required.</p>
     </div>
   </div>
@@ -15,8 +15,8 @@
       <form method="post">
         {% csrf_token %}
         {{ contact | crispy }}
-        <div class="d-flex flex-row justify-content-center">
-          <button type="submit" class="custom-submit btn mt-2 mb-4">Submit</button>
+        <div class="d-flex flex-row justify-content-center  my-4">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>

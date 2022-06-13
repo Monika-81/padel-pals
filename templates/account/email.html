@@ -50,8 +50,7 @@
           </fieldset>
         </form>
         {% else %}
-        <p><strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should 
-          really add an e-mail address so you can receive notifications, reset your password, etc." %}</p>
+        <p><strong>{% trans "You currently do not have any e-mail address set up." %}</strong></p>
         {% endif %}
         {% if can_add_email %}
         <h5 class="text-center mb-4">{% trans "Add E-mail Address" %}</h5>

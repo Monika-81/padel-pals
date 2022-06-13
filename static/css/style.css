@@ -1,10 +1,21 @@
 body {
   margin: 0;
   font-size: 1rem;
+  color: black;
+  background-color: #f0f0f0;
+}
+
+a, .nav-link {
+  color: white;
+  text-decoration: none;
 }
 
 h2 {
   padding: 0.5rem;
+}
+
+table {
+  border: black .5px solid;
 }
 
 #filler {
@@ -16,6 +27,7 @@ h2 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: contain; 
+  overflow: hidden;
   color: white;
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -27,37 +39,42 @@ h2 {
   text-decoration: none;
 }
 
+.block-content {
+  min-height: 60vh;
+}
+
+.topic-item {
+  border: none;
+}
+
 .margin-left {
   margin-left: 10vw;
 }
 
-.block-content {
-  background-image: url('/static/images/dean-ricciardi-yUDldIrqW5E-unsplash.d8cb159e3138.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 70vh;
+.margin-1 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.post-title, .post-subtitle, .post-topic, .requiredField {
+.post-title, .post-subtitle, .post-topic {
   color: white;
+}
+
+thead {
+  background-color: rgba(0,0,0,0.03)
 }
 
 .submit {
   margin: 2rem;
 }
 
-.custom-submit {
+/* .custom-submit {
   background-color: #d4df53;
 }
 
 .required, .header {
   color: #d4df53;
-}
-
-.form-control {
-  border: #0b5ed7 solid 3px;
-}
+} */
 
 .recent-card, .topic-card, .table {
   width: 90vw;
@@ -82,28 +99,19 @@ h2 {
   text-decoration: none;
 }
 
-.dropdown a {
-  color: white;
-  text-decoration: none;
-}
-
 .topic-nav a, .btn-add a {
   color: white;
   font-size: larger;
   text-decoration: none;
 }
 
-.topic-nav a:hover {
+/* .topic-nav a:hover {
   color: #d4df53;
 }
 
 .topic-nav a:active {
   color: #d4df53;
-}
-
-.margin-1 {
-  margin: 1rem;
-}
+} */
 
 .larger-font {
   font-size: larger;
@@ -137,29 +145,20 @@ h2 {
   background: transparent;
 }
 
-.contrast-text {
-  width: fit-content;
-  padding: 0.5rem;
-  text-align: center;
-  color: rgba(250, 235, 215, 1);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 #underscore {
   text-decoration: underline;
 }
 
-.login label, .signup label {
+.login label, .signup label, .edit label {
     display: block;
 }
 
 /* ----------------------------------------Media queries */
 
 @media screen and (min-width: 1800px) {
-    .recent-card, .topic-card, .table {
+    .list-group, .card, .table {
     width: 50vw;
   }
-  
 }
 
 @media screen and (min-width: 800px) {
