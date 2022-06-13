@@ -84,8 +84,8 @@
             <div class="jumbotron-fluid">
                 <div class="container">
                     <div class="card text-center mb-4 mt-4 bg-light shadow" id="transparent">
-                    <h1 class="display-4 mt-3 transparent-text" id="jumbotron-alt">Welcome to Padel Pals!</h1>
-                    <hr class="my-4">
+                        <h2 class="display-4 mt-3 transparent-text" id="jumbotron-alt">Welcome to Padel Pals!</h2>
+                        <hr class="my-4">
                         <div class="card-body">
                             <p class="card-text transperant-text">A discussion forum for and by padel players or for anyone curious about
                                 this energetic sport.</p>
@@ -110,8 +110,8 @@
         </section>
         {% endif %}
         <!--Topic navigation menu-->
-        <section class="topic-navigation">
-            <div class="topic-content">
+        <section class="topic-content">
+            <div class="topic-nav">
                 {% block topic-nav %}
                 <nav class="topic-nav bg-dark">
                     <ul class="nav justify-content-center">
@@ -141,11 +141,11 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="block-content">
+        </section>
+        <section class="block-content">
                 {% block content %}
                 <!-- Content Goes here -->
                 {% endblock content %}
-            </div>
         </section>
     </main>
     <!--Footer-->

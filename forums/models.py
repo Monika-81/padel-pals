@@ -14,14 +14,17 @@ class Topic(models.Model):
 
 class Post(models.Model):
     #  model for forum posts
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name="topic_posts")
+    topic = models.ForeignKey(
+        Topic, on_delete=models.CASCADE, related_name="topic_posts")
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="forum_posts")
+    generator = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="forum_posts")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    likes = models.ManyToManyField(User, related_name="forum_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="forum_likes", blank=True)
 
     class Meta:
         ordering = ['-created_date']
@@ -38,12 +41,15 @@ class Post(models.Model):
 
 class Comments(models.Model):
     #  model for forum comments
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_post_comments")
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
+    generator = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_post_comments")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    likes = models.ManyToManyField(User, related_name="comment_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="comment_likes", blank=True)
 
     class Meta:
         ordering = ['created_date']
@@ -67,7 +73,7 @@ class Contact(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Message {self.content} from {self.first_name} {self.last_name}'
+        return f'Message from {self.first_name} {self.last_name}'
 
 
 class Play(models.Model):
@@ -77,7 +83,8 @@ class Play(models.Model):
         ('Searching for a Team', 'Team'),
     ]
 
-    generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="play_posts")
+    generator = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="play_posts")
     setup = models.CharField(max_length=100, choices=SETUP_CHOICES)
     location = models.TextField(max_length=300)
     description = models.TextField(max_length=300)
@@ -98,8 +105,10 @@ class Play(models.Model):
 
 class PlayComments(models.Model):
     #  model for play list comments
-    post = models.ForeignKey(Play, on_delete=models.CASCADE, related_name="play_list_comments")
-    generator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_play_comments")
+    post = models.ForeignKey(
+        Play, on_delete=models.CASCADE, related_name="play_list_comments")
+    generator = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_play_comments")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -112,4 +121,3 @@ class PlayComments(models.Model):
 
     def get_absolute_url(self):
         return reverse('play_display', args=[self.post.slug])
-

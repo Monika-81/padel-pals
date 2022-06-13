@@ -22,5 +22,4 @@ urlpatterns = [
     path('post/delete_play_comment/<int:comments_id>', views.delete_play_comment, name='delete_play_comment'),
     path('search', views.Search.as_view(), name="search"),
     path('contact/', views.Contact.as_view(), name='contact'),
-    
 ]

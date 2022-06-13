@@ -8,6 +8,7 @@
 <div class="topic-content">
   <nav class="topic-nav">
     <div id="filler">
+        <h1>{% trans "Confirm E-mail Address" %}</h1>
     </div>
   </nav>
 </div>
@@ -17,6 +18,7 @@
 
 <div class="container-fluid">
     {% if confirmation %}
+    {% user_display confirmation.email_address.user as user_display %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
         <div class="card mt-5 mb-5 bg-light">
             <div class="card-header">
@@ -28,7 +30,7 @@
                 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                     {% csrf_token %}
                     <div class="d-flex flex-row justify-content-center">
-                        <button class="btn btn-primary" type="submit">{% trans "Sign In" %} &raquo;</button>
+                        <button class="btn btn-primary" type="submit">{% trans 'Confirm' %}</button>
                     </div>
                 </form>
             </div>
