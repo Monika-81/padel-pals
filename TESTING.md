@@ -19,6 +19,9 @@ In combination with the direct visual view of the page provided by the live serv
  
  My best friend during the debugging and testing was to commit in and out code as well ass to the <em>{{ }}</em>-function in the HTML to see if I targeted the right element or if my view was reachable from where I wanted to reach certain database items from a model.
 
+
+ Before the User Stories where marked ass closed, I tested the storie to see if the result was satisfing and the app lived up to the project plan, see prodject bord for more information [Kanban](https://github.com/Monika-81/padel-pals/projects/1).
+
 <br>
 
 ### **Browser compadability**
@@ -177,7 +180,29 @@ To validate the accessibility further I also tested the site at Wave - Web Acces
 There where a number of bugs and mishaps committed through the development as I tried to learn the best way to code the app. I freaquently created logical errors due to not understanding the flow of the code correctly but as the project came along, and the bugs with it, I started too see and understand more naturally what I had done too cause the bug to happen. As seen in the commits made, I change code - then later changes it back again (or partly) as I figured it out along the development process.
 
 **The major bugs where**: <br>
-1. 
+1. The first custom CSS was not loading to Heroku
+- Turned to the slack community for help, and noticed I had missplaced a 's' in the settings.py file: Had STATIC_DIR not STATIC_DIRS.
+2. Comment view not updateing after comment post, error message 500: 'TypeError at /go/ 'Comments' object is not iterable'.
+- Unclear what the error was, rewrote the post code from scratch, changed comments_form to comment_form and then it worked.
+3. URL and view of topics detail not working, had problems wireing up the topics URL mostly because I wanted to show the topics menu in many window. 
+- Solved by trial and error and in the end understood thanx to tutoring from Alex and the use of 'topics = Topic.objects.all()' in more views.
+4. Correlating to that bug I couldn't get the recent post to render in the same view as the topics list. 
+- The solution was to change the code to post i posts (not post_list) and to fix the code above.
+5. The delete post suddenly stoped workig.
+- Had the same code in urls.py for the app after adding delete comment.: path('', views.delete, name=''=), edited to separate paths.
+6. Had problems with the play form at the begging, wouldn't save to the backend admin terminal and would display an error if the fields was not filled out correctly. 
+- The solution was to validate the input and display an error message if the form was incorrect. I also hade to implement the HttpsResponse reserve.
+7. In connection with the problems above, I had problems displaying the time and date from the form. 
+- In the end there where type-o's again: in the forms.py I said widget not widgets.
+8. Late in the project I noticed a major bug with CSS and picturs not loading to heroku.
+- Found the tips to install the whitnoise package from a thread on Slack. But also noticed the the image folder had accedentally duplicated in the static folder. Adjusted and pust, and everything was working again.
+9. The add post page was reachavble if you typed in the adress as a none logged in user.
+- Added authentication to load the add post form.
+10. THe email validation template stopt shoving the button to confirm the adress after I styled the template. 
+- Had multiple tries to fix it but nothing really worked. In the end I went back to almost the original file but left out a {% user.display %} argument that kept throwing errors.
+
+
+
 <br>
 
 **Bug not fixed**:

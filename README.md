@@ -143,6 +143,13 @@ To follow an agile approch, a project board (kanban-board) was set up using GitH
 
 ### **Features**
 
+Working with the kanban board and prioratizing the content in must/should/could naturally left ideas for the forum un finished due to lack of time. What I would like to implement to the site in the future is:
+- Email notifications when someone answers a users post
+- Notifications when the user log in if some has liked a post
+- Possibility to directly repost another user to admin if they missbehave
+- A more complete profile page with password reset, user image and description.
+- The possibility to post videos and articles.
+
 <br>
 
 #### **Home page**
@@ -502,9 +509,6 @@ An admin user can access the Django administration backend features directly fro
     - I used PEP8 online check to test and validate my python code.  
 
 
-
-
-
 [Back to top](#padel-pals)
 
 ---
@@ -528,7 +532,6 @@ The project was deployed to **Heroku** from **GitPod**:
 - Choose the option 'Create new app' and then choose a unique name for your application and the right region. Then click 'Create New App'.
 - Next you need to add buildpacks and create config vars, this is utterly **important** to have done before you deploy your app!
 
-    .......
     - Then add config vars by clicking 'Reveal Config Vars'. I used _Config Var_ called `PORT`, set to `8000`.
     - If you have credentials for your project, you need to add these as well. Create another _Config Var_ called `CREDS` and paste the copy of the requeriments code inside your credentials file into the value field.
 
@@ -605,9 +608,8 @@ base_slug = slugify(self.title, allow_unicode=allow_unicode)
 - The jumbotron image comes from the artist Vincenzo Morelli at [Unsplash](https://unsplash.com/photos/Cj35lHL4atY).
 - The image at the top of this page, that shows how the website is presented on different media screens are a screenshot from [Am I responsive?](http://ami.responsivedesign.is/)
 - The [AudioWide](https://fonts.google.com/specimen/Audiowide) font come from [Google Fonts](https://fonts.google.com/).
+- The template used in the project was provided by Code Institute.
 
-<br>
-The template used in the project was provided by Code Institute.
 <br>
 <br>
 

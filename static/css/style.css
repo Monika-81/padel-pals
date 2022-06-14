@@ -12,6 +12,10 @@ a, .nav-link {
   text-decoration: none;
 }
 
+#email-confirmation {
+  color: black !important;
+}
+
 h2 {
   padding: 0.5rem;
 }
