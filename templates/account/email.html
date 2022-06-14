@@ -21,7 +21,7 @@
     <div class="card mt-5 mb-5 bg-light">
       <div class="card-header">
         {% if user.emailaddress_set.all %}
-        <h5 class="card-title">{% trans 'The following e-mail addresses are associated with your account:' %}</h5>
+        <h5 class="card-title text-center">{% trans 'The following e-mail addresses are associated with your account:' %}</h5>
       </div>       
       <div class="card-body">
         <form action="{% url 'account_email' %}" class="email_list text-center" method="post">
