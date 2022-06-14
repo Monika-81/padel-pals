@@ -78,6 +78,97 @@ Below are the final test of the python files in PEP8:
 <br>
 </details>
 
+- [HTML Validation](https://www.w3schools.com/) 
+
+When the basic structure of the project was done I ran code validation through W3Schools Validator for all the HTML files as well as the CSS file. The biggest problem with the HTML are the many other templates that share the <em>{% block content %}</em> and throws errors with missing tags or to many line breaks. 
+
+The problems with linebreaks are left since the code works and it looks fine when you compare the same section live in Dev tools. The raw source code from Dev Tools that I use to validate the code consists of white spaces where the pyhon code is suppose to be. The same code is tested ok for the homepage and topic views but throws an error when the playlist view is loaded.
+
+There is also an issue with Summernote rendering extra tags around the text in the posts and comments that transfer over to the raw html code, there are an image exampel with the errors below.
+Some semantic and code logic errors where made on my behalf and corrected after the last validation.
+
+<details>
+<br>
+ 
+**Errors**
+
+![Summernote](/static/images/screenshots/Error-in-code-playdisplay.png)
+![Indention error](/static/images/screenshots/html-indention-blocks-error.png)
+![Indention error](/static/images/screenshots/html-indention-blocks-error2.png)
+![Play list error](/static/images/screenshots/html-playdisplay-error.png)
+![Play list error](/static/images/screenshots/html-error.png)
+![Error not changed](/static/images/screenshots/html-error-code-not-changed.png)
+
+
+**Finished check result**
+
+![Base](/static/images/screenshots/html-validation-base.homepage.png)
+![Topic page](/static/images/screenshots/html-validation-topic.page.png)
+![Remaining problem](/static/images/screenshots/play-end.png)
+![Remaining problem](/static/images/screenshots/play-end2.png)
+![Remaining problem](/static/images/screenshots/plan-end3.png)
+
+
+Last picture mentions a <span> that are delibratly there since the nav code changes if the user is logged in or logged ut.  
+<br>
+</details>
+
+
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
+I also ran the page through Lighthouse for both desktop and mobile to test out the performance and accessibility of the page. The input gave me further information how to proceed with the project, and was repeated after all major changes and bug fixes. 
+<br>
+
+Both platforms where used for validation and accessibility testing at the final stage of the project. The final result is shown below: 
+<br>
+<br>
+
+**W3School**
+
+HTML<br>
+
+![HTML](assets/images/readme/w3s-validator-final.png)
+<br>
+
+CSS
+<br>
+
+![CSS](assets/images/readme/End-test%20CSS.png)
+
+<br>
+<br>
+
+**Lighthouse** 
+
+![Lighthouse Desktop](assets/images/readme/lighthouse-final-desktop.png)
+<br>
+(Desktop, the same result on all pages.)
+<br>
+<br>
+
+![Lighthouse Mobile](assets/images/readme/lighthouse-mobile-finished.png)
+<br>
+(The mobile performance of 95% occurred on the activities page due to the image loaded, while running the same test on the other pages of the site the rating was 99%.)
+<br>
+<br>
+
+- [WAVE](https://wave.webaim.org/)
+
+To validate the accessibility further I also tested the site at Wave - Web Accessibility Evaluation Tool. No errors where found and the four warnings are give to the paragraphs with justified text, but I decided to keep the justified text out of design choice.
+
+![WAVE](assets/images/readme/accessibility.png) ![Alerts](assets/images/readme/alerts.png)
+<br>
+<br>
+
+[Back to top](#testing)
+
+
+
+
+
+
+
 [Back to top](#testing)
 
 ---
