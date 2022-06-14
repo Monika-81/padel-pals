@@ -1,6 +1,6 @@
 # **Padel Pals**
 
-**Padel Pals** is the discussion forum for Padel Tennis enthusiasts. The forum aim to be a platform for discussion about padel, socializing with other padel interested people as well as a to search for a team that are missing a player for a booked session, or to annunce that the user is avalible if someone whant to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, technique etc and to just soocialze with likeminded padel players.
+**Padel Pals** is the discussion forum for Padel Tennis enthusiasts. The forum aims to be a platform for discussions about padel, socializing with other padel interested people as well as to search for teams that are missing a player for a booked session, or to announce that the user is avalible if someone wants to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, techniques, etc and to just socialize with likeminded padel players.
 
 Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com/)!
 <br>
@@ -77,17 +77,17 @@ The target audience are:
 
 - people of all age groups but mostly adults
 - people that enjoy playing padel
-- people that are qurious about the sport
+- people that are curious about the sport
 - people who like to discuss and learn more about padel
-- people that like to fin new friends to play padel with
+- people that like to find new friends to play padel with
 
 What the user will be looking for:
 
-- An interactive forum website, where a verified user can leave post and comment 
+- An interactive forum website, where a verified user can leave posts and comments 
 - A website with information that can be read, even if you are not logged in
 - The ability to make a personal user account to access all the content of the site
-- The ability to post, comment and like post
-- The ability to find other users that like to play padel a certain time
+- The ability to post, comment and like posts
+- The ability to find other users that like to play padel at a certain time
 
 [Back to top](#padel-pals)
 
@@ -104,13 +104,13 @@ What the user will be looking for:
 
 **Epic: Admin**
 - As a Site Admin I can reach the admin functionalities from the main navigation so that I can get quick accesss
-- As a Site Admin I can manage the site so that community rules are uphold
+- As a Site Admin I can manage the site so that community rules are upheld
 - As a Site Admin I can add or delete posts and comments so that the community rules are upheld 
 
 **Epic: Account Management**
 - As a Site User I can sign up for an account so that I can use all the features reserved for members
 - As a Site User I can log in to the site so that I can use all the features of the site
-- As a Site User I can easily log out from the site so that my account and it's content remains secure
+- As a Site User I can easily log out from the site so that my account and its content remains secure
 - As a Site User I can contact admin so that I can leave feedback and ask questions
 - As a Site User I can create a personal profile so that I can control my content
 
@@ -123,9 +123,9 @@ What the user will be looking for:
 - As a Site User I can see the date a post was created and updated so that I know how accurate it is
 
 **Epic: Forum Interactions**
-- As a logged in Site User I can create new post and comments in a topic so that I can discuss and socialize with the other members of the community
-- As a logged in Site User I can edit or delete my posts and comment so that I display the right content that intrests me
-- As a logged in Site User I can like a posts so that others can see If a topic is popular and/or good information
+- As a logged in Site User I can create new post and comments in a topic so that I can discuss and socialize with other members of the community
+- As a logged in Site User I can edit or delete my posts and comment so that I display the right content that interests me
+- As a logged in Site User I can like posts so that others can see if a topic is popular and/or relevant
 - As a Site User I get confirmation or error messages so that I know everything is working correctly
 
 **Epic: Find Player**
@@ -143,10 +143,10 @@ To follow an agile approch, a project board (kanban-board) was set up using GitH
 
 ### **Features**
 
-Working with the kanban board and prioratizing the content in must/should/could naturally left ideas for the forum un finished due to lack of time. What I would like to implement to the site in the future is:
-- Email notifications when someone answers a users post
-- Notifications when the user log in if some has liked a post
-- Possibility to directly repost another user to admin if they missbehave
+Working with the kanban board and prioritizing the content in must/should/could naturally left ideas for the forum unfinished due to lack of time. What I would like to implement to the site in the future is:
+- Email notifications when someone replies to a user's post
+- Notifications when the user logs in, that someone has liked a post
+- Possibility to directly repost another user to admin if they misbehave
 - A more complete profile page with password reset, user image and description.
 - The possibility to post videos and articles.
 
@@ -154,7 +154,7 @@ Working with the kanban board and prioratizing the content in must/should/could 
 
 #### **Home page**
 <details>
-The home page gives the user a short introduction to the forum, who they are and what the purpose of the forum is. It also explains to the site user that to access all the functions of the forum, the user needs to create an account and links to the sign up page. Underneth the welcome message is a second menu of the topics of the forum as well as a list of the most recent posts in the forum. The main vision of the site was to make it sporty yet easy to navigate, read and sleak in the design.
+The homepage gives the user a short introduction to the forum, who they are and what the purpose of the forum is. It also explains to the site user that to access all the functions of the forum, the user needs to create an account and links to the sign up page. Underneath the welcome message is a second menu of the topics of the forum as well as a list of the most recent posts in the forum. The main vision of the site was to make it sporty yet easy to navigate, read and sleak in the design.
 
 <br>
 <br>
@@ -167,7 +167,7 @@ The home page gives the user a short introduction to the forum, who they are and
 
 #### **Navigation**
 <details>
-At the top of the website there is an internal navigation bar. The logo as well as the 'home' choice directs the user back to itself. If the user is not logged in, he or she finds the options to register or login. When the user is loged in the the log in link changes to log out and a dropdown menu emerges. In the dropdown menu the user can add a new forum post or search for a team or player to play padle with. There is also a menu option to display the profile page of the user. If the user is an admin user they can find the link to the backend administration in the same dropdown menu. To the far right in the navigationbar there is a search function. The top navigationbar transforms to a expandable navigationbar on smaller screens.
+At the top of the website there is an internal navigation bar. The logo as well as the 'home' choice directs the user back to itself. If the user is not logged in, he or she finds the options to register or login. When the user is logged in, the login link changes to log out and a dropdown menu emerges. In the dropdown menu the user can add a new forum post or search for a team or players to play padel with. There is also a menu option to display the profile page of the user. If the user is an admin user they can find the link to the backend administration in the same dropdown menu. To the far right in the navigation bar there is a search function. The top navigation bar transforms to an expandable navigation bar on smaller screens.
 
 <br>
 <br>
@@ -187,7 +187,7 @@ At the top of the website there is an internal navigation bar. The logo as well 
 
 #### **Jumbotron**
 <details>
-Directly under the top navigation bar the user is greated with a "hero image" in a jumbotron display. On the homepage the jumbotron relays a message quickly describing the content and essence of the forum site, it also informs the user that to access the full content of the site - the user needs the create an account. A link to the sign up apge helps the user to quickly navigate to the sigt straight from the jumbotrons welcome message. As the user moves around on the site the text in the jumbotron changes to a "logo text" that also functions as a link to the home page. The hero image behind the text sets the mode for the site and acts as a visual information for the user to what the site is aboute. The image is also contains the color team for the site. For better contrast of the text on smaller screens, the jumbotron displays an overlay on screens-sizes smaller than 800px.
+Directly under the top navigation bar the user is greeted with a "hero image" in a jumbotron display. On the homepage the jumbotron relays a message quickly describing the content and essence of the forum site, it also informs the user that to access the full content of the site - the user needs the create an account. A link to the sign up page helps the user to quickly navigate to the sigt straight from the jumbotron's welcome message. As the user moves around on the site the text in the jumbotron changes to a "logo text" that also functions as a link to the home page. The hero image behind the text sets the mode for the site and acts as a visual information for the user to what the site is about. The image also contains the color team for the site. For better contrast of the text on smaller screens, the jumbotron displays an overlay on screens-sizes smaller than 800px.
 
 <br>
 <br>
@@ -206,7 +206,7 @@ Directly under the top navigation bar the user is greated with a "hero image" in
 
 #### **Topic navigation**
 <details>
-Their is a second navigation bar under the jumbotron image that displays the topic of the discussion forum. There are three discussion topics: "Gear : a topic about anything gear related", "Technique : where the players can as as well as give eachother technique tips" and "Anything : And eveything else that the community like to discuss with each other, a social platform.". The last item in the menu is the "Play" topic, that displays requests from other user to find a team or a player to play with. The navigation topics are highlighted when hovered or clicked. 
+There is a second navigation bar under the jumbotron image that displays the topic of the discussion forum. There are three discussion topics: "Gear : a topic about anything gear related", "Technique : where the players can ask for technique tips as well as give each other technique tips" and "Anything : And eveything else that the community like to discuss with each other, a social platform.". The last item in the menu is the "Play" topic, that displays requests from other user to find a team or a player to play with. The navigation topics are highlighted when hovered or clicked. 
 
 <br>
 <br>
@@ -226,7 +226,7 @@ Their is a second navigation bar under the jumbotron image that displays the top
 
 #### **Topic list**
 <details>
-After a user have chosen one of the three discussion topic the are greated with a view of the posts under that topic. The posts are ordered by creation date, with the newest post first. If there are more than 6 post under each topic, the site is paginated and the user can move forward or backward by clicking the navigation furthest down underneeth all the posts. Each post displays the title, topic, content of the post as wall as the author of the post and when the post was last edited. There is also two counters showing the amount of comments and likes the post have gotten. If the user wants to read that post and see the comments, the whole card works as a link to the post display. If the user wants to add a post, there is also a navigation button at the start of the list that takes the user to the add post form. Only logged in users get to see the button since that feature is for members of the forum only.
+After a user have chosen one of the three discussion topics they are greeted with a view of the posts under that topic. The posts are ordered by creation date, with the newest post first. If there are more than six posts under each topic, the site is paginated and the user can move forward or backward by clicking the navigation furthest down underneath all the posts. Each post displays the title, topic, content of the post as wall as the author of the post and when the post was last edited. There is also two counters showing the amount of comments and likes the post have gotten. If the user wants to read that post and see the comments, the whole card works as a link to the post display. If the user wants to add a post, there is also a navigation button at the start of the list that takes the user to the add post form. Only logged in users get to see the button since that feature is for members of the forum only.
 
 <br>
 <br>

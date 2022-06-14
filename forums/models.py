@@ -60,8 +60,6 @@ class Comments(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    likes = models.ManyToManyField(
-        User, related_name="comment_likes", blank=True)
 
     class Meta:
         '''
@@ -71,12 +69,6 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"Comment {self.content} by {self.generator}"
-
-    def number_of_likes(self):
-        '''
-        returns number of likes
-        '''
-        return self.likes.count()
 
     def get_absolute_url(self):
         return reverse('post_display', args=[self.post.slug])
