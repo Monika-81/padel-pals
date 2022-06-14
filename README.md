@@ -37,6 +37,8 @@ Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com
     - [Profile page](#profile-page)
     - [Contact form](#contect-form)
     - [Search function](#search-function)
+    - [Admin](#admin)
+
    
 4. [**Skeleton**](#skeleton)
     - [Technologies](#technologies)
@@ -383,38 +385,53 @@ To add more interactivity and a more social aspect to the forum, the user has th
 #### **Profile Page**
 <details>
 
+In the dropdown menu on the left hand side of the navigation bar at the top, the user can reach their personal page. The personal page displays the username (read only) and if the user has an email adress attached to the account. An email adress is not required to start an account but if the user wants to connect an email account to their profile they need to verify their email as well. They can also leave it unverified. The email adress have no larger function conneted to the forum as of the features the forum displays today. 
+
+Except for seeing their username and email adress field, the user can access all of their posts (not comments) from the profile page as well. Their is a list display underneeth the profile information. If the user clicks on a list link they will be transported to the site of the post. 
+
 <br>
-<br>
-<strong>The user needs to confirm the displayed row as the correct one they want to delete.</strong>
-<br>
-<br>
-<img src="" width=1200>
-<br>
-<br>
-<strong>After the user confirms the choice to add the input's given, the new updated list is displayed. </strong>
-<br>
-<br>
-<img src="" width=1200>
+<br> 
+
+![Profile page](/static/images/screenshots/profilepage.png)
+![Update email](/static/images/screenshots/update-email.png)
+
 <br>
 </details>
 
 #### **Contact Form**
 <details>
+Both logged in users and none logged in users can contact the admin of the page through the contact form linked to in the navigation bar at the top. The contact form goes directly to the back end administration site. As the user do not need verify an email to start an account, the email field is required as mandatory for all so that the admin users can properly contact the user back. The contact form is a way for site users to leave feedbak, report ill behvoir, to ask questions about the site and so on.
 
 <br>
-<br>
-<strong>The user get's the choice to go back.</strong>
-<img src="" width=1200>
+<br> 
+
+![Contact form](/static/images/screenshots/contact-form.png)
+![Confirmation](/static/images/screenshots/message.png)
+
 <br>
 </details>
 
 #### **Search Function**
 <details>
 
+At the top right corner is a search function for the site. The site user do not need to be verified to search the topics. The search renders posts with the searched value in the forum post title or content or in the play events description. Each post is renderd in a separate list depending on where the search result was found. If the input dosent render a finding, the user gets feedback directly.
+
 <br>
+<br> 
+
+![Search bar](/static/images/screenshots/search-bar.png)
+![Search fail](/static/images/screenshots/seach-team.png)
+![Search success](/static/images/screenshots/search-success.png)
+
 <br>
-<strong>The user get's the choice to go back.</strong>
-<img src="" width=1200>
+</details>
+
+#### **Admin**
+<details>
+An admin user can access the Django administration backend features directly from the dropdown bar after the user logged in. In the admin section the admin can create and delete posts, read contacts form sent to admin as well as remove users. The admin can also serch and filter through the various posts in the forum. 
+
+![Search bar](/static/images/screenshots/admin%20.png)
+
 <br>
 </details>
 
