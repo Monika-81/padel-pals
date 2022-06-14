@@ -4,12 +4,15 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from .models import Topic, Post, Comments, Play
-from .forms import *
+from .models import Topic, Post, Comments, Play, PlayComments
+from .forms import CommentsForm, PostForm, ContactForm
+from .forms import PlayForm, PlayCommentsForm
 
 
-# Topics
 class TopicList(ListView):
+    '''
+    View to render the topics nav
+    '''
     model = Topic
     template_name = 'index.html'
 
@@ -20,7 +23,10 @@ class TopicList(ListView):
 
 
 class TopicDisplay(View):
-
+    '''
+    View to render the posts in a specific topic, orded by date created on
+    and paginated to 4 posts per page. Also renders view on topics nav
+    '''
     def get(self, request, topic, *args, **kwargs):
         queryset = Topic.objects.all()
         topic = get_object_or_404(queryset, topic=topic)
@@ -42,9 +48,11 @@ class TopicDisplay(View):
         )
 
 
-# Posts
 class PostDisplay(View):
-
+    '''
+    View to render the details of the selected post
+    and it's comments and likes
+    '''
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
@@ -111,9 +119,10 @@ class PostDisplay(View):
         )
 
 
-# Like posts
 class PostLike(View):
-
+    '''
+    View to let a user like or unlike a post
+    '''
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
@@ -125,9 +134,10 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_display', args=[slug]))
 
 
-# Add posts
 class AddPost(View):
-
+    '''
+    View to allow a new post to be added
+    '''
     def get(self, request):
         topics = Topic.objects.all()
         return render(
@@ -171,40 +181,47 @@ class AddPost(View):
             )
 
 
-# Edit Posts
 class EditPost(UpdateView):
-
+    '''
+    View to let the user edit a post
+    '''
     model = Post
     template_name = "edit_post.html"
     fields = ['topic', 'title', 'content']
 
 
 def delete_post(request, slug):
-
+    '''
+    View to let the user delete a post
+    '''
     post = get_object_or_404(Post, slug=slug)
     post.delete()
     return redirect(reverse('home'))
 
 
-# Edit Comments
 class EditComment(UpdateView):
-
+    '''
+    View to let the user edit a comment
+    '''
     model = Comments
     template_name = 'edit_comment.html'
     form_class = CommentsForm
 
 
 def delete_comment(request, comments_id):
-
+    '''
+    View to let the user delete a comment
+    '''
     comments = get_object_or_404(Comments, id=comments_id)
     comments.delete()
     return HttpResponseRedirect(reverse(
         'post_display', args=[comments.post.slug]))
 
 
-# Searchbar
 class Search(View):
-
+    '''
+    View to render the search results from the searchbar
+    '''
     def get(self, request):
         return render(
             request,
@@ -233,9 +250,10 @@ class Search(View):
             return render(request, 'search.html')
 
 
-# Contactform
 class Contact(View):
-
+    '''
+    View that allow the sending of a contact form to the admin
+    '''
     def get(self, request, *args, **kwargs):
         topics = Topic.objects.all()
 
@@ -277,9 +295,10 @@ class Contact(View):
         )
 
 
-# Event for finding players
 class AddPlay(View):
-
+    '''
+    View that allows a new play event post to be added
+    '''
     def get(self, request):
         topics = Topic.objects.all()
         return render(
@@ -322,9 +341,10 @@ class AddPlay(View):
             )
 
 
-# Play events list
 class PlayEventsList(ListView):
-
+    '''
+    View that render a list of play event posts
+    '''
     def get(self, request):
         plays = Play.objects.all()
         topics = Topic.objects.all()
@@ -339,14 +359,14 @@ class PlayEventsList(ListView):
         )
 
 
-# Display Play Event
 class PlayEventsDisplay(View):
-
+    '''
+    View to render the details of a play event
+    '''
     def get(self, request, slug, *args, **kwargs):
         queryset = Play.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.play_list_comments.order_by('created_date')
-        comment_form = PlayCommentsForm(data=request.POST)
         topics = Topic.objects.all()
 
         return render(
@@ -400,40 +420,47 @@ class PlayEventsDisplay(View):
         )
 
 
-# Edit Play
 class EditPlay(UpdateView):
-
+    '''
+    View to let the user edit a play event
+    '''
     model = Play
     template_name = "edit_play.html"
     fields = ['setup', 'location', 'description', 'date', 'time', ]
 
 
 def delete_play(request, slug):
-
+    '''
+    View to let the user delete a play event
+    '''
     post = get_object_or_404(Play, slug=slug)
     post.delete()
     return redirect(reverse('play_events'))
 
 
-# Edit Play Comments
 class EditPlayComment(UpdateView):
-
+    '''
+    View to let the user edit a play event comment
+    '''
     model = PlayComments
     template_name = 'edit_play_comment.html'
     form_class = PlayCommentsForm
 
 
 def delete_play_comment(request, comments_id):
-
+    '''
+    View to let the user delete a play event
+    '''
     comments = get_object_or_404(PlayComments, id=comments_id)
     comments.delete()
     return HttpResponseRedirect(reverse(
         'play_display', args=[comments.post.slug]))
 
 
-# Users Posts
 class UserPosts(View):
-
+    '''
+    View to render the users own posts
+    '''
     def get(self, request):
         if request.user.is_authenticated:
             posts = Post.objects.filter(generator=request.user)
@@ -450,5 +477,3 @@ class UserPosts(View):
                 }
             )
 
-        else:
-            return redirect('home')

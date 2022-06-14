@@ -448,8 +448,9 @@ An admin user can access the Django administration backend features directly fro
 
 ### **Languages**
 
-- **Python**
-<br>
+- **Django**
+<br> As a full stack project Python based framework Django is used to set up the back end of the application, with installed libraries such as: Allaut, Summernotes, Crispy Forms, Cloudinary, postgres, bootstrap........................
+...............................................elaborate!!!
 
 - **HTML5**
 <br> I used HTML to create the base structure of the project. I started with a basic boilerplate set up and created the first crude structure of the page out of the original design. 
@@ -458,14 +459,17 @@ An admin user can access the Django administration backend features directly fro
 <br> The CSS was used to apply the custom styles to the HTML skeleton. In a separate document the creation of the design came forth. 
 
 - **Javascript**
-<br> Javascript is the life of the game and makes the game interactive to the user. It's the language used to create the functions that drives the game forward.
+<br> A small amount of javascript was used in this application, no separate script was needed and the code is located in the base template.
 
 <br>
 
 ### **Tools**
 
 - [Heroku](https://www.heroku.com/)
-    -  I used Heroku to deploy the application.  
+    -  I used Heroku to deploy the application. 
+
+- [Cloudinary](https://cloudinary.com/)
+    - I used to create the API's that connects the application to the spreadsheet at Google Sheet. 
 
 - [Lucid Chart](https://www.lucidchart.com/pages/)
     - I used Lucid Chart to design the data model and list mock up for the project.
@@ -476,12 +480,11 @@ An admin user can access the Django administration backend features directly fro
 - [GitHub](https://github.com/)
     - I used GitHub to create a repository for my project.
 
-- [Google-auth](https://google-auth.readthedocs.io/en/master/)
-    - I used Google-auth to authenticate the Google API's so the project could be accessed in the cloud.
+- [Gmail](https://gmail.com)
+    - I used a email account on gmail to work as the backend email ater deplayment.
 
 - [Cloudinary](https://cloudinary.com/)
     - I used to create the API's that connects the application to the spreadsheet at Google Sheet.
-
 
 - [PEP8](http://pep8online.com/)
     - I used PEP8 online check to test and validate my python code.  
@@ -522,7 +525,7 @@ The project was deployed to **Heroku** from **GitPod**:
 - Scroll down to 'Connect to GitHub' and search for your project. Make sure you are connected to the right GitHub account. Click 'Connect'.
 - Keep scrolling downwards, now you can choose between Automatic Deployment or Manual Deployment. I choose Manual first, until the app was properly deployed and a link to the app was visual. Then I choose to enable automatic deployment for smoother testing. 
 
-The live app can be found here: https://padelpals.herokuapp.com/ (Yes! I made a type-o choosing the name of the application on Heroku and noticed too late to change it.)
+The live app can be found here: https://padelpals.herokuapp.com/
 <br>
 
 <br>
@@ -538,7 +541,7 @@ A copy of this GitHub Repository can be made by either making a copy on your loc
 - To clone a copy of the python project, click the 'copy' icon on the right-hand side of **Clone with HTTPS**.
 - Choose your code editor, open GitBash and change the working directory to where you want the cloned directory to be made saved.
 - In the terminal you write git clone and then paste the copied URL. Like this: '$ git clone https://github.com/Monika-81/padel-pals.git' 
-- Press enter and then install the dependencies you like to use for the project. To run this project I recommend to atleast install **gspread**.
+- Press enter and then install the dependencies you like to use for the project.
 <br>
 
 ### **Forking**
@@ -556,20 +559,16 @@ A copy of this GitHub Repository can be made by either making a copy on your loc
 
 ### **Content**
 
-For most of the development and bug fixes I went back to the Code Institute LMS and the learning material for the ..... I also turned to the Slack community and the search function, where I found many tips when I got stuck. When I didn't find the answers to understand what I needed to change there, I consulted external sources while searching for the answer using Google. No piece of code was copied to use in the project, by reading on many different sites I learned more about python and used what I learned to try out was doing wrong.
+For most of the development and bug fixes I went back to the Code Institute LMS and the learning material for this section of the course. I also turned again and again to [DjangoProject](https://www.djangoproject.com/) and [Get Bootstrap](https://getbootstrap.com) as well as to the Slack community and the search function, where I found many tips when I got stuck. When I didn't find the answers to understand what I needed to change there, I consulted external sources while searching for the answer using Google. In some cases I used bits of code from external sources in my project, if so they are credited in the code and / or in the testing section. Usually I took inspiration from an outside sourse, to learn how it was done, but in the end had to modify it to suit my project. ............................................................................
 
-Some of the sites I frequently **consulted** was :
+Some of the other sites media I frequently **consulted** was :
 <br>
 
-* [CodeGrepper](https://www.codegrepper.com/)
-* [DelftStack](https://www.delftstack.com/)
-* [Programiz](https://www.programiz.com/)
-* [PyPi](https://pypi.org/project/prettytable/)
-* [Python](https://www.python.org/)  
-* [PythonGuides](https://pythonguides.com/)
-* [RealPython](https://realpython.com/)
+* [Codemy] YT
+* [CodingWithMitch]YT
+* [Fullstack Python](https://www.fullstackpython.com) 
 * [Stack Overflow](https://stackoverflow.com/) 
-* [W3School](https://www.w3schools.com/)
+
 
 <br>
 The template used in the project was provided by Code Institute. The terminal design of the app on Heroku is due to the code supplied in the template.

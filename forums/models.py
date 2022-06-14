@@ -4,7 +4,9 @@ from django.urls import reverse
 
 
 class Topic(models.Model):
-    #  model for forum topics
+    '''
+    model for forum topics
+    '''
     topic = models.CharField(max_length=100, unique=True)
     description = models.TextField()
 
@@ -13,7 +15,9 @@ class Topic(models.Model):
 
 
 class Post(models.Model):
-    #  model for forum posts
+    '''
+    model for forum posts
+    '''
     topic = models.ForeignKey(
         Topic, on_delete=models.CASCADE, related_name="topic_posts")
     title = models.CharField(max_length=200)
@@ -27,12 +31,18 @@ class Post(models.Model):
         User, related_name="forum_likes", blank=True)
 
     class Meta:
+        '''
+        Sorts the comments in descending order
+        '''
         ordering = ['-created_date']
 
     def __str__(self):
         return self.title
 
     def number_of_likes(self):
+        '''
+        Returns number of likes
+        '''
         return self.likes.count()
 
     def get_absolute_url(self):
@@ -40,7 +50,9 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    #  model for forum comments
+    '''
+    model for forum comments
+    '''
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
     generator = models.ForeignKey(
@@ -52,12 +64,18 @@ class Comments(models.Model):
         User, related_name="comment_likes", blank=True)
 
     class Meta:
+        '''
+        Sorts the comments in descending order
+        '''
         ordering = ['created_date']
 
     def __str__(self):
         return f"Comment {self.content} by {self.generator}"
 
     def number_of_likes(self):
+        '''
+        returns number of likes
+        '''
         return self.likes.count()
 
     def get_absolute_url(self):
@@ -65,7 +83,9 @@ class Comments(models.Model):
 
 
 class Contact(models.Model):
-    #  model for admin contact
+    '''
+    model for admin contact through contact form
+    '''
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     email = models.EmailField()
@@ -77,7 +97,9 @@ class Contact(models.Model):
 
 
 class Play(models.Model):
-    # model for finding player/team setup
+    '''
+    model for finding  a player or a team setup
+    '''
     SETUP_CHOICES = [
         ('Searching for a Player', 'Player'),
         ('Searching for a Team', 'Team'),
@@ -104,7 +126,9 @@ class Play(models.Model):
 
 
 class PlayComments(models.Model):
-    #  model for play list comments
+    '''
+    model for play list comments
+    '''
     post = models.ForeignKey(
         Play, on_delete=models.CASCADE, related_name="play_list_comments")
     generator = models.ForeignKey(
