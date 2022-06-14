@@ -131,6 +131,12 @@ What the user will be looking for:
 **Epic: Find Player**
 - As a Site User I want to find missing player/players or a team that are missing a player so that I can play when it suits me
 
+<br>
+
+To follow an agile approch, a project board (kanban-board) was set up using GitHub Projects: [Kanban](https://github.com/Monika-81/padel-pals/projects/1)
+
+<br>
+
 [Back to top](#padel-pals)
 
 <br>
@@ -449,8 +455,14 @@ An admin user can access the Django administration backend features directly fro
 ### **Languages**
 
 - **Django**
-<br> As a full stack project Python based framework Django is used to set up the back end of the application, with installed libraries such as: Allaut, Summernotes, Crispy Forms, Cloudinary, postgres, bootstrap........................
-...............................................elaborate!!!
+<br> For this full stack project the Python based framework Django is the development language for the application. I used PostgreSQL database, psycopg2 as th adapter and a gunicorn server. I Installed a battery of extra libraries to help run everything smoothly:
+
+- Cloudinary (to host static files)
+- AllAuth (for authentication)
+- Summernote (for the django admin)
+- Crispy forms (to render go locking forms)
+- Bootstrap¤ (to style the content and keep it resposive)
+- Whitnoise (to serve the static files)
 
 - **HTML5**
 <br> I used HTML to create the base structure of the project. I started with a basic boilerplate set up and created the first crude structure of the page out of the original design. 
@@ -559,25 +571,50 @@ A copy of this GitHub Repository can be made by either making a copy on your loc
 
 ### **Content**
 
-For most of the development and bug fixes I went back to the Code Institute LMS and the learning material for this section of the course. I also turned again and again to [DjangoProject](https://www.djangoproject.com/) and [Get Bootstrap](https://getbootstrap.com) as well as to the Slack community and the search function, where I found many tips when I got stuck. When I didn't find the answers to understand what I needed to change there, I consulted external sources while searching for the answer using Google. In some cases I used bits of code from external sources in my project, if so they are credited in the code and / or in the testing section. Usually I took inspiration from an outside sourse, to learn how it was done, but in the end had to modify it to suit my project. ............................................................................
+For most of the development and bug fixes I went back to the Code Institute LMS (over and over again) and the learning material for this section of the course. I also turned again and again to [DjangoProject](https://www.djangoproject.com/) and [Get Bootstrap](https://getbootstrap.com) as well as to the Slack community and the search function, where I found many tips when I got stuck. When I didn't find the answers to understand what I needed to change there, I consulted external sources while searching for the answer using Google. In some cases I used bits of code from external sources in my project, if so they are credited in the code and / or below. Usually I took inspiration from an outside sourse, to learn how it was done, but in the end had to modify it to suit my project.
 
 Some of the other sites media I frequently **consulted** was :
 <br>
 
-* [Codemy] YT
-* [CodingWithMitch]YT
+* [Codemy.com](https://www.youtube.com/c/Codemycom) - the turorials 'Create a simple django blog' & 'Django Wednesdays'
+* [CodingWithMitch](https://www.youtube.com/channel/UCoNZZLhPuuRteu02rh7bzsw)
 * [Fullstack Python](https://www.fullstackpython.com) 
 * [Stack Overflow](https://stackoverflow.com/) 
 
+- To get the Django framework installed and set up, I followed the Code institutes Django Blog video and cheatsheet.
+- I built the navbar with codeinspiration from [Get Bootstrap](https://getbootstrap.com/docs/4.3/components/navbar/)
+- To understand better how to show extra content when I rendered my views, I consulted [Django Project](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/) and [StackOverflow](https://stackoverflow.com/questions/63308865/get-threads-from-specific-forum-category-in-django-view), I also watched Corey Schafers [Python Django Tutorial](https://www.youtube.com/watch?v=-s7e_Fy6NRU) and found help from [Tutorialguruji](https://www.tutorialguruji.com/python/django-pass-multiple-models-to-my-listview/)
+- I learnt more about slugifying from [Full stack Python](https://www.fullstackpython.com/django-utils-text-slugify-examples.html):
+```
+base_slug = slugify(self.title, allow_unicode=allow_unicode)
+```
+- and [Stack OverFlow](https://stackoverflow.com/questions/42429463/django-generating-random-unique-slug-field-for-each-model-object):
+```
+ self.slug = ''.join(str(random.randint(0, 9)) for _ in range(8))
+ ```
+ - Inspiration for how to build the profile page came from [app-generator](https://github.com/app-generator/sample-django-extended-user-profile) and [Django Project](https://docs.djangoproject.com/en/4.0/topics/auth/default) 
+ - On  I learnt more about pagination on [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo) and [Django Project](https://docs.djangoproject.com/en/4.0/topics/pagination); code credit for the code in the pagination.html template!
+ - I learnt more about form widgets from [Stack Overflow](https://stackoverflow.com/questions/54748183/django-modelform-widgets-and-labels) & [Stack Overflow](https://stackoverflow.com/questions/9878475/django-modelform-override-widget) as well as from [CodingEntrepreneurs](https://www.youtube.com/watch?v=quJzUzCs6Q0) on youtube.com.
+- Code credit for displaying a modal when deleteing a post or comment, section markted in the thread.html & play_display.html template: [Solutions Cloud](https://www.youtube.com/watch?v=uC9cgOQ0bXI)
+- Inspiration for how to create a search bar comes from [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI)
+
 
 <br>
-The template used in the project was provided by Code Institute. The terminal design of the app on Heroku is due to the code supplied in the template.
+
+### **Media**
+- The jumbotron image comes from the artist Vincenzo Morelli at [Unsplash](https://unsplash.com/photos/Cj35lHL4atY).
+- The image at the top of this page, that shows how the website is presented on different media screens are a screenshot from [Am I responsive?](http://ami.responsivedesign.is/)
+- The [AudioWide](https://fonts.google.com/specimen/Audiowide) font come from [Google Fonts](https://fonts.google.com/).
+
+<br>
+The template used in the project was provided by Code Institute.
 <br>
 <br>
 
 ### **Acknowledgement**
 
 - My mentor **Precious Ijege** at Code Institute for valuable input and encouragement.
+- A big thanks to the tutor Alex at Tutor support, who understand my blacked out brain and explenations at pointed me towards a simple solution when I ran into a problem displaying the topic nevigation on all sites.
 - The Slack community for be such an open, warm and sharing place. 
 - **Viet Hoang** for letting me run the app by him and for getting user experience input before, during and at the final stage of the project.
 
