@@ -38,7 +38,7 @@ table {
 }
 
 .jumbotron-fluid {
-  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.ea893d2dc0cf.jpg');
+  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash-small.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -194,6 +194,10 @@ thead {
 
 #transparent-sm {
   background-color: transparent !important;
+}
+
+.jumbotron-fluid {
+  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.ea893d2dc0cf.jpg');
 }
 
 }

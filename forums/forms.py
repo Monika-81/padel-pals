@@ -4,18 +4,27 @@ from .models import Comments, Post, Contact, Play, PlayComments
 
 
 class CommentsForm(forms.ModelForm):
+    '''
+    Form for comments
+    '''
     class Meta:
         model = Comments
         fields = ('content',)
 
 
 class PostForm(forms.ModelForm):
+    '''
+    Form for forum posts
+    '''
     class Meta:
         model = Post
         fields = ('topic', 'title', 'content',)
 
 
 class ContactForm(forms.ModelForm):
+    '''
+    Form for contacting site admin
+    '''
     class Meta:
         model = Contact
         fields = ('first_name', 'last_name', 'email', 'content',)
@@ -39,6 +48,9 @@ class ContactForm(forms.ModelForm):
 
 
 class PlayForm(forms.ModelForm):
+    '''
+    Form for posting play events
+    '''
     class Meta:
         model = Play
         fields = ('setup', 'location', 'description', 'date', 'time',)
@@ -73,6 +85,9 @@ class PlayForm(forms.ModelForm):
 
 
 class PlayCommentsForm(forms.ModelForm):
+    '''
+    Form for play comments
+    '''
     class Meta:
         model = PlayComments
         fields = ('content',)
