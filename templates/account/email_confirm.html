@@ -19,34 +19,23 @@
 <div class="container-fluid">
     {% if confirmation %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="card mt-5 mb-5 bg-light">
-            <div class="card-header">
-                <h5 class="card-title text-center">{% blocktrans with confirmation.email_address.email as email %}Please
-                    confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
-                    {{ user_display }}.{% endblocktrans %}</h5>
-            </div>
-            <div class="card-body">
-                <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-                    {% csrf_token %}
-                    <div class="d-flex flex-row justify-content-center">
-                        <button class="btn btn-primary" type="submit">{% trans 'Confirm' %}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    {% user_display confirmation.email_address.user as user_display %}
+        <h5 class="text-center">{% blocktrans with confirmation.email_address.email as email %}Please
+            confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
+            {{ user_display }}.{% endblocktrans %}</h5>
+        <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">{% trans 'Confirm' %}</button>
+        </form>
     </div>
     {% else %}
     <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="card mt-5 mb-5 bg-light">
-            <div class="card-header">
-                {% url 'account_email' as email_url %}
-                <h5 class="card-title text-center">{% blocktrans with confirmation.email_address.email as email %}Please
-                    confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
-                    {{ user_display }}.{% endblocktrans %}</h5>
-            </div>
-        {% endif %}
-        </div>
+        {% url 'account_email' as email_url %}
+        <h5 class="text-center">{% blocktrans with confirmation.email_address.email as email %}Please
+            confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
+            {{ user_display }}.{% endblocktrans %}</h5>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}
