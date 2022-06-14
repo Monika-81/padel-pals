@@ -4,7 +4,9 @@
     - Browser compadability
 2. [Code validation](#code-validation)
     - Python PEP8
-    - W3School
+    - W3School (HTML & CSS)
+    - Lighthouse
+    - WAVE
 3. [Bugs and fixes](#bugs-and-fixes)
 
 ---
@@ -78,6 +80,8 @@ Below are the final test of the python files in PEP8:
 <br>
 </details>
 
+<br>
+
 - [HTML Validation](https://www.w3schools.com/) 
 
 When the basic structure of the project was done I ran code validation through W3Schools Validator for all the HTML files as well as the CSS file. The biggest problem with the HTML are the many other templates that share the <em>{% block content %}</em> and throws errors with missing tags or to many line breaks. 
@@ -110,66 +114,61 @@ Some semantic and code logic errors where made on my behalf and corrected after 
 
 
 Last picture mentions a <span> that are delibratly there since the nav code changes if the user is logged in or logged ut.  
+
 <br>
 </details>
 
+<br>
 
+- [CSS Validation](https://www.w3schools.com/) 
+
+The CSS had one error before deployment, had to many paramenters regarding the jumbotron image.
+Below are the error, the code that was wrong and the finished result.
+
+<details>
+<br>
+
+![Error](/static/images/screenshots/css_validation_error.png)
+![Code](/static/images/screenshots/css_validation_error_problem.png)
+![No error](/static/images/screenshots/css_validation_ok.png)
+
+<br>
+</details>
+
+<br>
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
-I also ran the page through Lighthouse for both desktop and mobile to test out the performance and accessibility of the page. The input gave me further information how to proceed with the project, and was repeated after all major changes and bug fixes. 
+I also ran the page through Lighthouse for both desktop and mobile to test out the performance and accessibility of the page. The input gave me further information how to proceed with the project, and was repeated after all major changes and bug fixes. The biggest problem was that the performance on mobile viewport until I added a smaller picture for smaller screen sizes. Below are the results from the hompage on bot desktop and mobile. But the result was the same at the other urls as well.
+
+<details>
 <br>
 
-Both platforms where used for validation and accessibility testing at the final stage of the project. The final result is shown below: 
-<br>
-<br>
-
-**W3School**
-
-HTML<br>
-
-![HTML](assets/images/readme/w3s-validator-final.png)
-<br>
-
-CSS
-<br>
-
-![CSS](assets/images/readme/End-test%20CSS.png)
+![Lighthouse desktop](/static/images/screenshots/lighthouse-desktop-home.png)
+![Lighthouse mobile](/static/images/screenshots/lighthouse-mobile-home.pngg) 
 
 <br>
+</details>
+
 <br>
 
-**Lighthouse** 
-
-![Lighthouse Desktop](assets/images/readme/lighthouse-final-desktop.png)
-<br>
-(Desktop, the same result on all pages.)
-<br>
-<br>
-
-![Lighthouse Mobile](assets/images/readme/lighthouse-mobile-finished.png)
-<br>
-(The mobile performance of 95% occurred on the activities page due to the image loaded, while running the same test on the other pages of the site the rating was 99%.)
-<br>
-<br>
 
 - [WAVE](https://wave.webaim.org/)
 
 To validate the accessibility further I also tested the site at Wave - Web Accessibility Evaluation Tool. No errors where found and the four warnings are give to the paragraphs with justified text, but I decided to keep the justified text out of design choice.
 
-![WAVE](assets/images/readme/accessibility.png) ![Alerts](assets/images/readme/alerts.png)
+<details>
 <br>
+
+![WAVE](/static/images/screenshots/wave-home.png) 
+
+<br>
+</details>
+
 <br>
 
 [Back to top](#testing)
 
-
-
-
-
-
-
-[Back to top](#testing)
 
 ---
 
