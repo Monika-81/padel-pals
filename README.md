@@ -137,6 +137,26 @@ To follow an agile approch, a project board (kanban-board) was set up using GitH
 
 <br>
 
+### Entity Relationship Diagram
+
+<br>
+
+![ERD](/static/images/screenshots/ERD.png)
+
+<br>
+<br>
+
+### Wireframes
+
+The wireframes for the project is very basic to get the feeling where I wanted the project to go, but over all the choices of the design grew with the development.
+
+![Mobile](/static/images/screenshots/wireframe-mobile-home.png)
+![Desktop](/static/images/screenshots/wireframe-desktop-home.png)
+
+<br>
+
+<br>
+
 [Back to top](#padel-pals)
 
 <br>
@@ -226,7 +246,7 @@ There is a second navigation bar under the jumbotron image that displays the top
 
 #### **Topic list**
 <details>
-After a user have chosen one of the three discussion topics they are greeted with a view of the posts under that topic. The posts are ordered by creation date, with the newest post first. If there are more than six posts under each topic, the site is paginated and the user can move forward or backward by clicking the navigation furthest down underneath all the posts. Each post displays the title, topic, content of the post as wall as the author of the post and when the post was last edited. There is also two counters showing the amount of comments and likes the post have gotten. If the user wants to read that post and see the comments, the whole card works as a link to the post display. If the user wants to add a post, there is also a navigation button at the start of the list that takes the user to the add post form. Only logged in users get to see the button since that feature is for members of the forum only.
+After a user have chosen one of the three discussion topics they are greeted with a view of the posts under that topic. The posts are ordered by creation date, with the newest post first. If there are more than six posts under each topic, the site is paginated and the user can move forward or backward by clicking the navigation furthest down underneath all the posts. Each post displays the title, topic, content of the post as well as the author of the post and when the post was last edited. There is also two counters showing the amount of comments and likes the post have gotten. If the user wants to read that post and see the comments, the whole card works as a link to the post display. If the user wants to add a post, there is also a navigation button at the start of the list that takes the user to the add post form. Only logged in users get to see the button since that feature is for members of the forum only.
 
 <br>
 <br>
@@ -247,7 +267,7 @@ After a user have chosen one of the three discussion topics they are greeted wit
 #### **Topic posts**
 <details>
 
-The view of the topic post contains of the post, a commets list section and a input box to leave a new comment. At the top of the post the user can once again read the title, the topic as well as the content of the post. It also shows who created the post, when and if and when it last was updated. Underneeth is also to social interaction counters, displaying how many comments the post has as well as how many likes. The amount of interaction the site user have access to depends in the user is just browsing the page, is logged in and created the post as well as if the user have created any comments. A none registered user can see and read the comments but no more, neither comment or like a post. A user that is readning the post can like or unlike the post, leave a comment and edit or delete their comment. THe post creator can, except from all of the above, also edit and delete their post.
+The view of the topic post contains the post, a comments list section and an input box to leave a new comment. At the top of the post the user can once again read the title, the topic as well as the content of the post. It also shows who created the post, when and if it last was updated. Underneath is also to social interaction counters, displaying how many comments the post has as well as how many likes. The amount of interaction the site user have access to depends on if the user is just browsing the page, is logged in and created the post as well as if the user have created any comments. A none registered user can see and read the comments but no more, neither comment or like a post. A user that is reading the post can like or unlike the post, leave a comment and edit or delete their comment. THe post creator can, except from all of the above, also edit and delete their post.
 
 <br>
 <br>
@@ -269,7 +289,7 @@ The view of the topic post contains of the post, a commets list section and a in
 
 #### **Play event list**
 <details>
-As with the topics listed under the first three discussion topics of the forum, the 'Play' choice in the topic navigation renders a list of play event inquires from other community members. The posts can be two kinds of inquires, to search for a team or a player for your team. The post displays the time and date the post creator wish to play, the location where as well how many have commented on the post.
+As with the topics listed under the first three discussion topics of the forum, the 'Play' choice in the topic navigation renders a list of play event inquires from other community members. The posts can be two kinds of inquires; to search for a team or to find a player for your team. The post displays the time and date the post creator wishes to play, the location as well as how many have commented on the post.
  
 <br>
 <br>
@@ -283,7 +303,7 @@ As with the topics listed under the first three discussion topics of the forum, 
 
 #### **Play event posts**
 <details>
-The view of the play event post contains the same features as the topic post described above, except that the play event posts also highlights the time, date and location of the planned game. Underneeth the post is a comments section and comments box (if the user is logged in). It also shows who created the post, when and if and when it last was updated. One diffrence with the play event posts are that the social interaction counters only show the amount of comments on the post. There are no way to like or unlike a play event inquiry. The feature has been activly discided against to encurage straight communication via comments with the inquiree if the user wants to join in for a game. As with the topic posts, the amount of interaction the site user have access to depends in the user is just browsing the page, is logged in and created the post as well as if the user have created any comments. A none registered user can see and read the comments but no more, neither comment or like a post. A user that is readning the post can leave a comment and edit or delete their comment. The post creator can, except from all of the above, also edit and delete their post. If a user leaves a comment anywhere in the forum, they get a confirmation message.
+The view of the play event post contains the same features as the topic post described above, except that the play event posts also highlight the time, date and location of the planned game. Underneath the post is a comments section and comments box (if the user is logged in). It also shows who created the post, when and if and when it last was updated. One difference with the play event posts is that the social interaction counters only show the amount of comments on the post. There are no way to like or unlike a play event inquiry. The feature has been activly decided against to encurage straight communication via comments with the inquiree if the user wants to join in for a game. As with the topic posts, the amount of interaction the site user have access to depends on if the user is just browsing the page, is logged in and created the post as well as if the user have created any comments. A none registered user can see and read the comments but no more, neither comment or like a post. A user that is readning the post can leave a comment and edit or delete their comment. The post creator can, except from all of the above, also edit and delete their post. If a user leaves a comment anywhere in the forum, they get a confirmation message.
 
 
 <br>
@@ -304,7 +324,7 @@ The view of the play event post contains the same features as the topic post des
 
 #### **Add Post**
 <details>
-To add a post in the forum the user has to be logged in. There are two way to add a post, through the add button under the topic navigation that are displayed on all topic list views and the homepage. Or by chosing to add a post or play event from the dropdown menu in the top navigation bar. The post form to add a new topic to the forum gives the user a list of choices of the topics to chose from. Then the user has to pick a title and write their content. All three fields are required before the user can create a post. If the user submits a form with incorrect input, they get an error message that displays what went wrong. If the post was created successfully, the user is redirected to the homepage where they get confirmation that the post has been submitted both by a message and by seeing their post at the top of th recently added posts. 
+To add a post in the forum the user has to be logged in. There are two way to add a post, through the add button under the topic navigation that are displayed on all topic list views and the homepage. Or by choosing to add a post or play event from the dropdown menu in the top navigation bar. The post form to add a new topic to the forum gives the user a list of choices of the topics to choose from. Then the user has to pick a title and write their content. All three fields are required before the user can create a post. If the user submits a form with incorrect input, they get an error message that displays what went wrong. If the post was created successfully, the user is redirected to the homepage where they get confirmation that the post has been submitted both by a message and by seeing their post at the top of the recently added posts. 
 
 <br>
 <br>
@@ -325,7 +345,7 @@ To add a post in the forum the user has to be logged in. There are two way to ad
 
 #### **Add play event**
 <details>
-To add a play event the user has the same choices as with adding a post, by chosing to add at the play event list or by chosing to add an event from the dropdown menu. Their are two topics to chose from, 'Team' or 'Player. The form requires that the uset specifies a location, a description of the event as well as to fil out the date via a calander and the time via a seperate field. All five fields are required before the user can create a post. If the user submits a form with incorrect input, they get an error message that displays what went wrong. If the post was created successfully, the user is redirected to the homepage where they get confirmation that the post has been submitted both by a message and by seeing their post at the top of th recently added posts. 
+To add a play event the user has the same choices as with adding a post, by choosing to add at the play event list or by chosing to add an event from the dropdown menu. There are two topics to chose from, 'Team' or 'Player. The form requires that the user specifies a location, a description of the event as well as to fill out the date via a calander and the time via a seperate field. All five fields are required before the user can create a post. If the user submits a form with incorrect input, they get an error message that displays what went wrong. If the post was created successfully, the user is redirected to the homepage where they get confirmation that the post has been submitted both by a message and by seeing their post at the top of the recently added posts. 
 (The choices how to add a play event post and the messages are the same as when the player adds a regular forum post, see reference images above).
 
 <br>
@@ -341,7 +361,7 @@ To add a play event the user has the same choices as with adding a post, by chos
 
 #### **Edit Post**
 <details>
-To edit the forum post or play event, the user can either find their post through the forum posts or find a list of the users own posts on their profile page and navigate to the post from their (more information on the profile page, see below). The fields are prepopulated with the content of the post the user wishes to edit.
+To edit the forum post or play event, the user can either find their post through the forum posts or find a list of the user's own posts on their profile page and navigate to the post from their (more information on the profile page, see below). The fields are prepopulated with the content of the post the user wishes to edit.
 
 <br>
 <br> 
@@ -355,7 +375,7 @@ To edit the forum post or play event, the user can either find their post throug
 
 #### **Delete Post**
 <details>
-To delete a post the user can use the same tactic to find their posta as when they want to edit a post, either from the forum list views or from the personal page. The delete button has an outline color of yellow that turns the whole button yellow if the user hovers or click the button. On doing so a modal i displayed over the site, asking the user if they are sure they want to delete their post. The user can choose to cansel the request and go back to the post, or to confirm the deletion of the post. If the post are deleted all the comments will be as well.
+To delete a post the user can use the same tactic to find their posts as when they want to edit a post, either from the forum list views or from the personal page. The delete button has an outline color of yellow that turns the whole button yellow if the user hovers or clicks the button. On doing so a modal i displayed over the site, asking the user if they are sure they want to delete their post. The user can choose to cancel the request and go back to the post, or to confirm the deletion of the post. If the post is deleted all the comments will be as well.
 
 <br>
 <br> 
@@ -383,7 +403,7 @@ As a site user you can read all the comments even if you are not logged in. The 
 
 #### **Like Post**
 <details>
-To add more interactivity and a more social aspect to the forum, the user has the oppertunity to like or unlike post that the user finds interesting, good, agrees with and so one. A user the are not logged in can see the amount of likes but can not interact with the function. It's only forum posts that a user can like and the amount of likes are displayed at recents posts, list view and at the posts view itself. If the comment is liked by the user the hollow heart icon becomes solid, and vise versa if the user decides to unlike the post.
+To add more interactivity and a more social aspect to the forum, the user has the oppertunity to like or unlike post that the user finds interesting, good, agrees with and so on. A user that is not logged in can see the amount of likes but can not interact with the function. It's only forum posts that a user can like and the amount of likes are displayed at recent posts, list view and at the posts view itself. If the comment is liked by the user the hollow heart icon becomes solid, and vice versa if the user decides to unlike the post.
 
 <br>
 <br> 
@@ -400,7 +420,7 @@ To add more interactivity and a more social aspect to the forum, the user has th
 
 In the dropdown menu on the left hand side of the navigation bar at the top, the user can reach their personal page. The personal page displays the username (read only) and if the user has an email adress attached to the account. An email adress is not required to start an account but if the user wants to connect an email account to their profile they need to verify their email as well. They can also leave it unverified. The email adress have no larger function conneted to the forum as of the features the forum displays today. 
 
-Except for seeing their username and email adress field, the user can access all of their posts (not comments) from the profile page as well. Their is a list display underneeth the profile information. If the user clicks on a list link they will be transported to the site of the post. 
+Except for seeing their username and email adress field, the user can access all of their posts (not comments) from the profile page as well. There is a list display underneath the profile information. If the user clicks on a list link they will be transported to the site of the post. 
 
 <br>
 <br> 
@@ -413,7 +433,7 @@ Except for seeing their username and email adress field, the user can access all
 
 #### **Contact Form**
 <details>
-Both logged in users and none logged in users can contact the admin of the page through the contact form linked to in the navigation bar at the top. The contact form goes directly to the back end administration site. As the user do not need verify an email to start an account, the email field is required as mandatory for all so that the admin users can properly contact the user back. The contact form is a way for site users to leave feedbak, report ill behvoir, to ask questions about the site and so on.
+Both logged in users and none logged in users can contact the admin of the page through the contact form linked to in the navigation bar at the top. The contact form goes directly to the back end administration site. As the user do not need to verify an email to start an account, the email field is required as mandatory for all so that the admin users can properly contact the user back. The contact form is a way for site users to leave feedbak, report ill behavior, to ask questions about the site and so on.
 
 <br>
 <br> 
@@ -427,7 +447,7 @@ Both logged in users and none logged in users can contact the admin of the page 
 #### **Search Function**
 <details>
 
-At the top right corner is a search function for the site. The site user do not need to be verified to search the topics. The search renders posts with the searched value in the forum post title or content or in the play events description. Each post is renderd in a separate list depending on where the search result was found. If the input dosent render a finding, the user gets feedback directly.
+At the top right corner is a search function for the site. The site user does not need to be verified to search the topics. The search renders posts with the searched value in the forum post title or content or in the play events description. Each post is renderd in a separate list depending on where the search result was found. If the input dosent render a finding, the user gets feedback directly.
 
 <br>
 <br> 
@@ -462,7 +482,7 @@ An admin user can access the Django administration backend features directly fro
 ### **Languages**
 
 - **Django**
-<br> For this full stack project the Python based framework Django is the development language for the application. I used PostgreSQL database, psycopg2 as th adapter and a gunicorn server. I Installed a battery of extra libraries to help run everything smoothly:
+<br> For this full stack project the Python based framework Django is the development language for the application. I used PostgreSQL database, psycopg2 as the adapter and a gunicorn server. I installed a battery of extra libraries to help run everything smoothly:
 
 - Cloudinary (to host static files)
 - AllAuth (for authentication)
@@ -487,6 +507,9 @@ An admin user can access the Django administration backend features directly fro
 - [Heroku](https://www.heroku.com/)
     -  I used Heroku to deploy the application. 
 
+- [Balsamiq](https://balsamiq.com/)
+    - I used Balsamiq to make the basic wireframes for this project.
+
 - [Cloudinary](https://cloudinary.com/)
     - I used to create the API's that connects the application to the spreadsheet at Google Sheet. 
 
@@ -504,9 +527,6 @@ An admin user can access the Django administration backend features directly fro
 
 - [Cloudinary](https://cloudinary.com/)
     - I used to create the API's that connects the application to the spreadsheet at Google Sheet.
-
-- [PEP8](http://pep8online.com/)
-    - I used PEP8 online check to test and validate my python code.  
 
 
 [Back to top](#padel-pals)
@@ -616,8 +636,8 @@ base_slug = slugify(self.title, allow_unicode=allow_unicode)
 ### **Acknowledgement**
 
 - My mentor **Precious Ijege** at Code Institute for valuable input and encouragement.
-- A big thanks to the tutor Alex at Tutor support, who understand my blacked out brain and explenations at pointed me towards a simple solution when I ran into a problem displaying the topic nevigation on all sites.
-- The Slack community for be such an open, warm and sharing place. 
+- A big thanks to the tutor Alex at Tutor support, who understands my blacked out brain and explanations and pointed me towards a simple solution when I ran into a problem displaying the topic navigation on all sites.
+- The Slack community for being such an open, warm and sharing place. 
 - **Viet Hoang** for letting me run the app by him and for getting user experience input before, during and at the final stage of the project.
 
 
