@@ -461,7 +461,7 @@ At the top right corner is a search function for the site. The site user does no
 <details>
 An admin user can access the Django administration backend features directly from the dropdown bar after the user logged in. In the admin section the admin can create and delete posts, read contacts form sent to admin as well as remove users. The admin can also serch and filter through the various posts in the forum. 
 
-![Search bar](/static/images/screenshots/admin%20.png)
+![Search bar](/static/images/screenshots/admin.png)
 
 <br>
 </details>
@@ -495,13 +495,13 @@ The design choice for the Padel Pals forum aims to be sporty yet straight forwar
 
 #### Color scheme
 
-The goal of the design was to keep a clean and consistent user experience throughout the pages. With light/derk text contrast set up and one accent color, all connecting to the jumbotron image. A color palette was created with the help of Colormind to work as a design foundation during the project. Note that eha blue accent color use in the design is genereated using bootstraps own color 'primary'.
+The goal of the design was to keep a clean and consistent user experience throughout the pages. With light/dark text contrast set up and one accent color, all connecting to the jumbotron image. A color palette was created with the help of [Colormind](http://www.colormind.io) to work as a design foundation during the project. Note that the blue accent color use in the design is genereated using bootstraps own color 'primary'.
 
 ![Color Scheme](/static/images/screenshots/ColorScheme.png)
 
 <br>
 
-A contrast grid was used to see how well the colors worked togheter and to maximaze the visibility on the site.
+A contrast grid was used to see how well the colors worked together and to maximaze the visibility on the site.
 
 ![Color grid](/static/images/screenshots/contrastgrid.png)
 
@@ -530,7 +530,7 @@ A contrast grid was used to see how well the colors worked togheter and to maxim
 <br> I used HTML to create the base structure of the project. I started with a basic boilerplate set up and created the first crude structure of the page out of the original design. 
 
 - **CSS3**
-<br> The CSS was used to apply the custom styles to the HTML skeleton. In a separate document the creation of the design came forth. 
+<br> The CSS was used to apply the custom styles where I didn't use bootstrap. 
 
 - **Javascript**
 <br> A small amount of javascript was used in this application, no separate script was needed and the code is located in the base template.
@@ -570,7 +570,7 @@ A contrast grid was used to see how well the colors worked togheter and to maxim
     - I used a email account on gmail to work as the backend email.
 
 - [Responsive Design Checker](https://responsivedesignchecker.com)
-    - I tried using the website on the finally deployed project but the site wouldn't connect.
+    - I tried using the website on the finally deployed project but the site wouldn't connect to heroku.
 
 - [WAVE](https://wave.webaim.org/)
     - I used WAVE to test the accessibility of the site.
