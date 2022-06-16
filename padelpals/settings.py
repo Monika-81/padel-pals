@@ -32,8 +32,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
 ALLOWED_HOSTS = ['padelpals.herokuapp.com', 'localhost']
 
 
