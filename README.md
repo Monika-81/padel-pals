@@ -1,6 +1,6 @@
 # **Padel Pals**
 
-**Padel Pals** is the discussion forum for Padel Tennis enthusiasts. The forum aims to be a platform for discussions about padel, socializing with other padel interested people as well as to search for teams that are missing a player for a booked session, or to announce that the user is avalible if someone wants to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, techniques, etc and to just socialize with likeminded padel players.
+**Padel Pals** is the discussion forum for Padel tennis enthusiasts. The forum aims to be a platform for discussions about padel, socializing with other padel interested people as well as to search for teams that are missing a player for a booked session, or to announce that the user is avalible if someone wants to team up. This site targets various kinds of people whom are interested in knowing more about the padel tennis sport, discuss rules, gear, techniques, etc and to just socialize with likeminded padel players.
 
 Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com/)!
 <br>
@@ -70,7 +70,7 @@ Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com
 
 <br>
 
-With the UX principles in mind I started with Strategy phace, thinking about the target audience and what features would benefit them. 
+With the UX principles in mind I started with the Strategy phace, thinking about the target audience and what features would benefit them. 
 
 The target audience are:
 
@@ -140,6 +140,10 @@ To follow an agile approch, a project board (kanban-board) was set up using GitH
 
 <br>
 
+The planing of the database models, aka the Entity Relationship Diagram, is illustrated below:
+
+<br>
+
 ![ERD](/static/images/screenshots/ERD.png)
 
 <br>
@@ -148,6 +152,8 @@ To follow an agile approch, a project board (kanban-board) was set up using GitH
 ### Wireframes
 
 The wireframes for the project is very basic to get the feeling where I wanted the project to go, but over all the choices of the design grew with the development.
+
+<br>
 
 ![Mobile](/static/images/screenshots/wireframe-mobile-home.png)
 ![Desktop](/static/images/screenshots/wireframe-desktop-home.png)
@@ -461,13 +467,17 @@ An admin user can access the Django administration backend features directly fro
 </details>
 
 #### **Future Feature**
+<details>
 
 Working with the kanban board and prioritizing the content in must/should/could naturally left ideas for the forum unfinished due to lack of time. What I would like to implement to the site in the future is:
 - Email notifications when someone replies to a user's post
-- Notifications when the user logs in, that someone has liked a post
-- Possibility to directly repost another user to admin if they misbehave
+- Notifications when the user logs in, that someone has liked or commented on a post
+- Possibility to directly report another user to admin if they misbehave
 - A more complete profile page with password reset, user image and description.
 - The possibility to post videos and articles.
+
+<br>
+</details>
 
 [Back to top](#padel-pals)
 
@@ -477,7 +487,18 @@ Working with the kanban board and prioritizing the content in must/should/could 
 
 ### The Design
 
-Due to failure in time management, this section is not reday before submitting the project.
+The design choice for the Padel Pals forum aims to be sporty yet straight forward in its introduction to the user. With a decorative jumbotron image to set the mode as well as visually inform the user what the site is about. The jumbotron picture also sums up the color team for the page: Blue, black, grey and white. The idea was to combine the color nuances of the jumbotron image with the color theme for the rest of the site for a cleaner, sleeker design.
+
+#### Jumbotron image
+
+![Jumbotron](/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash-small.jpg)
+
+#### Color scheme
+
+The goal of the design was to keep a clean and consistent user experience throughout the pages. With a light background/dark text set up and one accent color picked from the jumbotron image. A color palette was created with the help of Colormind to work as a design foundation during the project. Note that eha blue accent color use in the design is genereated using bootstraps own color 'primary'.
+
+![Color Scheme](/static/images/screenshots/ColorScheme.png)
+
 
 [Back to top](#padel-pals)
 
@@ -518,8 +539,14 @@ Due to failure in time management, this section is not reday before submitting t
 - [Balsamiq](https://balsamiq.com/)
     - I used Balsamiq to make the basic wireframes for this project.
 
+- [Colormind](http://www.colormind.io)
+    - I used Colormind to create a color palette for my color scheme.
+
 - [Cloudinary](https://cloudinary.com/)
     - I used to create the API's that connects the application to the spreadsheet at Google Sheet. 
+
+- [DevTools](https://developer.chrome.com/docs/devtools/)
+    -  I used DevTools to test both changes in my code and the responsivity of the site.  
 
 - [Lucid Chart](https://www.lucidchart.com/pages/)
     - I used Lucid Chart to design the data model and list mock up for the project.
@@ -531,10 +558,16 @@ Due to failure in time management, this section is not reday before submitting t
     - I used GitHub to create a repository for my project.
 
 - [Gmail](https://gmail.com)
-    - I used a email account on gmail to work as the backend email ater deplayment.
+    - I used a email account on gmail to work as the backend email.
 
-- [Cloudinary](https://cloudinary.com/)
-    - I used to create the API's that connects the application to the spreadsheet at Google Sheet.
+- [Responsive Design Checker](https://responsivedesignchecker.com)
+    - I used Responsive Design Checker to test the responsivity of the site.
+
+- [WAVE](https://wave.webaim.org/)
+    - I used WAVE to test the accessibility of the site.
+
+- [W3Schools](https://www.w3schools.com/) 
+    - I used W3C to test and validate my code throughout the project. 
 
 
 [Back to top](#padel-pals)

@@ -84,14 +84,6 @@ thead {
   margin: 2rem;
 }
 
-/* .custom-submit {
-  background-color: #d4df53;
-}
-
-.required, .header {
-  color: #d4df53;
-} */
-
 .recent-card, .topic-card, .table {
   width: 90vw;
 }
@@ -120,14 +112,6 @@ thead {
   font-size: larger;
   text-decoration: none;
 }
-
-/* .topic-nav a:hover {
-  color: #d4df53;
-}
-
-.topic-nav a:active {
-  color: #d4df53;
-} */
 
 .larger-font {
   font-size: larger;
