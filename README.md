@@ -570,7 +570,7 @@ A contrast grid was used to see how well the colors worked togheter and to maxim
     - I used a email account on gmail to work as the backend email.
 
 - [Responsive Design Checker](https://responsivedesignchecker.com)
-    - I used Responsive Design Checker to test the responsivity of the site.
+    - I tried using the website on the finally deployed project but the site wouldn't connect.
 
 - [WAVE](https://wave.webaim.org/)
     - I used WAVE to test the accessibility of the site.

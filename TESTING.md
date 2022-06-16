@@ -15,12 +15,12 @@
 
 During the entire developing stage I repeatedly tested the elements added and altered regarding appearance as well as responsiveness via the simulated live server GitPod provides. After the site was live deployed I also checked the site regularly trough my smartphone for first hand updates on a live mobile viewport.
 
-In combination with the direct visual view of the page provided by the live server I frequently used Google Chrome developer tools, both for direct changes of the code as well as the tools for responsive testing of different platforms and screen sizes. As a compliment to DevTools I also checked how the website responded on different screen sizes and screen orientaion using Responsive Design Checker. The final version of the website passed all the visual and functional appereances changes on both large and small screens as well as the change between landscape and portrait orientaion changes on the same device. For example of how the same mobile screen funtions in both orientations, see below.
+In combination with the direct visual view of the page provided by the live server I frequently used Google Chrome developer tools, both for direct changes of the code as well as the tools for responsive testing of different platforms and screen sizes. The final version of the website passed all the visual and functional appereances changes on both large and small screens as well as the change between landscape and portrait orientaion changes on the same device.
  
- My best friend during the debugging and testing was to commit in and out code as well as to the <em>{{ }}</em>-function in the HTML to see if I targeted the right element or if my view was reachable from where I wanted to reach certain database items from a model.
+My best friend during the debugging and testing was to commit in and out code as well as to the <em>{{ }}</em>-function in the HTML to see if I targeted the right element or if my view was reachable from where I wanted to reach certain database items from a model.
 
 
- Before the User Stories where marked as closed, I tested the stories to see if the result was satisfying and the app lived up to the project plan, see project board for more information [Kanban](https://github.com/Monika-81/padel-pals/projects/1).
+Before the User Stories where marked as closed, I tested the stories to see if the result was satisfying and the app lived up to the project plan, see project board for more information [Kanban](https://github.com/Monika-81/padel-pals/projects/1).
 
 <br>
 
@@ -201,7 +201,7 @@ There were a number of bugs and mishaps committed through the development as I t
 10. The email validation template stopped showing the button to confirm the adress after I styled the template. 
 - Had multiple tries to fix it but nothing really worked. In the end I went back to almost the original file but left out a {% user.display %} argument that kept throwing errors.
 11. With final production deployment before project submission, I changed DEBUG=FALSE and the static files wasn't picked up by Heroku from Cloudinary making me unable to submit the project on time.
-- Fixed a setting that was missing for whitnoise to work.
+- Fixed a setting that was missing for whitnoise to work. Needed both "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'" and "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'".
 
 
 
