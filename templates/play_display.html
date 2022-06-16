@@ -29,7 +29,7 @@
                     {% if user == post.generator %}
                         <div class="edit">
                             <button class="btn btn-primary" type="button">
-                                <a href="{% url 'edit_play' post.slug %}">Edit</a>
+                                <a href="{% url 'edit_play' post.slug %}" aria-label="Click to edit post">Edit</a>
                             </button>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="btn d-inline-block btn-danger">
-                                            <a href="{% url 'delete_play' post.slug %}" class="btn">Delete</a>
+                                            <a href="{% url 'delete_play' post.slug %}" class="btn" aria-label="Click to delete post">Delete</a>
                                         </div>
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
                                     </div>
@@ -83,7 +83,7 @@
                     <div class="col-3 mb-3">
                         <div class="edit">
                             <button class="btn btn-primary" type="button">
-                                <a href="{% url 'edit_play_comment' comment.id %}">Edit</a>
+                                <a href="{% url 'edit_play_comment' comment.id %}" aria-label="Click to edit comment">Edit</a>
                             </button>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="btn d-inline-block btn-danger">
-                                    <a href="{% url 'delete_play_comment' comment.id %}" class="btn">Delete</a>
+                                    <a href="{% url 'delete_play_comment' comment.id %}" class="btn" aria-label="Click to delete comment">Delete</a>
                                 </div>
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
                             </div>

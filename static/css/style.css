@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins&display=swap');
 
+/* ----------------------------------------General styling */
+
 body {
   margin: 0;
   font-size: 1rem;
@@ -12,10 +14,6 @@ a, .nav-link {
   text-decoration: none;
 }
 
-#email-confirmation {
-  color: black !important;
-}
-
 h2 {
   padding: 0.5rem;
 }
@@ -24,9 +22,17 @@ table {
   border: black .5px solid;
 }
 
-#filler {
-  text-align: center;
+/* ----------------------------------------Auth. templates */
+
+#email-confirmation {
+  color: black !important;
 }
+
+.login label, .signup label, .edit label {
+  display: block;
+}
+
+/* ----------------------------------------Jumbotron */
 
 #logo, #jumbotron-link, #jumbotron-alt {
   font-family: 'Audiowide', cursive;
@@ -55,12 +61,30 @@ table {
   text-decoration: none;
 }
 
-.block-content {
-  min-height: 60vh;
-}
+/* ----------------------------------------Topic content */
 
 .topic-item {
   border: none;
+}
+
+.topic-nav a, .btn-add a {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+}
+
+.alert-dismissible {
+  line-height: 3rem;
+}
+
+#filler {
+  text-align: center;
+}
+
+/* ----------------------------------------Block content general */
+
+.block-content {
+  min-height: 60vh;
 }
 
 .margin-left {
@@ -74,14 +98,6 @@ table {
 
 .post-title, .post-subtitle, .post-topic {
   color: white;
-}
-
-thead {
-  background-color: rgba(0,0,0,0.03)
-}
-
-.submit {
-  margin: 2rem;
 }
 
 .recent-card, .topic-card, .table {
@@ -101,20 +117,22 @@ thead {
   color: black;
 }
 
+thead {
+  background-color: rgba(0,0,0,0.03)
+}
 
 .text-center a {
   color: black;
   text-decoration: none;
 }
 
-.topic-nav a, .btn-add a {
-  color: white;
-  font-size: larger;
-  text-decoration: none;
+.submit {
+  margin: 2rem;
 }
 
-.larger-font {
-  font-size: larger;
+.btn-like {
+  border: none;
+  background: transparent;
 }
 
 .bg-custom{
@@ -122,16 +140,10 @@ thead {
   color: black;
 }
 
-.hidden-sm {
-  display: none;
-}
+/* ----------------------------------------Custom text style */
 
-.btn-delete {
-  background-color: white;
-}
-
-.alert-dismissible {
-  line-height: 3rem;
+.larger-font {
+  font-size: larger;
 }
 
 .profile-text {
@@ -140,24 +152,19 @@ thead {
   margin: unset;
 }
 
-.btn-like {
-  border: none;
-  background: transparent;
-}
-
 #underscore {
   color: white;
   text-decoration: underline;
 }
 
-.login label, .signup label, .edit label {
-    display: block;
+.hidden-sm {
+  display: none;
 }
 
 /* ----------------------------------------Media queries */
 
 @media screen and (min-width: 1800px) {
-    .list-group, .card, .table {
+  .list-group, .card, .table {
     width: 50vw;
   }
 
@@ -180,13 +187,13 @@ thead {
     font-size: larger;
   }
 
-#transparent-sm {
-  background-color: transparent !important;
-}
+  #transparent-sm {
+   background-color: transparent !important;
+  }
 
-.jumbotron-fluid {
-  background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.ea893d2dc0cf.jpg');
-}
+  .jumbotron-fluid {
+   background-image: url('/static/images/vincenzo-morelli-Cj35lHL4atY-unsplash.ea893d2dc0cf.jpg');
+  }
 
 }
 

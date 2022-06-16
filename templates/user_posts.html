@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary"><a href="{% url 'account_email' %}">Update Email</a></button>
+                            <button type="submit" class="btn btn-primary"><a href="{% url 'account_email' %}" aria-label="Update email">Update Email</a></button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <tbody>
                     {% for post in posts %}
                     <tr>
-                        <td><a href="{% url 'post_display' post.slug %}">{{ post.title }}</a></td>
+                        <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.title }}</a></td>
                         <td>{{ post.created_date }}</td>
                         <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
                             </i>{{post.comments.count}}</strong></td>
@@ -66,7 +66,7 @@
                     {% endfor %}
                     {% for play in plays %}
                     <tr>
-                        <td><a href="{% url 'play_display' play.slug %}">{{ play.setup }}</a></td>
+                        <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.setup }}</a></td>
                         <td>{{ play.created_date }}</td>
                         <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
                             </i>{{play.play_list_comments.count}}</strong></td>

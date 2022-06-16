@@ -15,7 +15,7 @@
     <div class="d-flex flex-row flex-wrap justify-content-center">
         {% for post in page_obj %}
         <div class="card recent-card text-center bg-light shadow mt-4 mb-3 bg-white rounded">
-            <a href="{% url 'post_display' post.slug %}">
+            <a href="{% url 'post_display' post.slug %}" aria-label="Go to post">
                 <h4 class="card-header">
                     <strong>{{ post.title }}</strong>
                 </h4>               
@@ -41,7 +41,7 @@
                 </div>
                 <div class="card-body">
                     <button type="button" class="btn custom-submit">
-                        <a href="{% url 'account_signup' %}">Sign up &raquo;</a>
+                        <a href="{% url 'account_signup' %}" aria-label="Go to signup page">Sign up &raquo;</a>
                     </button> 
                 </div>                       
             </div>

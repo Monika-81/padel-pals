@@ -495,9 +495,15 @@ The design choice for the Padel Pals forum aims to be sporty yet straight forwar
 
 #### Color scheme
 
-The goal of the design was to keep a clean and consistent user experience throughout the pages. With a light background/dark text set up and one accent color picked from the jumbotron image. A color palette was created with the help of Colormind to work as a design foundation during the project. Note that eha blue accent color use in the design is genereated using bootstraps own color 'primary'.
+The goal of the design was to keep a clean and consistent user experience throughout the pages. With light/derk text contrast set up and one accent color, all connecting to the jumbotron image. A color palette was created with the help of Colormind to work as a design foundation during the project. Note that eha blue accent color use in the design is genereated using bootstraps own color 'primary'.
 
 ![Color Scheme](/static/images/screenshots/ColorScheme.png)
+
+<br>
+
+A contrast grid was used to see how well the colors worked togheter and to maximaze the visibility on the site.
+
+![Color grid](/static/images/screenshots/contrastgrid.png)
 
 
 [Back to top](#padel-pals)
@@ -548,6 +554,9 @@ The goal of the design was to keep a clean and consistent user experience throug
 - [DevTools](https://developer.chrome.com/docs/devtools/)
     -  I used DevTools to test both changes in my code and the responsivity of the site.  
 
+- [EightShapes](http://eightshapes.com/)
+    - I used Eight Shapes color grid to check the color schemes visibility in diffrent combinations.
+
 - [Lucid Chart](https://www.lucidchart.com/pages/)
     - I used Lucid Chart to design the data model and list mock up for the project.
 
@@ -595,6 +604,7 @@ The project was deployed to **Heroku** from **GitPod**:
 
     - Then add config vars by clicking 'Reveal Config Vars'. I used _Config Var_ called `PORT`, set to `8000`.
     - If you have credentials for your project, you need to add these as well. Create another _Config Var_ called `CREDS` and paste the copy of the requeriments code inside your credentials file into the value field.
+    - If you need additional config vars, for example 'secret key', 'database urls' etc they need to be set here as well.
 
 - Now it's time to deploy the app. Go back to the top of the page and click "Deploy".
 - Choose a deployment method, I used GitHub since my repository is located on GitHub.
@@ -646,7 +656,7 @@ Some of the other sites media I frequently **consulted** was :
 * [Stack Overflow](https://stackoverflow.com/) 
 
 - To get the Django framework installed and set up, I followed the Code institutes Django Blog video and cheatsheet.
-- I built the navbar with codeinspiration from [Get Bootstrap](https://getbootstrap.com/docs/4.3/components/navbar/)
+- I built the navbar with code inspiration from [Get Bootstrap](https://getbootstrap.com/docs/4.3/components/navbar/)
 - To understand better how to show extra content when I rendered my views, I consulted [Django Project](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/) and [StackOverflow](https://stackoverflow.com/questions/63308865/get-threads-from-specific-forum-category-in-django-view), I also watched Corey Schafers [Python Django Tutorial](https://www.youtube.com/watch?v=-s7e_Fy6NRU) and found help from [Tutorialguruji](https://www.tutorialguruji.com/python/django-pass-multiple-models-to-my-listview/)
 - I learnt more about slugifying from [Full stack Python](https://www.fullstackpython.com/django-utils-text-slugify-examples.html):
 ```
@@ -657,10 +667,12 @@ base_slug = slugify(self.title, allow_unicode=allow_unicode)
  self.slug = ''.join(str(random.randint(0, 9)) for _ in range(8))
  ```
  - Inspiration for how to build the profile page came from [app-generator](https://github.com/app-generator/sample-django-extended-user-profile) and [Django Project](https://docs.djangoproject.com/en/4.0/topics/auth/default) 
- - On  I learnt more about pagination on [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo) and [Django Project](https://docs.djangoproject.com/en/4.0/topics/pagination); code credit for the code in the pagination.html template!
+ - I learnt more about pagination on [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo) and [Django Project](https://docs.djangoproject.com/en/4.0/topics/pagination); code credit for the code in the pagination.html template!
  - I learnt more about form widgets from [Stack Overflow](https://stackoverflow.com/questions/54748183/django-modelform-widgets-and-labels) & [Stack Overflow](https://stackoverflow.com/questions/9878475/django-modelform-override-widget) as well as from [CodingEntrepreneurs](https://www.youtube.com/watch?v=quJzUzCs6Q0) on youtube.com.
 - Code credit for displaying a modal when deleteing a post or comment, section markted in the thread.html & play_display.html template: [Solutions Cloud](https://www.youtube.com/watch?v=uC9cgOQ0bXI)
 - Inspiration for how to create a search bar comes from [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI)
+- Code credit to Code Institute's lesson project 'I think there for I blog' for the message section code, please see commented code in base.html.
+
 
 
 <br>

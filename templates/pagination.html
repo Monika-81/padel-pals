@@ -5,8 +5,8 @@
             <div class="pagination d-flex flex-row justify-content-center my-3">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a href="?page=1" class="text-dark">&laquo; first</a>
-                        <a href="?page={{ page_obj.previous_page_number }}" class="text-dark">previous</a>
+                        <a href="?page=1" class="text-dark" aria-label="First page">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}" class="text-dark" aria-label="Previous page">previous</a>
                     {% endif %}
 
                     <span class="current">
@@ -14,8 +14,8 @@
                     </span>
 
                     {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}" class="text-dark">next</a>
-                        <a href="?page={{ page_obj.paginator.num_pages }}" class="text-dark">last &raquo;</a>
+                        <a href="?page={{ page_obj.next_page_number }}" class="text-dark" aria-label="Next page">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}" class="text-dark" aria-label="Last page">last &raquo;</a>
                     {% endif %}
                 </span>
             </div>

@@ -7,7 +7,7 @@
         <div class="col text-center mt-4">
             <div class="btn">
                 <button type="button" class="btn btn-primary">
-                    <a href="{% url 'play' %}">Add Post</a>
+                    <a href="{% url 'play' %}" aria-label="Click to add post">Add Post</a>
                 </button>                        
             </div>
         </div>
@@ -27,7 +27,7 @@
                 {% for post in play_list %}
                 <tbody>
                 <tr>
-                    <td><a href="{% url 'play_display' post.slug %}"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
+                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
                     <td>{{ post.date }} : {{ post.time }}</td>
                     <td>{{ post.location }}</td>
                     <td><strong class="text-secondary"><i class="fas fa-comments margin-1">

@@ -10,10 +10,8 @@
     <meta name="keywords" content="padel, community, socialize, sports" />
     <meta name="author" content="Monika Jakobsson" />
     <title>Padel Pals</title>
-    <!--Google Fonts-->
     <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <!--Favicon-->
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -44,10 +42,10 @@
                         <span></span>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                            <a class="nav-link" aria-label="Go to signup page" href="{% url 'account_signup' %}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                            <a class="nav-link" aria-label="Go to login page" href="{% url 'account_login' %}">Login</a>
                         </li>
                         {% endif %}
                         {% if user.is_authenticated %}
@@ -60,9 +58,9 @@
                                <a class="dropdown-item" href="{% url 'play' %}" aria-label="Search for a Team or Player">Search for a Team/Player</a>
                                <a class="dropdown-item" href="{% url 'user_posts' %}" aria-label="See your posts">Your Profile</a>
                                <div class="dropdown-divider"></div>
-                               <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                               <a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Go to logout page">Logout</a>
                                {% if user.is_superuser %}
-                               <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                               <a class="dropdown-item" href="{% url 'admin:index' %}" aria-label="Go to admin page">Admin</a>
                                {% endif %}
                             </div>
                         </li>
@@ -91,7 +89,7 @@
                                 this energetic sport.</p>
                             <p class="card-subtitle transparent-text"><small>To get access to all the features, you need to be a
                                     verified user. <br> If you have not created an account yet, please
-                                    <a href="{% url 'account_signup' %}"><span id="underscore">sign up.</span></a></small>
+                                    <a href="{% url 'account_signup' %}" aria-label="Go to signup page"><span id="underscore">sign up.</span></a></small>
                             </p>
                         </div>
                     </div>
@@ -117,12 +115,12 @@
                     <ul class="nav justify-content-center">
                         {% for topic in topic_list %}
                         <li class="nav-item topic-item px-1">
-                            <a class="nav-link" aria-current="page"
+                            <a class="nav-link" aria-current="page" aria-label="Go to forum {{ topic.topic }}"
                                 href="{% url 'topic_display' topic.topic %}">{{ topic.topic }}</a>
                         </li>
                         {% endfor %}
                         <li class="nav-item topic-item px-1">
-                            <a class="nav-link" aria-current="page" href="{% url 'play_events' %}">Find players</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'play_events' %}" aria-label="Go to play event page">Find players</a>
                         </li>
                     </ul>
                 </nav>
@@ -144,7 +142,7 @@
         </section>
         <section class="block-content">
                 {% block content %}
-                <!-- Content Goes here -->
+                <!-- Site content Goes here -->
                 {% endblock content %}
         </section>
     </main>
