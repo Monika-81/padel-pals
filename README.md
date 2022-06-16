@@ -6,7 +6,7 @@ Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com
 <br>
 <br>
 
-![alt text](image.jpg)
+![Home](/static/images/screenshots/home.png)
 <br>
 
 
@@ -44,8 +44,7 @@ Let me introduce you further to [**Padel Pals**](https://padelpals.herokuapp.com
     - [Technologies](#technologies)
 
 5. [**Surface**](#surface)
-    - [Design](#design)
-    - [Color scheme](#color-scheme)   
+    - [Design](#design) 
 
 6. [**Testing**](#testing)
     
@@ -162,13 +161,6 @@ The wireframes for the project is very basic to get the feeling where I wanted t
 <br>
 
 ### **Features**
-
-Working with the kanban board and prioritizing the content in must/should/could naturally left ideas for the forum unfinished due to lack of time. What I would like to implement to the site in the future is:
-- Email notifications when someone replies to a user's post
-- Notifications when the user logs in, that someone has liked a post
-- Possibility to directly repost another user to admin if they misbehave
-- A more complete profile page with password reset, user image and description.
-- The possibility to post videos and articles.
 
 <br>
 
@@ -468,28 +460,44 @@ An admin user can access the Django administration backend features directly fro
 <br>
 </details>
 
-#### **Future features**
+#### **Future Feature**
 
+Working with the kanban board and prioritizing the content in must/should/could naturally left ideas for the forum unfinished due to lack of time. What I would like to implement to the site in the future is:
+- Email notifications when someone replies to a user's post
+- Notifications when the user logs in, that someone has liked a post
+- Possibility to directly repost another user to admin if they misbehave
+- A more complete profile page with password reset, user image and description.
+- The possibility to post videos and articles.
 
 [Back to top](#padel-pals)
 
 <br>
 
+## **Surface**
 
-## Technologies
+### The Design
+
+Due to failure in time management, this section is not reday before submitting the project.
+
+[Back to top](#padel-pals)
+
+
+## Skeleton
+
+### Technologies
 ---
 
-### **Languages**
+#### **Languages**
 
 - **Django**
 <br> For this full stack project the Python based framework Django is the development language for the application. I used PostgreSQL database, psycopg2 as the adapter and a gunicorn server. I installed a battery of extra libraries to help run everything smoothly:
 
-- Cloudinary (to host static files)
-- AllAuth (for authentication)
-- Summernote (for the django admin)
-- Crispy forms (to render go locking forms)
-- Bootstrap¤ (to style the content and keep it resposive)
-- Whitnoise (to serve the static files)
+    * Cloudinary (to host static files)
+    * AllAuth (for authentication)
+    * Summernote (for the django admin)
+    * Crispy forms (to render good locking forms)
+    * Bootstrap 4 (to style the content and make it resposive)
+    * Whitnoise (to serve the static files)
 
 - **HTML5**
 <br> I used HTML to create the base structure of the project. I started with a basic boilerplate set up and created the first crude structure of the page out of the original design. 
@@ -502,7 +510,7 @@ An admin user can access the Django administration backend features directly fro
 
 <br>
 
-### **Tools**
+#### **Tools**
 
 - [Heroku](https://www.heroku.com/)
     -  I used Heroku to deploy the application. 
