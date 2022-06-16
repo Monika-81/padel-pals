@@ -200,8 +200,8 @@ There were a number of bugs and mishaps committed through the development as I t
 - Added authentication to load the add post form.
 10. The email validation template stopped showing the button to confirm the adress after I styled the template. 
 - Had multiple tries to fix it but nothing really worked. In the end I went back to almost the original file but left out a {% user.display %} argument that kept throwing errors.
-11. With final production deployment before projevt submission, I changed DEBUG =FALSE and the static files wasn't picked up by Heroku from Cloudinary.
-- ................
+11. With final production deployment before project submission, I changed DEBUG=FALSE and the static files wasn't picked up by Heroku from Cloudinary making me unable to submit the project on time.
+- Fixed a setting that was missing for whitnoise to work.
 
 
 
