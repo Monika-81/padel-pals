@@ -105,6 +105,7 @@ class Play(models.Model):
     date = models.DateField()
     time = models.TimeField(null=True)
     created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
