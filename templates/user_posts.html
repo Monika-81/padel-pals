@@ -61,21 +61,20 @@
                     {% for post in posts %}
                     <tr>
                         <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post"><strong>{{ post.title }}</strong></a></td>
-                        <td>{{ post.created_date }}</td>
-                        <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
-                            </i>{{post.comments.count}}</strong></td>
+                        <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.created_date }}</a></td>
+                        <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post"><strong class="text-secondary"><i class="fas fa-comments margin-1">
+                            </i>{{post.comments.count}}</strong></a></td>
                     </tr>
                     {% endfor %}
                     {% for play in plays %}
                     <tr>
                         <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post"><strong>{{ play.setup }}</strong></a></td>
-                        <td>{{ play.created_date }}</td>
-                        <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
-                            </i>{{play.play_list_comments.count}}</strong></td>
+                        <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.created_date }}</a></td>
+                        <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post"><strong class="text-secondary"><i class="fas fa-comments margin-1">
+                            </i>{{play.play_list_comments.count}}</strong></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
-               
             </table>
         </div>
     </div>

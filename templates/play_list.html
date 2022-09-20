@@ -26,10 +26,10 @@
                 <tbody>
                 <tr>
                     <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
-                    <td>{{ post.date }} : {{ post.time }}</td>
-                    <td>{{ post.location }}</td>
-                    <td><strong class="text-secondary"><i class="fas fa-comments margin-1">
-                        </i>{{post.play_list_comments.count}}</strong></td>
+                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post">{{ post.date }} : {{ post.time }}</a></td>
+                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post">{{ post.location }}</a></td>
+                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong class="text-secondary"><i class="fas fa-comments margin-1">
+                        </i>{{post.play_list_comments.count}}</strong></a></td>
                 </tr>
                 </tbody>
                 {% endfor %}
