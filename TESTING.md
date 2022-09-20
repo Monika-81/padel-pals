@@ -113,10 +113,10 @@ Some semantic and code logic errors where made on my behalf and corrected after 
 ![Topic page](/static/images/screenshots/html-validation-topic.page.png)
 ![Remaining problem](/static/images/screenshots/play-end.png)
 ![Remaining problem](/static/images/screenshots/play-end2.png)
-![Remaining problem](/static/images/screenshots/plan-end3.png)
+![Remaining problem](/static/images/screenshots/play-end3.png)
 
 
-Last picture mentions a <span> that are deliberatly there since the nav code changes if the user is logged in or logged ut.  
+Last picture mentions a "span" that are deliberatly there since the nav code changes if the user is logged in or logged ut.  
 
 <br>
 </details>
@@ -148,7 +148,7 @@ I also ran the page through Lighthouse for both desktop and mobile to test out t
 <br>
 
 ![Lighthouse desktop](/static/images/screenshots/lighthouse-desktop-home.png)
-![Lighthouse mobile](/static/images/screenshots/lighthouse-mobile-home.pngg) 
+![Lighthouse mobile](/static/images/screenshots/lighthouse-mobile-home.png) 
 
 <br>
 </details>
