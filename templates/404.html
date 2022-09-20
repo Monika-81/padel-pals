@@ -13,13 +13,11 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-      <div class="col-md-8 mt-3">
-        <button type="button" class="btn btn-primary btn-add">
-            <a href="{% url 'home' %}" aria-label="Go back home">Go back home!</a>
-        </button>
-      </div>
-    </div>
+  <div class="col-md-8 m-auto mt-4 d-flex flex-row flex-wrap justify-content-center">
+    <button type="button" class="btn btn-primary btn-add">
+      <a href="{% url 'home' %}" aria-label="Go back home">Go back home!</a>
+    </button>
   </div>
+</div>
 
 {% endblock %}
