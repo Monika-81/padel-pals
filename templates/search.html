@@ -22,12 +22,10 @@
               {% for post in posts %}
               <tbody>
                 <tr>
-                  <a href="{% url 'post_display' post.slug %}" aria-label="Go to post">
-                    <td><strong>{{ post.title }}</strong></td>
-                    <td>{{ post.topic }}</td>
-                    <td>{{ post.created_date }}</td>
-                    <td>{{ post.generator }}</td>
-                  </a>
+                  <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post"><strong>{{ post.title }}</strong></a></td>
+                  <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.topic }}</a></td>
+                  <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.created_date }}</a></td>
+                  <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.generator }}</a></td>
                 </tr>
               </tbody>
               {% empty %}
@@ -48,9 +46,9 @@
             <tbody>
               <tr>
                   <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post"><strong>{{ content.title }}</strong></a></td>
-                  <td>{{ content.content }}</td>
-                  <td>{{ content.created_date }}</td>
-                  <td>{{ content.generator }}</td>
+                  <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post">{{ content.content }}</a></td>
+                  <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post">{{ content.created_date }}</a></td>
+                  <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post">{{ content.generator }}</a></td>
               </tr>
             </tbody>
             {% empty %}
@@ -71,9 +69,9 @@
             <tbody>
               <tr>
                 <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post"><strong>{{ play.setup }}</strong></a><br><small class="hidden-sm">{{play.description}}</small></td>
-                <td>{{ play.date }} : {{ play.time }}</td>
-                <td>{{ play.location }}</td>
-                <td>{{ play.generator }}</td>
+                <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.date }} : {{ play.time }}</a></td>
+                <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.location }}</a></td>
+                <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.generator }}</a></td>
               </tr>
             </tbody>
             {% empty %}
