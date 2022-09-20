@@ -5,9 +5,9 @@
     {% if user.is_authenticated %}
     <div class="row">
         <div class="col text-center mt-4">
-            <div class="btn">
-                <a href="{% url 'play' %}" class="white-text" class="btn btn-primary" aria-label="Click to add post">Add Post</a>                     
-            </div>
+            <button class="btn btn-primary">
+                <a href="{% url 'play' %}" class="white-text" aria-label="Click to add post">Add Post</a>                     
+            </button>
         </div>
     </div>
     {% endif %}
