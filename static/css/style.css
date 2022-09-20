@@ -152,8 +152,8 @@ thead {
   text-decoration: underline;
 }
 
-#white-text, #white-text a {
-  color: white;
+.white-text {
+  color: white !important;
 }
 
 #login, #signup {
