@@ -18,7 +18,7 @@
 
 <div class="container-fluid">
   <div class="d-flex flex-row flex-wrap justify-content-center">
-    <div class="card mt-5 mb-5 bg-light">
+    <div class="card mt-5 mb-5">
       <div class="card-header">
         {% if user.emailaddress_set.all %}
         <h5 class="card-title text-center">{% trans 'The following e-mail addresses are associated with your account:' %}</h5>
@@ -50,14 +50,14 @@
           </fieldset>
         </form>
         {% else %}
-        <p><strong>{% trans "You currently do not have any e-mail address set up." %}</strong></p>
+        <p class="text-center"><strong>{% trans "You currently do not have any e-mail address set up." %}</strong></p>
         {% endif %}
         {% if can_add_email %}
         <h5 class="text-center mb-4">{% trans "Add E-mail Address" %}</h5>
         <form method="post" action="{% url 'account_email' %}" class="add_email text-center">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="action_add" type="submit" class="btn-primary my-3">{% trans "Add E-mail" %}</button>
+            <button name="action_add" type="submit" class="btn btn-primary my-3">{% trans "Add E-mail" %}</button>
         </form>
         {% endif %}
       </div>
