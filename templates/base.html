@@ -39,7 +39,7 @@
                             <a class="nav-link" aria-current="page" aria-label="Contact site admin" href="{% url 'contact' %}">Contact</a>
                         </li>
                         {% if user.is_authenticated %}
-                        <span></span>
+                        <!--empty-->
                         {% else %}
                         <li class="nav-item">
                             <a class="nav-link" aria-label="Go to signup page" href="{% url 'account_signup' %}">Sign up</a>
@@ -124,8 +124,8 @@
                         </li>
                     </ul>
                 </nav>
+                {% endblock %}
             </div>
-            {% endblock %}
             <!--Messages-->
             <!--Code from Code Institute's 'I Think Therefore I Blog' project-->
             <div class="container message-container">
