@@ -22,7 +22,7 @@
               {% for post in posts %}
               <tbody>
                 <tr>
-                    <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post">{{ post.title }}</a></td>
+                    <td><a href="{% url 'post_display' post.slug %}" aria-label="Go to post"><strong>{{ post.title }}</strong></a></td>
                     <td>{{ post.topic }}</td>
                     <td>{{ post.created_date }}</td>
                     <td>{{ post.generator }}</td>
@@ -45,7 +45,7 @@
             {% for content in contents %}
             <tbody>
               <tr>
-                  <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post">{{ content.title }}</a></td>
+                  <td><a href="{% url 'post_display' content.slug %}" aria-label="Go to post"><strong>{{ content.title }}</strong></a></td>
                   <td>{{ content.content }}</td>
                   <td>{{ content.created_date }}</td>
                   <td>{{ content.generator }}</td>

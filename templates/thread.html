@@ -48,7 +48,7 @@
                     {% if user == post.generator %}
                     <div class="col-2 margin-1">
                         <div class="edit">
-                            <button class="btn btn-primary" type="button">
+                            <button id="white-text" class="btn btn-primary" type="button">
                                 <a href="{% url 'edit_post' post.slug %}" aria-label="Click to edit post">Edit</a>
                             </button>                           
                         </div>
@@ -71,7 +71,7 @@
                                         <p>{{ post.title }}</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <div class="btn d-inline-block btn-danger">
+                                        <div id="white-text" class="btn d-inline-block btn-danger">
                                             <a href="{% url 'delete_post' post.slug %}" class="btn" aria-label="Click to delete post">Delete</a>
                                         </div>
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
