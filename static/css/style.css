@@ -167,7 +167,7 @@ thead {
 /* ----------------------------------------Media queries */
 
 @media screen and (min-width: 1800px) {
-  .list-group, .card, .table {
+  .list-group, .table {
     width: 50vw;
   }
 
