@@ -22,7 +22,7 @@
               {% for post in posts %}
               <tbody>
                 <tr>
-                  <a href="{% url 'post_display' post.slug %}" aria-label="Go to post"></a>
+                  <a href="{% url 'post_display' post.slug %}" aria-label="Go to post">
                     <td><strong>{{ post.title }}</strong></td>
                     <td>{{ post.topic }}</td>
                     <td>{{ post.created_date }}</td>
