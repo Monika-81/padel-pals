@@ -15,8 +15,8 @@
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        <div class="row bg-light">
-            <div class="col shadow">
+        <div class="row">
+            <div class="col">
                 <div class="card card-body bg-white border-light shadow-sm my-4">
                     <h3 class="profile-text">Profile information</h3>
                     <div class="d-flex flex-row flex-wrap justify-content-center">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary"><a href="{% url 'account_email' %}" aria-label="Update email">Update Email</a></button>
+                            <button type="submit" id="white-text" class="btn btn-primary"><a href="{% url 'account_email' %}" aria-label="Update email">Update Email</a></button>
                         </div>
                     </div>
                 </div>
