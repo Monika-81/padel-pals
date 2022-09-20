@@ -25,7 +25,7 @@
                 {% for post in play_list %}
                 <tbody>
                 <tr>
-                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong>{{ post.setup }}</strong></a><br><small class="hidden-sm">{{post.description}}</small></td>
+                    <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong>{{ post.setup }}</strong><br><small class="hidden-sm">{{post.description}}</small></a></td>
                     <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post">{{ post.date }} : {{ post.time }}</a></td>
                     <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post">{{ post.location }}</a></td>
                     <td><a href="{% url 'play_display' post.slug %}" aria-label="Click to display post"><strong class="text-secondary"><i class="fas fa-comments margin-1">

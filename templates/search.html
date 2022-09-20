@@ -68,7 +68,7 @@
             {% for play in plays %}
             <tbody>
               <tr>
-                <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post"><strong>{{ play.setup }}</strong></a><br><small class="hidden-sm">{{play.description}}</small></td>
+                <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post"><strong>{{ play.setup }}</strong><br><small class="hidden-sm">{{play.description}}</small></a></td>
                 <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.date }} : {{ play.time }}</a></td>
                 <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.location }}</a></td>
                 <td><a href="{% url 'play_display' play.slug %}" aria-label="Go to post">{{ play.generator }}</a></td>
