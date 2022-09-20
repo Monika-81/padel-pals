@@ -108,26 +108,17 @@ table {
   width: 90vw;
 }
 
-.card-text {
+.card-text, .table a {
   color: black;
 }
 
-.card a {
+.card a, .text-center a {
   color: black;
   text-decoration: none;
-}
-
-.table a {
-  color: black;
 }
 
 thead {
   background-color: rgba(0,0,0,0.03)
-}
-
-.text-center a {
-  color: black;
-  text-decoration: none;
 }
 
 .submit {
